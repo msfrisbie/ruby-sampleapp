@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Outhouse</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="selector-page" ng-app="eventApp">
+
+  <div class="container" ng-view=""></div>
+
+<%# yield %>
+
+</body>
+<%= javascript_include_tag "application" %>
+
+<%# Wrap this in a cache block before production %>
+<% Dir.glob(Rails.root.join('app','assets','javascripts', 'templates', '**/*.html')).each do |f| %>
+<script type="text/ng-template" id="<%= f.sub("#{Rails.root.join('app', 'assets', 'javascripts', 'templates')}/", '') %>">
+<%= render file: f %>
+</script>
+<% end %>
+
+</html>

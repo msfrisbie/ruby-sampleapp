@@ -1,0 +1,531 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+
+body {
+    font-family: 'Raleway', sans-serif !important;
+    color:#fff;
+    background:#444;
+}
+
+.selector-page, .cat-page, .list-page, .page-page {
+    background: asset-url("bluebkg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.selector-page {
+    padding:20px 0;
+}
+
+.selector-page .filter-heading {
+    font-size:26px;
+    font-weight: bolder;
+}
+
+.selector-page .filter-heading .selector-wrap {
+    margin-top:10px;
+}
+.selector-page .filter-heading .reg{
+    color:rgba(255,255,255,0.7);
+}
+
+.selector-page .filter-heading .pop{
+    color:rgba(255,255,255,1);
+    cursor:pointer;
+}
+
+.selector-page .filter-heading .arr{
+    font-size:14px;
+    margin-top:11px;
+    position:absolute;
+}
+
+.selector-page .filter-heading .menu-select {
+    display:none;
+    cursor: auto;
+    position:fixed;
+    z-index: 10;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.9);
+}
+
+.selector-page .filter-heading .menu-select {
+    padding-top:30px;
+    font-size:16px;
+}
+
+.selector-page .filter-heading .menu-select ul{
+    list-style: none;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.selector-page .filter-heading .menu-select ul li{
+    cursor:pointer;
+    margin-bottom:10px;
+    text-align: center;
+    border-radius: 4px;
+    padding:10px;
+    background-color:rgba(255,255,255,0.15);
+}
+
+.selector-page .filter-heading .menu-select ul li:hover {
+    background-color:rgba(255,255,255,0.35);
+}
+
+.selector-page .filter-heading .menu-select ul li.selected{
+    background-color:rgba(255,255,255,0.95);
+    color:#444;
+}
+
+.selector-page .filter-heading .menu-select .savebox {
+    padding:0 10px;
+    margin-bottom:20px;
+}
+
+.selector-page .filter-heading .menu-select .savebox .btn{
+    width:100%;
+    height:45px;
+    font-weight:bolder;
+
+}
+
+.selector-page .filter-heading .menu-select.dt .days{
+    padding:0 0 0 10px;
+    display:inline-block;
+    vertical-align:top;
+    width:47%;
+}
+
+.selector-page .filter-heading .menu-select.dt .times{
+    padding:0 0 0 0;
+    display:inline-block;
+    vertical-align:top;
+    width:47%;
+    margin-left:2%;
+}
+
+.selector-page .filter-heading .menu-select.grp .groups{
+    padding:0 10px;
+}
+
+.selector-page .squares-list {
+
+}
+
+.selector-page .squares-list .square {
+    border: 2px solid rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.2);
+    margin-right:5px;
+    margin-top:5px;
+    width:85px;
+    height:85px;
+    display:inline-block;
+}
+
+
+
+
+
+.headbar {
+    position:relative;
+    margin-top:10px;
+    padding:10px;
+    padding-top:20px;/*remove when native*/
+    margin-top:0px;
+
+        background: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.1) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0)),color-stop(100%,rgba(0,0,0,0.1)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.1) 100%);
+    background: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.1) 100%);
+    background: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#66000000',GradientType=0);
+
+    -moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
+}
+
+.headbar .back{
+    top:25px; /*origin 15*/
+    position:absolute;
+    width:50px;
+}
+
+.headbar .back a{
+    background:rgba(255,255,255,0.4);
+    padding:10px;
+    border-radius: 4px;
+    color:#fff;
+    text-decoration: underline;
+}
+
+.headbar .back a:active{
+    -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+    box-shadow: inner 0 0 5px rgba(0,0,0,0.4);
+}
+
+.headbar .title {
+    padding-left:15px;
+    text-align:center;
+    font-weight:bolder;
+    font-size:22px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.cat-page .result-wrap {
+}
+
+.cat-page .result {
+    font-size:22px;
+    padding:15px 10% 15px 7%;
+    background:rgba(255,255,255,0.0);
+    cursor:pointer;
+    position:relative;
+}
+
+.cat-page .result img{
+    width:35px;
+    height:35px;
+    margin-top:-3px;
+    border-radius:80px;
+    margin-right:10px;
+    float:left;
+}
+
+.cat-page .result .wrap:after {
+  content : "";
+  position: absolute;
+  left    : 0;
+  bottom  : 0;
+  height  : 1px;
+  width   : 90%;  /* or 100px */
+  margin-left:5%;
+  border-bottom:1px solid rgba(255,255,255,0.3);
+}
+
+.cat-page .result:hover{
+    background:rgba(255,255,255,0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.result-pane {
+    padding:0 !important;
+}
+
+
+.list-page {
+
+}
+
+.list-page .result-wrap {
+
+}
+
+.list-page .res {
+    width:100%;
+    height:100px;
+    cursor:pointer;
+    position:relative;
+}
+
+.list-page .res .end {
+  clear:both;
+  margin:10px 0;
+  height  : 1px;
+  width   : 90%;  /* or 100px */
+  margin-left:5%;
+  border-bottom:1px solid rgba(255,255,255,0.3);
+}
+
+.list-page .res .thumb{
+    width:20%;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.list-page .res .thumb img {
+    width:100%;
+    margin:20px 0 0 5px;
+    border-radius:4px;
+}
+
+.list-page .res .info {
+    width:70%;
+    margin-left:5%;
+    padding-top:10px;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.list-page .res .info .stack {
+
+}
+
+.list-page .res .info .stack.pt {
+    padding-top:5px;
+}
+
+/* begin styling the individual modules */
+.list-page .res .info .title {
+    width:72%;
+    padding-top:3px;
+    font-size:16px;
+    font-weight:bolder;
+    line-height: 1.1em;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.list-page .res .info .dist {
+    width:26%;
+    font-size:14px;
+    font-weight:bolder;
+    text-align: right;
+
+    display:inline-block;
+    vertical-align:top;
+}
+
+.list-page .res .info .tags {
+    width:73%;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.list-page .res .info .tags .tagd{
+    background:rgba(0,0,0,0.1);
+}
+
+
+.list-page .res .info .time {
+    line-height: 1.1em;
+    font-size:11px;
+    width:25%;
+    display:inline-block;
+    vertical-align:top;
+    text-align:right;
+}
+
+.list-page .res .info .ratings {
+    display:inline-block;
+    vertical-align:top;
+    width:80%;
+}
+
+.starred {
+    color:#CFA500;
+}
+
+.list-page .res .info .ratings .lnk {
+    color:#fff;
+    font-size:13px;
+    text-decoration: underline;
+}
+
+.list-page .res .info .price {
+    background:rgba(255,255,255,0.9);
+    padding:2px 0 2px 7px;
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:15%;
+    font-size:13px;
+    font-weight:bolder;
+    text-shadow: 0 0px 0px rgba(0,0,0,0.5);
+    color:#7FCF00;
+    margin-bottom:-3px;
+    margin-right:-10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.list-page .result .wrapper {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    width:100%;
+    height:100px;
+    background: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.9) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0)),color-stop(100%,rgba(0,0,0,0.9)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.9) 100%);
+    background: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.9) 100%);
+    background: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.9) 100%);
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.9) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#66000000',GradientType=0);
+}*/
+
+
+
+
+
+
+.page-page {
+
+}
+
+.page-page .mainpage {
+    padding:0 !important;
+}
+
+
+.page-page .prof-info .covimg {
+    height:130px;
+    overflow:hidden;
+    box-shadow: inset 0 0 10px 0 black;
+    position: relative;
+}
+
+.page-page .prof-info .covimg .time{
+    position: absolute;
+    bottom: 0;
+    background:rgba(0,0,0,0.80);
+    padding:3px 8px 3px 25px;
+    font-size:13px;
+    font-weight:bolder;
+}
+
+.page-page .prof-info .wraps {
+    color:#333;
+    padding:10px 20px;
+    background:rgba(255,255,255,0.95);
+}
+
+.page-page .prof-info .map-section {
+    border:1px solid #ddd;
+    border-radius: 2px;
+    height:50px;
+    background: url(/img/map.png) center center;
+}
+
+.page-page .prof-info .map-section .gradient{
+    height:100%;
+    border-radius: 2px;
+    background: -moz-linear-gradient(right,rgba(255,255,255,0) 0,rgba(255,255,255,1) 55%);
+    background: -webkit-linear-gradient(right,rgba(255,255,255,0) 0,rgba(255,255,255,1) 55%);
+    background: -o-linear-gradient(right,rgba(255,255,255,0) 0,rgba(255,255,255,1) 55%);
+    background: -ms-linear-gradient(right,rgba(255,255,255,0) 0,rgba(255,255,255,1) 55%);
+    background: linear-gradient(to left,rgba(255,255,255,0) 0,rgba(255,255,255,1) 55%);
+
+}
+
+.page-page .prof-info .map-section .address{
+    display: inline-block;
+    vertical-align: top;
+
+    color:#888;
+    width:65%;
+    font-size:11px;
+    padding:10px 0 0 10px;
+}
+
+.page-page .prof-info .map-section .dist{
+    display: inline-block;
+    vertical-align: top;
+
+    font-weight:bold;
+    color:#000;
+    width:30%;
+    text-align: right;
+    font-size:11px;
+    padding:10px 0 0 10px;
+}
+
+.page-page .prof-info .desc {
+    margin-top:15px;
+    margin-bottom:15px
+}
+
+.page-page .prof-info .foxhole {
+    border-top:1px solid rgba(0,0,0,0.15);
+    background:rgba(255,255,255,0.85);
+
+    color:#333;
+    padding:0 20px 10px 20px;
+}
+
+.page-page .prof-info .foxhole h3 {
+    font-size:18px;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.page-page .prof-info .foxhole .review{
+    position:relative;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    padding:10px 0;
+}
+
+.page-page .prof-info .foxhole .review .prof-img {
+    width:15%;
+    max-width:50px;
+
+    display: inline-block;
+    vertical-align: top;
+}
+
+.page-page .prof-info .foxhole .review .prof-img img{
+    width:100%;
+    border-radius:50px;
+}
+
+.page-page .prof-info .foxhole .review .rev-data{
+    display: inline-block;
+    vertical-align: top;
+    font-size:13px;
+
+    width:80%;
+    margin-left:3%;
+
+}
+
+.page-page .prof-info .foxhole .review .rev-data .title{
+    font-weight:bolder;
+}
+
+.page-page .prof-info .foxhole .review .rev-data .rating{
+    color:#fff;
+}
+
+.page-page .prof-info .foxhole .review .rev-data .rating .by{
+    color:#999;
+    font-size:11px;
+    font-style: italic;
+}
+
+.page-page .prof-info .foxhole .review .rev-data .rev-text {
+    padding-top:5px;
+    font-size:11px;
+}
