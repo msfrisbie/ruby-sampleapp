@@ -4,6 +4,8 @@ Outhouse::Application.routes.draw do
 
   resources :events
 
+  get "/events/:category" => "events#cat_list"
+
   get "*all" => "application#all"
 
 end

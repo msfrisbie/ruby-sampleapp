@@ -1,0 +1,18 @@
+[
+{
+  "title": "Addison School",
+  "description": "Addison is a local elementary school with basketball courts, a large field, and a playground. During the school year, the grounds are open after 3pm.",
+  "address": "650 Addison Ave\nPalo Alto, CA",
+  "time_ranges": [
+    {
+      "start": 1381291229,
+      "end": 1381294842
+    }
+  ]
+},
+{
+  "title": "Addison School",
+  "description": "Addison is a local elementary school with basketball courts, a large field, and a playground. During the school year, the grounds are open after 3pm.",
+  "address": "650 Addison Ave\nPalo Alto, CA"
+}
+]

@@ -21,8 +21,8 @@ angular.module('eventApp', [])
         .when('/list', {
           templateUrl: 'list.html',
           controller: 'MainCtrl'
-        })
-        .otherwise({
-          redirectTo: '/'
         });
+        // .otherwise({
+        //   redirectTo: '/'
+        // });
     }]);
