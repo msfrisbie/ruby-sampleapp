@@ -19,7 +19,11 @@ class Event
   end
 
   def self.by_category(category)
-    Event.where(:categories => category)
+    Event.where(:categories => /\A#{Regexp.escape(category)}\z/i)
+  end
+
+  def self.by_category_around(category, time)
+    Event.by_category(category).elem_match(time_ranges: {:start.gt => time - 3.hours, :end.lt => time + 12.hours})
   end
 
 end
@@ -30,10 +34,6 @@ class TimeRange
 
   field :start, type: Integer
   field :end, type: Integer
-
-  # def indentify
-
-  # end
 
   def as_json(options = {})
     {start: start, end: self.end}

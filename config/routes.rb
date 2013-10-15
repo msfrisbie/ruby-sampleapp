@@ -4,7 +4,7 @@ Outhouse::Application.routes.draw do
 
   resources :events
 
-  get "/events/:category" => "events#cat_list"
+  get "/events/c/:category" => "events#cat_list", constraints: {format: :json}
 
   get "*all" => "application#all"
 
