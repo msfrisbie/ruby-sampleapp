@@ -37,9 +37,11 @@ class EventsController < ApplicationController
   end
 
   def cat_list
-    @events = Event.by_category(params[:category]).to_json
-
-    # render json: @events
+    if params[:time].present?
+      @events = Event.by_category(params[:category]).around(params[:time])
+    else
+      @events = Event.by_category(params[:category]).around(Time.now.to_i)
+    end
 
     respond_to do |format|
       format.json {render json: @events}

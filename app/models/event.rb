@@ -8,9 +8,6 @@ class Event
   field :description, type: String
   field :categories, type: Array
 
-  LowerWindow = 3
-  UpperWindow = 12
-
   embeds_many :time_ranges
   embeds_one :schedule
 
@@ -23,10 +20,15 @@ class Event
     hr = ctime.hour
     wday = Date::ABBR_DAYNAMES[ctime.wday].downcase
 
-    Event.or({:time_ranges.elem_match => {:start.gt => time - LowerWindow.hours,
-                                          :end.lt => time + UpperWindow.hours}},
-             {:"schedule.#{wday}".elem_match => {:start.lt => (hr >= LowerWindow ? (hr - LowerWindow) : (hr + 24 - LowerWindow)) * 100,
-                                                 :end.gt => (hr >= UpperWindow ? (hr - UpperWindow) : (hr + UpperWindow)) * 100}})
+    Event.or({:time_ranges.elem_match => {:start.lt => time,
+                                          :end.gt => time}},
+             {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
+                                                 :end.gt => hr * 100},
+              :"schedule.time_range" => nil},
+             {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
+                                                 :end.gt => hr * 100},
+              :"schedule.time_range.start".lt => time,
+              :"schedule.time_range.end".gt => time})
   end
 
   def self.by_category(category)
@@ -59,13 +61,11 @@ end
 class Schedule
   include Mongoid::Document
 
-  embeds_many :sun, class_name: "TimeRange"
-  embeds_many :mon, class_name: "TimeRange"
-  embeds_many :tue, class_name: "TimeRange"
-  embeds_many :wed, class_name: "TimeRange"
-  embeds_many :thu, class_name: "TimeRange"
-  embeds_many :fri, class_name: "TimeRange"
-  embeds_many :sat, class_name: "TimeRange"
+  Date::ABBR_DAYNAMES.each do |day|
+    embeds_many day.downcase.to_sym, class_name: "TimeRange"
+  end
+
+  embeds_one :time_range
 
   embedded_in :event
 
