@@ -8,4 +8,6 @@
 
 Mongoid.purge!
 
+Moped.logger = Logger.new $stdout
+
 Event.create!(JSON.parse(File.open(Rails.root.join("db", "events.json")).read))

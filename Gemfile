@@ -26,7 +26,9 @@ group :development, :test do
 end
 
 gem "mongoid", github: "mongoid/mongoid"
+gem "geocoder", "~> 1.1.8" # Geocoder must come after mongoid
 gem "unicorn", "~> 4.6"
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem "jbuilder", "~> 1.2"
 

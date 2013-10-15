@@ -1,5 +1,6 @@
 class Event
   include Mongoid::Document
+  include Geocoder::Model::Mongoid
 
   field :title, type: String
   field :address, type: String
@@ -7,6 +8,11 @@ class Event
   field :image_url, type: String
   field :description, type: String
   field :categories, type: Array
+  field :coordinates, type: Array
+
+  geocoded_by :address
+
+  after_validation :geocode, :set_map_url, if: :address_changed?
 
   embeds_many :time_ranges
   embeds_one :schedule
@@ -39,6 +45,10 @@ class Event
     Event.by_category(category).around(time)
   end
 
+  def set_map_url
+    self.map_url = "http://maps.google.com/?q=#{CGI.escape(address.gsub("\n", ", "))}"
+  end
+
 end
 
 class TimeRange
@@ -51,6 +61,9 @@ class TimeRange
 
   embedded_in :event
   embedded_in :schedule
+
+  validates :start, presence: true
+  validates :end, presence: true
 
   def as_json(options = {})
     {start: start, end: self.end}
