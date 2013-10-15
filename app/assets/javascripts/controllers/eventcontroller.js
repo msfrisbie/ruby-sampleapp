@@ -2,14 +2,21 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service'])
   .controller('EventsController', 
     function($scope, $routeParams, $location, Events) {
 
-      console.log($routeParams.category)
+      // console.log($routeParams.category)
 
       $scope.category = $routeParams.category;
 
-      $scope.find = function () {
-        Events.query({category: $scope.category}, function (events) {
+      $scope.findByCategory = function () {
+        Events.getByCategory({category: $scope.category}, function (events) {
           $scope.events = events;
           console.log(events);
+        })
+      };
+
+      $scope.findOne = function () {
+        Events.get({id: $routeParams.eventId}, function (event) {
+          $scope.event = event;
+          console.log(event);
         })
       };
 

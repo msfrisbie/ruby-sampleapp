@@ -9,7 +9,11 @@ window.app.config(['$routeProvider', '$locationProvider',
         templateUrl: 'main.html',
         controller: 'CategoriesController'
       })
-      .when('/page', {
+      // .when('/page', {
+      //   templateUrl: 'page.html',
+      //   controller: 'EventsController'
+      // })
+      .when('/events/:eventId', {
         templateUrl: 'page.html',
         controller: 'EventsController'
       })

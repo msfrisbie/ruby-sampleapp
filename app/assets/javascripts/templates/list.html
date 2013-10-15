@@ -1,4 +1,4 @@
-<div ng-init="find()" class="list-page">
+<div ng-init="findByCategory()" class="list-page">
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
@@ -12,7 +12,7 @@
             </div>
 
             <div class="title">
-              Play a sport
+              {{ category }}
             </div>
           </div>
 
@@ -20,58 +20,9 @@
 
           <div class="result-wrap">
 
-            <a href="/page">
+            <a href="/events/{{ event._id }}" ng-repeat="event in events">
 
-              <!--<div class="res">
-                <div class="wrapper">
-
-                  <div class="thumb">
-                    <img src="http://www.cablikenterprises.com/wp-content/uploads/2012/01/P1020440.jpg" />
-                  </div>
-
-                  <div class="info">
-
-                    <div class="stack">
-                      <div class="title">
-                        Addison Elementary School
-                      </div>
-
-                      <div class="time">
-                        3pm to Sunset
-                      </div>
-                      <div class="dist">
-                        <img src="<%= asset_path "compass.png" %>" style="height:10px" />
-                        0.7 mi
-                      </div>
-                    </div>
-
-
-                    <div class="stack">
-                      <div class="tags">
-                        <span class="label tagd">basketball</span> <span class="label tagd">soccer</span> 
-                      </div>
-
-                    </div>
-
-
-
-                    <div class="stack pt">
-                      <div class="ratings">
-                        <span class="starred">&#x2605;&#x2605;&#x2605;&#x2605;</span>&#x2605; &nbsp;<a href="#" class="lnk">21 reviews</a>
-                      </div>
-
-                      
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div class="end"></div>
-              </div>-->
-
-
-              <div class="res" ng-repeat="event in events">
+              <div class="res">
                 <div class="wrapper">
                   <div class="thumb">
                     <img src="{{ event.image_url }}" />
@@ -94,104 +45,6 @@
                 </div>
                 <div class="end"></div>
               </div>
-
-
-<!--               <div class="res">
-                <div class="wrapper">
-
-                  <div class="thumb">
-                    <img src="https://lh6.googleusercontent.com/-iLfquG_uBqM/T9pPBhNVcxI/AAAAAAAAAm0/Gg5RFGrHT18/w816-h612-no/Johnson+Park" />
-                  </div>
-
-                  <div class="info">
-
-                    <div class="stack">
-                      <div class="title">
-                        Johnson Park
-                      </div>
-
-                      <div class="dist">
-                        <img src="<%= asset_path "compass.png" %>" style="height:12px" />
-                        2.7 mi
-                      </div>
-                    </div>
-
-
-                    <div class="stack">
-                      <div class="tags">
-                        <span class="label tagd">basketball</span> <span class="label tagd">football</span> <span class="label tagd">soccer</span> <span class="label tagd">volleyball</span>
-                      </div>
-
-                      <div class="time">
-                        Sunrise to Sunset
-                      </div>
-                    </div>
-
-
-
-                    <div class="stack pt">
-                      <div class="ratings">
-                        <span class="starred">&#x2605;&#x2605;&#x2605;&#x2605;</span>&#x2605; &nbsp;<a href="#" class="lnk">21 reviews</a>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                <div class="end"></div>
-              </div>
-
-
-              <div class="res">
-                <div class="wrapper">
-
-                  <div class="thumb">
-                    <img src="http://upload.wikimedia.org/wikipedia/commons/3/3b/YMCA_Building,_San_Angelo,_TX_IMG_4458.JPG" />
-                  </div>
-
-                  <div class="info">
-
-                    <div class="stack">
-                      <div class="title">
-                        YMCA
-                      </div>
-
-                      <div class="dist">
-                        <img src="<%= asset_path "compass.png" %>" style="height:12px" />
-                        2.7 mi
-                      </div>
-                    </div>
-
-
-                    <div class="stack">
-                      <div class="tags">
-                        <span class="label tagd">basketball</span> <span class="label tagd">volleyball</span> <span class="label tagd">swimming</span> <span class="label tagd">tennis</span> <span class="label tagd">racketball</span>
-                      </div>
-
-                      <div class="time">
-                        Sunrise to Sunset
-                      </div>
-                    </div>
-
-
-
-                    <div class="stack pt">
-                      <div class="ratings">
-                        <span class="starred">&#x2605;&#x2605;&#x2605;&#x2605;</span>&#x2605; &nbsp;<a href="#" class="lnk">21 reviews</a>
-
-                        <div class="price">$</div>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                
-                </div> 
-                -->
 
             </a>
 

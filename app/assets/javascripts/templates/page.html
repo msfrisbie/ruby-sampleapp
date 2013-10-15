@@ -1,5 +1,5 @@
 
-<div class="page-page">
+<div ng-init="findOne()" class="page-page">
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
@@ -13,16 +13,19 @@
             </div>
 
             <div class="title">
-              Addison School
+              <!-- Addison School -->
+              {{ event.title }}
             </div>
           </div>
 
 
           <div class="prof-info">
 
-            <div class="covimg" style="background:url(http://www.cablikenterprises.com/wp-content/uploads/2012/01/P1020440.jpg) center center ">
+            <!-- <div class="covimg" style="background:url(http://www.cablikenterprises.com/wp-content/uploads/2012/01/P1020440.jpg) center center "> -->
+            <div class="covimg" style="background:url({{ event.image_url }})">
               <div class="time">
-                Open 3pm - Sunset
+                <!-- Open 3pm - Sunset -->
+                {{ event.time_ranges[0] }}
               </div>
             </div>
 
@@ -31,8 +34,9 @@
               <div class="map-section">
                 <div class="gradient">
                   <div class="address">
-                    650 Addison Ave<br />
-                    Palo Alto, CA
+                    <!-- 650 Addison Ave<br /> -->
+                    <!-- Palo Alto, CA -->
+                    {{ event.address }}
                   </div>
                   <div class="dist">
                     <img src="<%= asset_path "compass.png" %>" style="height:10px" /> 23 miles<br />
@@ -44,12 +48,13 @@
 
 
               <div class="desc">
-                Addison is a local elementary school with basketball courts, a large field, and a playground. During the school year, the grounds are open after 3pm.
+                <!-- Addison is a local elementary school with basketball courts, a large field, and a playground. During the school year, the grounds are open after 3pm. -->
+                {{ event.description }}
               </div>
 
             </div>
 
-            <div class="foxhole">
+            <!-- <div class="foxhole">
 
               <h3>Highlight Reviews</h3>
               
@@ -107,7 +112,7 @@
                 </div>
               </div>
 
-            </div>
+            </div> -->
           
           <!-- prof-info -->
           </div>
