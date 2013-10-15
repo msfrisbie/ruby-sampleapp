@@ -4,3 +4,4 @@ window.app = angular.module('Outhouse', ['ngCookies', 'ngResource', 'ngRoute', '
 
 window.angular.module('Outhouse.categories',['Outhouse.categories.controller']);
 window.angular.module('Outhouse.events',['Outhouse.events.controller']);
+

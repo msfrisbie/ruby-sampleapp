@@ -1,0 +1,11 @@
+<%= form_for Event.new do |f| %>
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title %></div>
+
+  <div><%= f.label :description %><br />
+  <%= f.text_field :description %></div>
+
+  <div><%= f.label :categories %><br />
+  <%= f.text_field :categories %></div>
+
+<% end %>
