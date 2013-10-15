@@ -1,0 +1,11 @@
+{
+  "name": "angular-bootstrap3-patch",
+  "_cacheHeaders": {
+    "Content-Length": "360537",
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=bootstrap-bootstrap3_bis2_progressPatch.zip"
+  },
+  "_source": "https://github.com/angular-ui/bootstrap/archive/bootstrap3_bis2_progressPatch.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/angular-ui/bootstrap/archive/bootstrap3_bis2_progressPatch.zip"
+}

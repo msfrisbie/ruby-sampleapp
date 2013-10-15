@@ -16,5 +16,8 @@
 //= require angular-resource/angular-resource
 //= require angular-cookies/angular-cookies
 //= require angular-route/angular-route
+// require angular-bootstrap/ui-bootstrap
+// require angular-bootstrap/ui-bootstrap-tpls
+//= require angular-bootstrap3-patch/src/timepicker/timepicker
 //= require bootstrap/dist/js/bootstrap
 //= require_tree .
