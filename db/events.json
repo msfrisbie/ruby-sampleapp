@@ -1,30 +1,24 @@
-[
-  {
-    "title": "Addison School",
-    "description": "Addison is a local elementary school with basketball courts, a large field, and a playground. During the school year, the grounds are open after 3pm.",
-    "address": "650 Addison Ave\nPalo Alto, CA",
-    "image_url": "http://www.cablikenterprises.com/wp-content/uploads/2012/01/P1020440.jpg",
-    "time_ranges": [
-      {
-        "start": 1381291229,
-        "end": 1381294842
-      }
-    ],
-    "categories": [
-      "Sports",
-      "Soccer",
-      "Football"
-    ]
-  },
-  {
-    "title": "YMCA",
-    "description": "Exercise at a gym. Membership and Jake required",
-    "address": "2001 Allston Way\nBerkeley, CA 94704",
-    "image_url": "http://upload.wikimedia.org/wikipedia/commons/3/3b/YMCA_Building,_San_Angelo,_TX_IMG_4458.JPG",
-    "categories": [
-      "Sports",
-      "Exercise",
-      "Yoga"
-    ]
-  }
-]
+[{"title": "Addison School",
+  "description": "Addison is a local elementary school with basketball courts, a large field, and a playground. During the school year, the grounds are open after 3pm.",
+  "address": "650 Addison Ave\nPalo Alto, CA",
+  "image_url": "http://www.cablikenterprises.com/wp-content/uploads/2012/01/P1020440.jpg",
+  "time_ranges":
+   [{"start": 1381291229, "end": 1381294842},
+    {"start": 1381391229, "end": 1381394842}],
+  "schedule":
+   {"sun": [{"start": 900, "end": 1700}],
+    "mon": [{"start": 900, "end": 1700}],
+    "tue": [{"start": 900, "end": 1700}],
+    "wed": [{"start": 900, "end": 1700}],
+    "thu": [{"start": 900, "end": 1700}],
+    "fri": [{"start": 900, "end": 1700}],
+    "sat": [{"start": 900, "end": 1700}]},
+  "categories": ["Sports", "Soccer", "Football"]},
+ {"title": "YMCA",
+  "description": "Exercise at a gym. Membership and Jake required",
+  "address": "2001 Allston Way\nBerkeley, CA 94704",
+  "image_url": "http://upload.wikimedia.org/wikipedia/commons/3/3b/YMCA_Building,_San_Angelo,_TX_IMG_4458.JPG",
+  "schedule":
+   {"sun": [{"start": 1000, "end": 0100}],
+    "mon": [{"start": 0800, "end": 1100}, {"start": 1200, "end": 2000}]},
+  "categories": ["Sports", "Exercise", "Yoga"]}]
