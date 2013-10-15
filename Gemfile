@@ -21,12 +21,12 @@ group :development, :test do
   gem "guard", "~> 1.8.0"
   gem "guard-rails", "~> 0.4.7"
   gem "guard-livereload", "~> 1.4.0"
+  # gem "ngmin-rails"
   gem "rack-livereload", "~> 0.3.15"
 end
 
 gem "mongoid", github: "mongoid/mongoid"
 gem "unicorn", "~> 4.6"
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem "jbuilder", "~> 1.2"
 

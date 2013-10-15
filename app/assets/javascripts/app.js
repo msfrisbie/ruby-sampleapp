@@ -1,28 +1,6 @@
 'use strict';
 
-angular.module('eventApp', [])
-  .config(['$routeProvider', '$locationProvider',
-    function ($routeProvider, $locationProvider) {
-      $locationProvider.html5Mode(true);
+window.app = angular.module('Outhouse', ['ngCookies', 'ngResource', 'ngRoute', 'Outhouse.categories','Outhouse.events']);
 
-      $routeProvider
-        .when('/', {
-          templateUrl: 'main.html',
-          controller: 'MainCtrl'
-        })
-        .when('/page', {
-          templateUrl: 'page.html',
-          controller: 'MainCtrl'
-        })
-        .when('/categories', {
-          templateUrl: 'categories.html',
-          controller: 'MainCtrl'
-        })
-        .when('/list', {
-          templateUrl: 'list.html',
-          controller: 'MainCtrl'
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
-    }]);
+window.angular.module('Outhouse.categories',['Outhouse.categories.controller']);
+window.angular.module('Outhouse.events',['Outhouse.events.controller']);

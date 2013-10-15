@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eventApp')
+angular.module('Outhouse')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
