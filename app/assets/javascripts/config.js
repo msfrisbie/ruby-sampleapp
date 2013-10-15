@@ -17,11 +17,20 @@ window.app.config(['$routeProvider', '$locationProvider',
         templateUrl: 'categories.html',
         controller: 'CategoriesController'
       })
-      .when('/list', {
+      .when('/categories/:category', {
         templateUrl: 'list.html',
         controller: 'EventsController'
       })
+      // .when('/list', {
+      //   templateUrl: 'list.html',
+      //   controller: 'EventsController'
+      // })
       .otherwise({
         redirectTo: '/'
       });
   }]);
+
+// window.app.config(['$httpProvider', function($httpProvider, Configuration) {
+//     delete $httpProvider.defaults.headers.common["X-Requested-With"];
+//     $httpProvider.defaults.headers.post["Content-Type"] = "application/json";
+// }]);

@@ -1,4 +1,4 @@
-<div class="list-page">
+<div ng-init="find()" class="list-page">
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
@@ -6,7 +6,7 @@
 
           <div class="headbar">
             <div class="back">
-              <a href="/categories">
+              <a href="/">
                 Back
               </a>
             </div>
@@ -22,7 +22,7 @@
 
             <a href="/page">
 
-              <div class="res">
+              <!--<div class="res">
                 <div class="wrapper">
 
                   <div class="thumb">
@@ -36,6 +36,9 @@
                         Addison Elementary School
                       </div>
 
+                      <div class="time">
+                        3pm to Sunset
+                      </div>
                       <div class="dist">
                         <img src="<%= asset_path "compass.png" %>" style="height:10px" />
                         0.7 mi
@@ -48,9 +51,6 @@
                         <span class="label tagd">basketball</span> <span class="label tagd">soccer</span> 
                       </div>
 
-                      <div class="time">
-                        3pm to Sunset
-                      </div>
                     </div>
 
 
@@ -65,15 +65,38 @@
 
                   </div>
 
-                <!-- /wrapper -->
                 </div>
 
+                <div class="end"></div>
+              </div>-->
+
+
+              <div class="res" ng-repeat="event in events">
+                <div class="wrapper">
+                  <div class="thumb">
+                    <img src="{{ event.image_url }}" />
+                  </div>
+                  <div class="info">
+                    <div class="stack">
+                      <div class="title">
+                        {{ event.title }}
+                      </div>
+                      <div class="time">
+                        {{ event.time_ranges[0].start }} -> {{ event.time_ranges[0].end }}
+                      </div>
+                    </div>
+                    <div class="stack">
+                      <div class="tags">
+                        <span class="label tagd" ng-repeat="tag in event.categories">{{ tag }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="end"></div>
               </div>
 
 
-
-              <div class="res">
+<!--               <div class="res">
                 <div class="wrapper">
 
                   <div class="thumb">
@@ -115,7 +138,6 @@
 
                   </div>
 
-                <!-- /wrapper -->
                 </div>
 
 
@@ -167,13 +189,14 @@
 
                   </div>
 
-                <!-- /wrapper -->
-                </div>
+                
+                </div> 
+                -->
 
-              </a>
+            </a>
 
-              <div class="end"></div>
-            </div>
+            <div class="end"></div>
+          </div>
 
 
 

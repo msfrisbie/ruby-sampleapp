@@ -34,11 +34,13 @@ class EventsController < ApplicationController
   end
 
   def cat_list
-    @events = Event.by_category(params[:category])
+    @events = Event.by_category(params[:category]).to_json
 
-    respond_to do |format|
-      format.json {render json: @events}
-    end
+    render json: @events
+
+    # respond_to do |format|
+    #   format.json {render json: @events}
+    # end
   end
 
   protected
