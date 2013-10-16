@@ -1,5 +1,5 @@
 window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.service'])
-  .controller('CategoriesController', 
+  .controller('CategoriesController', ['$scope', '$routeParams', '$location', 'Categories',
     function($scope, $routeParams, $location, Categories) {
 
       $scope.mytime = new Date();
@@ -70,4 +70,4 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
           $scope.categories = categories;
         });
       };
-    })
+    }])

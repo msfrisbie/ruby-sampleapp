@@ -48,5 +48,13 @@
     "image_url": "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash4/337293_3773088648983_408269865_o.jpg",
     "time_ranges": [{"start": 0, "end": 9999999999}],
     "categories": ["Farms"]
+  },
+  {
+    "title": "Jakester House",
+    "description": "W3b5t4rh4u5",
+    "address": "845 Webster Street\nPalo Alto, CA 94301",
+    "image_url": "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash4/337293_3773088648983_408269865_o.jpg",
+    "time_ranges": [{"start": 0, "end": 9999999999}],
+    "categories": ["Farms"]
   }
 ]

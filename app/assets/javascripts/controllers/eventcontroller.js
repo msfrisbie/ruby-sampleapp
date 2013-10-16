@@ -1,5 +1,5 @@
-window.angular.module('Outhouse.events.controller', ['Outhouse.events.service'])
-  .controller('EventsController', 
+window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 'Outhouse.events.filter'])
+  .controller('EventsController', ['$scope', '$routeParams', '$location', 'Events',
     function($scope, $routeParams, $location, Events) {
 
       // console.log($routeParams.category)
@@ -9,14 +9,14 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service'])
       $scope.findByCategory = function () {
         Events.getByCategory({category: $scope.category, time: $routeParams.time}, function (events) {
           $scope.events = events;
-          console.log(events);
+          // console.log(events);
         })
       };
 
       $scope.findOne = function () {
         Events.get({id: $routeParams.eventId}, function (event) {
           $scope.event = event;
-          console.log(event);
+          // console.log(event);
         })
       };
 
@@ -25,4 +25,4 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service'])
       //     $scope.events = events;
       //   });
       // };
-    })
+    }])
