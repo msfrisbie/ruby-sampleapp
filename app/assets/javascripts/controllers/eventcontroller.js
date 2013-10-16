@@ -4,6 +4,8 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 
 
       // console.log($routeParams.category)
 
+      $scope.unixtime = $routeParams.time;
+
       $scope.category = $routeParams.category;
 
       $scope.findByCategory = function () {

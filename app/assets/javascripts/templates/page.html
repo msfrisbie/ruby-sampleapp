@@ -7,7 +7,7 @@
 
           <div class="headbar">
             <div class="back">
-              <a href="/categories/{{ category }}">
+              <a href="/categories/{{ category }}?time={{ unixtime }}">
                 Back
               </a>
             </div>
@@ -25,7 +25,7 @@
             <div class="covimg" style="background:url({{ event.image_url }})">
               <div class="time">
                 <!-- Open 3pm - Sunset -->
-                {{ event.time_ranges[0] }}
+                {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
               </div>
             </div>
 

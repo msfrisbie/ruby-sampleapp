@@ -5,6 +5,10 @@ window.angular.module('Outhouse.events.filter', [])
     return function(event, setTime) {
       // return 'it worked!'+input;
 
+      if (!event) {
+        return '';
+      }
+
       var str = null;
 
       if (!setTime) {
