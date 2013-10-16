@@ -4,13 +4,14 @@ source "https://rubygems.org"
 gem "rails", "4.0.0"
 
 group :development, :staging do # Assets hack
-  # gem "asset_sync"
+  gem "asset_sync"
   gem "bower-rails", "~> 0.5.0"
   gem "dotenv-rails", "~> 0.8.0"
   gem "jquery-rails"
   gem "less-rails", "~> 2.3.3"
   gem "therubyracer", platforms: :ruby
   gem "uglifier", ">= 1.3.0"
+  gem "yui-compressor", ">= 0.12"
 end
 
 group :development, :test do
@@ -32,7 +33,6 @@ gem "unicorn", "~> 4.6"
 group :production do
   gem "newrelic_rpm", "~> 3.6"
   gem "newrelic_moped"
-  gem "newrelic-redis", "~> 1.4.0"
   # gem "rails_stdout_logging"
 end
 
