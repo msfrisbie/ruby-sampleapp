@@ -1,0 +1,257 @@
+<html>
+<body>
+<div class="well" ng-app="events" ng-controller="Events">
+  <form class="form-inline">
+    <table>
+      <tr>
+        <td>Title: </td>
+        <td><input type="text" ng-model="event.title"></td>
+      </tr>
+      <tr>
+        <td>Description: </td>
+        <td><textarea ng-model="event.description"></textarea></td>
+      </tr>
+      <tr>
+        <td>Categories (comma delimited, no spaces): </td>
+        <td><input type="text" ng-model="categories_str"></td>
+      </tr>
+      <tr>
+        <td>Address: </td>
+        <td><input type="text" ng-model="event.address"></td>
+      </tr>
+      <tr>
+        <td>Image URL: </td>
+        <td><input type="text" ng-model="event.image_url"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <img src="{{ event.image_url }}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Start Date: <input type="date" value="2013-10-01" ng-model="interval.startdate">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Start Time: <input type="time" ng-model="interval.starttime">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          End Date: <input type="date" value="2013-10-01" ng-model="interval.enddate">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          End Time: <input type="time" ng-model="interval.endtime">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn" ng-click="addTimeRangeInterval()">Add Interval To Time Ranges</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          TIME RANGES
+        </td>
+      </tr>
+      <tr ng-repeat="range in event.time_ranges">
+        <td>
+          {{ range }}<button ng-click="removeTimeRangeInterval({{range}})">X</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          SCHEDULE
+        </td>
+      </tr>
+      <tr ng-repeat="day in days">
+        <td>{{ day }}</td>
+        <td>
+          <button ng-click="addScheduleDayInterval(day)">Add interval to {{day}}</button>
+        </td>
+        <td>
+          <div ng-repeat="range in event.schedule[day]">
+            {{range}}<button ng-click="removeScheduleDayInterval({{range}},day)">X</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          SCHEDULE TIME RANGES
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button ng-click="addScheduleInterval()">Add interval to entire schedule</button>
+        </td>
+      </tr>
+      <tr ng-repeat="range in event.schedule.time_ranges">
+        <td>
+          {{ range }}<button ng-click="removeScheduleInterval({{range}})">X</button>
+        </td>
+      </tr>
+    </table>
+<!--     Start Date: <input type="date" ng-model="interval.startdate"><br>
+    Start Time: <input type="time" ng-model="interval.starttime"><br>
+    Start Date: <input type="date" ng-model="interval.enddate"><br>
+    Start Time: <input type="time" ng-model="interval.endtime"><br> -->
+    <!-- <button class="btn" ng-click="addInterval()">Add Interval</button><br> -->
+    <button class="btn" ng-click="setTodayInterval()">Set Default Interval</button><br>
+    <button class="btn" ng-click="interval={}">Clear Interval</button><br>
+    {{ intervals }}<br>
+<!--     <input type="checkbox" ng-model="interval.weekly.monday">Monday<br>
+    <input type="checkbox" ng-model="interval.weekly.tuesday">Tuesday<br>
+    <input type="checkbox" ng-model="interval.weekly.wednesday">Wednesday<br>
+    <input type="checkbox" ng-model="interval.weekly.thursday">Thursday<br>
+    <input type="checkbox" ng-model="interval.weekly.friday">Friday<br>
+    <input type="checkbox" ng-model="interval.weekly.saturday">Saturday<br>
+    <input type="checkbox" ng-model="interval.weekly.sunday">Sunday<br>
+    <button class="btn" ng-click="addEvent()">
+      <i class="icon-reply"> Submit</i>
+    </button> -->
+    <button ng-click="event={}">Clear</button>
+    <br>
+    {{ event }}
+    <br>
+    <input type="text" value="{{event}}"/>
+  </form>
+  <div ng-cloak ng-repeat="event in events">
+    {{event}}
+  </div><br/>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+
+<script type="text/javascript">
+  angular.module('events',[]).controller('Events', ['$scope', 
+    function($scope) {
+      
+      $scope.days = ['sun','mon','tue','wed','thu','fri','sat'];
+
+    $scope.interval = {//weekly: {},
+                       startdate: "2013-10-01", 
+                       starttime: "17:00", 
+                       enddate: "2013-10-01", 
+                       endtime: "18:00"};
+
+      if (!$scope.event) {
+        $scope.event = {}
+      }
+
+      $scope.getrange = function(interval) {
+        return {
+          "start": $scope.tounix(new Date(interval.startdate + " " + interval.starttime)),
+          "end": $scope.tounix(new Date(interval.enddate + " " + interval.endtime))
+        }
+      }
+
+      $scope.getschedulerange = function(interval) {
+        return {
+          "start": $scope.tohundred(new Date(interval.startdate + " " + interval.starttime)),
+          "end": $scope.tohundred(new Date(interval.enddate + " " + interval.endtime))
+        }
+      }
+
+      $scope.tounix = function(date) {
+        return Math.round(date.getTime()/1000);
+      }
+
+      $scope.tohundred = function(date) {
+        return date.getHours()*100 + date.getMinutes()*5/3;
+      }
+
+      $scope.addTimeRangeInterval = function() {
+
+        if (!$scope.event.time_ranges) {
+          $scope.event.time_ranges = [];
+        }
+
+        $scope.event.time_ranges.push($scope.getrange($scope.interval));
+      }
+
+      $scope.addScheduleInterval = function() {
+        if (!$scope.event.schedule) {
+          $scope.event.schedule = {
+            "time_ranges": []
+          }
+        }
+
+        if (!$scope.event.schedule.time_ranges) {
+          $scope.event.schedule.time_ranges = [];
+        }
+
+        $scope.event.schedule.time_ranges.push($scope.getrange($scope.interval));
+      }
+
+      $scope.removeScheduleInterval = function(range) {
+        $scope.event.schedule.time_ranges.splice($scope.event.schedule.time_ranges.indexOf(range),1);
+
+        if ($scope.event.schedule.time_ranges.length==0) {
+          delete $scope.event.schedule.time_ranges;
+        }
+
+        if (Object.keys($scope.event.schedule).length === 0) {
+          delete $scope.event.schedule;
+        }
+      }
+
+      $scope.removeScheduleDayInterval = function(range,day) {
+        // console.log($scope.event.schedule,index,day)
+        $scope.event.schedule[day].splice($scope.event.schedule[day].indexOf(range),1);
+
+        if ($scope.event.schedule[day].length==0) {
+          delete $scope.event.schedule[day];
+        }
+
+        console.log($scope.event.schedule)
+
+        if (Object.keys($scope.event.schedule).length === 0) {
+          delete $scope.event.schedule;
+        }
+
+        // time_ranges.splice(index,1);
+      }
+
+      $scope.addScheduleDayInterval = function(day) {
+        if (!$scope.event.schedule) {
+          $scope.event.schedule = {
+            // "time_ranges": []
+          }
+        }
+        if (!$scope.event.schedule[day]) {
+          $scope.event.schedule[day] = [];
+        }
+        $scope.event.schedule[day].push($scope.getschedulerange($scope.interval));
+      }
+
+      $scope.removeTimeRangeInterval = function(range) {
+        $scope.event.time_ranges.splice($scope.event.time_ranges.indexOf(range),1);
+
+        if ($scope.event.time_ranges.length==0) {
+          delete $scope.event.time_ranges;
+        }
+      }
+
+      $scope.setTodayInterval = function() {
+        $scope.interval = {//weekly: {},
+                           startdate: "2013-10-01", 
+                           starttime: "17:00", 
+                           enddate: "2013-10-01", 
+                           endtime: "18:00"};
+      }
+
+      $scope.$watch('categories_str', function(data) {
+        if (!!data) {
+          $scope.event.categories = data.split(',');
+        }
+      })
+
+    }])
+
+</script>
+</body>
+</html>
