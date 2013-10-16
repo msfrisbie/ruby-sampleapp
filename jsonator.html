@@ -161,7 +161,8 @@
       }
 
       $scope.tohundred = function(date) {
-        return date.getHours()*100 + date.getMinutes()*5/3;
+        // return date.getHours()*100 + date.getMinutes()*5/3;
+        return date.getHours()*100 + date.getMinutes();
       }
 
       $scope.addTimeRangeInterval = function() {

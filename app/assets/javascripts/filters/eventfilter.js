@@ -39,26 +39,40 @@ window.angular.module('Outhouse.events.filter', [])
         var dateSet = {
           "date": new Date(setTime*1000)
         };
-        dateSet['base100'] = dateSet.date.getHours()*100 + dateSet.date.getMinutes()*5/3;
+        // dateSet['base100'] = dateSet.date.getHours()*100 + dateSet.date.getMinutes()*5/3;
+        dateSet['base100'] = dateSet.date.getHours()*100 + dateSet.date.getMinutes();
 
         event.schedule[["sun","mon","tue","wed","thu","fri","sat"][dateSet.date.getDay()]].forEach(function(range) {
           if (dateSet.base100 >= range.start && dateSet.base100 <= range.end) {
+            // if (!event.schedule.time_range) {
+            //   // JANK JANK JANK JANK JANK
+            //   str = "" + 
+            //           new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100)*3/5)).toLocaleTimeString() +
+            //           " - " + 
+            //           new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100)*3/5)).toLocaleTimeString()
+
+            // } else {
+            //   if (setTime >= event.schedule.time_range.start && setTime <= event.schedule.time_range.end) {
+            //     str = "" + 
+            //             new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100)*3/5)).toLocaleTimeString() +
+            //             " - " + 
+            //             new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100)*3/5)).toLocaleTimeString() 
+            //   }
+            // }
             if (!event.schedule.time_range) {
               // JANK JANK JANK JANK JANK
               str = "" + 
-                      new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100)*3/5)).toLocaleTimeString() +
+                      new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100))).toLocaleTimeString() +
                       " - " + 
-                      new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100)*3/5)).toLocaleTimeString()
+                      new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100))).toLocaleTimeString()
 
             } else {
               if (setTime >= event.schedule.time_range.start && setTime <= event.schedule.time_range.end) {
                 str = "" + 
-                        new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100)*3/5)).toLocaleTimeString() +
+                        new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100))).toLocaleTimeString() +
                         " - " + 
-                        new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100)*3/5)).toLocaleTimeString() 
-              } //else {
-                //continue;
-              //}
+                        new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100))).toLocaleTimeString() 
+              }
             }
           }
         })
