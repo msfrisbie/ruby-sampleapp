@@ -15,6 +15,6 @@
 /log/*.log
 /tmp
 .env
-/public/assets/manifest*
+!/public/assets/manifest*
 /public/assets
 /public/uploads
