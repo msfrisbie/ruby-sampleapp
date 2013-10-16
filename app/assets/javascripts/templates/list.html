@@ -27,18 +27,24 @@
                   <div class="thumb">
                     <img src="{{ event.image_url }}" />
                   </div>
-                  <div style="padding-top: 15px;" class="info">
+                  <div class="info">
                     <div class="stack">
                       <div class="title">
                         {{ event.title }}
                       </div>
-                      <div class="time">
-                        {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
+                      <div class="dist">
+                        <img src="<%= asset_path "compass.png" %>" />
+                        {{ event.distance.toFixed(2) }} miles
                       </div>
                     </div>
                     <div class="stack">
                       <div class="tags">
-                        <span class="label tagd" ng-repeat="tag in event.categories">{{ tag }}</span>
+                        <span ng-repeat="tag in event.categories">
+                          <span class="label tagd">{{ tag }}</span> 
+                        </span>
+                      </div>
+                      <div class="time">
+                        {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
                       </div>
                     </div>
                   </div>

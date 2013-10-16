@@ -18,7 +18,7 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 
       $scope.findOne = function () {
         Events.get({id: $routeParams.eventId}, function (event) {
           $scope.event = event;
-          // console.log(event);
+          console.log(event);
         })
       };
 

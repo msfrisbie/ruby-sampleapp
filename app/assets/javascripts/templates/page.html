@@ -22,7 +22,7 @@
           <div class="prof-info">
 
             <!-- <div class="covimg" style="background:url(http://www.cablikenterprises.com/wp-content/uploads/2012/01/P1020440.jpg) center center "> -->
-            <div class="covimg" style="background:url({{ event.image_url }})">
+            <div class="covimg" style="background:url({{ event.image_url }});background-size: cover; background-position:center; ">
               <div class="time">
                 <!-- Open 3pm - Sunset -->
                 {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
@@ -39,8 +39,8 @@
                     {{ event.address }}
                   </div>
                   <div class="dist">
-                    <img src="<%= asset_path "compass.png" %>" style="height:10px" /> 23 miles<br />
-                    <a href="#">Show map</a>
+                    <img src="<%= asset_path "compass.png" %>" style="height:10px" /> {{ event.distance.toFixed(2) }} miles<br />
+                  <!--   <a href="#">Show map</a> -->
                   </div>
                 </div>
               </div>
