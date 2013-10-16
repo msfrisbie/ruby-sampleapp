@@ -18,44 +18,44 @@ angular.module('ui.bootstrap.timepicker', [])
     // templateUrl: 'template/timepicker/timepicker.html',
     template: " <span>" +
               "     <div class=\"row\">" +
-              "         <div class=\"col-xs-1 text-center\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-1 text-center\">" +
               "         </div>" +
-              "         <div class=\"col-xs-3 text-center\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3 text-center\">" +
               "             <a ng-click=\"incrementHours()\" class=\"btn btn-link\"><i class=\"glyphicon glyphicon-chevron-up\"></i></a>" +
               "         </div>" +
-              "         <div class=\"col-xs-3 text-center\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3 text-center\">" +
               "             <a ng-click=\"incrementMinutes()\" class=\"btn btn-link\"><i class=\"glyphicon glyphicon-chevron-up\"></i></a>" +
               "         </div>" +
-              "         <div class=\"col-xs-3\"> </div>" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\"> </div>" +
               "     </div>" +
               "     <div class=\"row\">" +
-              "         <div class=\"col-xs-1 text-center\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-1 text-center\">" +
               "         </div>" +
-              "         <div class=\"col-xs-3\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\">" +
               "             <div class=\"form-group\" ng-class=\"{'has-error': invalidHours}\" style=\"margin-bottom: 0px\">" +
               "                 <input type=\"text\" ng-model=\"hours\" ng-change=\"updateHours()\" class=\"form-control text-center\" ng-mousewheel=\"incrementHours()\" ng-readonly=\"readonlyInput\" maxlength=\"2\"> " +
               "             </div>" +
               "         </div>" +
-              "         <div class=\"col-xs-3\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\">" +
               "             <div class=\"form-group\" ng-class=\"{'has-error': invalidMinutes}\" style=\"margin-bottom: 0px\">" +
               // "                 <span class=\"input-group-addon\">:</span>" +
               "                 <input type=\"text\" ng-model=\"minutes\" ng-change=\"updateMinutes()\" class=\"form-control text-center\" ng-mousewheel=\"incrementMinutes()\" ng-readonly=\"readonlyInput\" maxlength=\"2\"> " +
               "             </div>" +
               "         </div>" +
-              "         <div class=\"col-xs-3\">" +
-              "             <button ng-click=\"toggleMeridian()\" class=\"btn btn-default text-center\" ng-show=\"showMeridian\">{{meridian}}</button>" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\">" +
+              "             <button style=\"vertical-align:top\" ng-click=\"toggleMeridian()\" class=\"btn btn-default text-center\" ng-show=\"showMeridian\">{{meridian}}</button>" +
               "         </div>" +
               "     </div>" +
               "     <div class=\"row\">" +
-              "         <div class=\"col-xs-1 text-center\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-1 text-center\">" +
               "         </div>" +
-              "         <div class=\"col-xs-3 text-center\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3 text-center\">" +
               "             <a ng-click=\"decrementHours()\" class=\"btn btn-link\"><i class=\"glyphicon glyphicon-chevron-down\"></i></a>" +
               "         </div>" +
-              "         <div class=\"col-xs-3 text-center\">" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3 text-center\">" +
               "             <a ng-click=\"decrementMinutes()\" class=\"btn btn-link\"><i class=\"glyphicon glyphicon-chevron-down\"></i></a>" +
               "         </div>" +
-              "         <div class=\"col-xs-3\"> </div>" +
+              "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\"> </div>" +
               "     </div>" +
               " </span>",
 
