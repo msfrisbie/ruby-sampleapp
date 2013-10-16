@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {render json: @events}
+      format.json {render json: @events.map(&:as_json_with_context)}
     end
   end
 
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {render json: @event}
+      format.json {render json: @event.as_json_with_context}
     end
   end
 
@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json {render json: @events}
+      format.json {render json: @events.map(&:as_json_with_context)}
     end
   end
 
