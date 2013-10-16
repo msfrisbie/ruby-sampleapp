@@ -33,7 +33,7 @@ gem "unicorn", "~> 4.6"
 group :production do
   gem "newrelic_rpm", "~> 3.6"
   gem "newrelic_moped"
-  # gem "rails_stdout_logging"
+  gem "rails_stdout_logging"
 end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
