@@ -18,7 +18,7 @@ class Event
   embeds_one :schedule
 
   def as_json(options = {})
-    super.merge("_id" => id.to_s, "time_ranges" => time_ranges.as_json)
+    super.merge("_id" => id.to_s, "time_ranges" => time_ranges.as_json, "schedule" => schedule.as_json)
   end
 
   def self.around(time)
@@ -84,8 +84,8 @@ class Schedule
   embedded_in :event
 
   def as_json(options = {})
-    {sun: sun.as_json, mon: mon.as_json, tue: tue.as_json, wed: wed.as_json,
-     thu: thu.as_json, fri: fri.as_json, sat: sat.as_json}
+    {_id: id.to_s, sun: sun.as_json, mon: mon.as_json, tue: tue.as_json, wed: wed.as_json,
+     thu: thu.as_json, fri: fri.as_json, sat: sat.as_json, time_range: time_range.as_json}
   end
 
 end
