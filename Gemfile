@@ -29,6 +29,13 @@ gem "mongoid", github: "mongoid/mongoid"
 gem "geocoder", "~> 1.1.8" # Geocoder must come after mongoid
 gem "unicorn", "~> 4.6"
 
+group :production do
+  gem "newrelic_rpm", "~> 3.6"
+  gem "newrelic_moped"
+  gem "newrelic-redis", "~> 1.4.0"
+  # gem "rails_stdout_logging"
+end
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem "jbuilder", "~> 1.2"
 
