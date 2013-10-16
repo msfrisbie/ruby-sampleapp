@@ -9,6 +9,7 @@ group :development, :staging do # Assets hack
   gem "dotenv-rails", "~> 0.8.0"
   gem "jquery-rails"
   gem "less-rails", "~> 2.3.3"
+  gem "ngmin-rails", ">= 0.4"
   gem "therubyracer", platforms: :ruby
   gem "uglifier", ">= 1.3.0"
   gem "yui-compressor", ">= 0.12"
@@ -22,7 +23,6 @@ group :development, :test do
   gem "guard", "~> 1.8.0"
   gem "guard-rails", "~> 0.4.7"
   gem "guard-livereload", "~> 1.4.0"
-  # gem "ngmin-rails"
   gem "rack-livereload", "~> 0.3.15"
 end
 
