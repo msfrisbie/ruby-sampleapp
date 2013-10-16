@@ -17,8 +17,14 @@ class Event
   embeds_many :time_ranges
   embeds_one :schedule
 
+  DefaultLocation = [37.8717443, -122.2609626]
+
   def as_json(options = {})
     super.merge("_id" => id.to_s, "time_ranges" => time_ranges.as_json, "schedule" => schedule.as_json)
+  end
+
+  def as_json_with_context
+    as_json.merge("distance" => self.distance_from(DefaultLocation))
   end
 
   def self.around(time)
