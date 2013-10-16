@@ -15,11 +15,12 @@
 </body>
 <%= javascript_include_tag "application" %>
 
-<%# Wrap this in a cache block before production %>
+<% cache do %>
 <% Dir.glob(Rails.root.join('app','assets','javascripts', 'templates', '**/*.html')).each do |f| %>
 <script type="text/ng-template" id="<%= f.sub("#{Rails.root.join('app', 'assets', 'javascripts', 'templates')}/", '') %>">
 <%= render file: f %>
 </script>
+<% end %>
 <% end %>
 
 </html>
