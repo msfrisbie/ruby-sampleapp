@@ -4,6 +4,14 @@
   <form class="form-inline">
     <table>
       <tr>
+        <td>
+          <input type="text" ng-model="importdata"/>
+        </td>
+        <td>
+          <button ng-click="import()">Import JSON</button>
+        </td>
+      </tr>
+      <tr>
         <td>Title: </td>
         <td><input type="text" ng-model="event.title"></td>
       </tr>
@@ -140,6 +148,12 @@
 
       if (!$scope.event) {
         $scope.event = {}
+      }
+
+      $scope.import = function() {
+        var importjson = JSON.parse($scope.importdata);
+        $scope.event = importjson;
+        $scope.categories_str = importjson.categories.join(',');
       }
 
       $scope.getrange = function(interval) {
