@@ -33,7 +33,7 @@
                         {{ event.title }}
                       </div>
                       <div class="time">
-                        {{ event.time_ranges[0].start | relevantTimeRangeString }} - {{ event.time_ranges[0].end | relevantTimeRangeString }}
+                        {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
                       </div>
                     </div>
                     <div class="stack">
