@@ -29,10 +29,10 @@
                   </div>
                   <div class="info">
                     <div class="stack">
-                      <div class="title">
+                      <div style="color:white" class="title">
                         {{ event.title }}
                       </div>
-                      <div class="dist">
+                      <div style="color:white" class="dist">
                         <img src="<%= asset_path "compass.png" %>" />
                         {{ event.distance.toFixed(2) }} miles
                       </div>
@@ -43,7 +43,7 @@
                           <span class="label tagd">{{ tag }}</span> 
                         </span>
                       </div>
-                      <div class="time">
+                      <div style="color:white" class="time">
                         {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
                       </div>
                     </div>

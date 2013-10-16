@@ -15,8 +15,12 @@ window.angular.module('Outhouse.events.filter', [])
         setTime = new Date().getTime()/1000;
       } 
 
+      if (!event.time_ranges) {
+        event.time_ranges = [];
+      }
+
       // cannot be an empty array or this does not work!
-      if (!!event.time_ranges) {
+      if (event.time_ranges.length>0) {
         // time ranges exist, this event is non-recurring
         event.time_ranges.forEach(function(range) {
           if (setTime >= range.start && setTime <= range.end) {
@@ -40,17 +44,18 @@ window.angular.module('Outhouse.events.filter', [])
         event.schedule[["sun","mon","tue","wed","thu","fri","sat"][dateSet.date.getDay()]].forEach(function(range) {
           if (dateSet.base100 >= range.start && dateSet.base100 <= range.end) {
             if (!event.schedule.time_range) {
+              // JANK JANK JANK JANK JANK
               str = "" + 
-                      new Date(setTime*1000).setHours(range.start/100).setMinutes((range.start%100)*3/5).toLocaleTimeString() +
+                      new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100)*3/5)).toLocaleTimeString() +
                       " - " + 
-                      new Date(setTime*1000).setHours(range.end/100).setMinutes((range.end%100)*3/5).toLocaleTimeString()
+                      new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100)*3/5)).toLocaleTimeString()
 
             } else {
               if (setTime >= event.schedule.time_range.start && setTime <= event.schedule.time_range.end) {
                 str = "" + 
-                        new Date(setTime*1000).setHours(range.start/100).setMinutes((range.start%100)*3/5).toLocaleTimeString() +
+                        new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100)*3/5)).toLocaleTimeString() +
                         " - " + 
-                        new Date(setTime*1000).setHours(range.end/100).setMinutes((range.end%100)*3/5).toLocaleTimeString() 
+                        new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100)*3/5)).toLocaleTimeString() 
               } //else {
                 //continue;
               //}

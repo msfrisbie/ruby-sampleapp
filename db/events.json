@@ -56,5 +56,20 @@
     "image_url": "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash4/337293_3773088648983_408269865_o.jpg",
     "time_ranges": [{"start": 0, "end": 9999999999}],
     "categories": ["Farms"]
+  },
+  {
+    "title": "Weekster House",
+    "description": "W3b5t4rh4u5",
+    "address": "845 Webster Street\nPalo Alto, CA 94301",
+    "image_url": "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash4/337293_3773088648983_408269865_o.jpg",
+    "schedule": {
+      "sun": [{"start": 900, "end": 1700}],
+      "mon": [{"start": 900, "end": 1700}],
+      "tue": [{"start": 900, "end": 1700}],
+      "wed": [{"start": 900, "end": 1700}],
+      "thu": [{"start": 900, "end": 1700}],
+      "fri": [{"start": 900, "end": 1700}],
+      "sat": [{"start": 900, "end": 1700}]},
+    "categories": ["Farms"]
   }
 ]
