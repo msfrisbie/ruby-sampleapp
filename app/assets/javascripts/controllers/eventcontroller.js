@@ -7,7 +7,7 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service'])
       $scope.category = $routeParams.category;
 
       $scope.findByCategory = function () {
-        Events.getByCategory({category: $scope.category}, function (events) {
+        Events.getByCategory({category: $scope.category, time: $routeParams.time}, function (events) {
           $scope.events = events;
           console.log(events);
         })

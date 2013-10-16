@@ -22,6 +22,7 @@ class Event
   end
 
   def self.around(time)
+    time=time.to_i
     ctime = Time.at(time)
     hr = ctime.hour
     wday = Date::ABBR_DAYNAMES[ctime.wday].downcase

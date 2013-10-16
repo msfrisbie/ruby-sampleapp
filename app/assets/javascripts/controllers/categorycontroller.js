@@ -3,6 +3,7 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
     function($scope, $routeParams, $location, Categories) {
 
       $scope.mytime = new Date();
+      $scope.unixtime = Math.round($scope.mytime.getTime()/1000);
 
       $scope.hstep = 1;
       $scope.mstep = 15;
@@ -25,7 +26,8 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
       };
 
       $scope.changed = function () {
-        console.log('Time changed to: ' + $scope.mytime);
+        console.log('Time changed to: ' + Math.round($scope.mytime.getTime()/1000));
+        $scope.unixtime = Math.round($scope.mytime.getTime()/1000);
       };
 
       $scope.clear = function() {
@@ -52,6 +54,10 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         {
           "url": "",
           "title": "Yoga"
+        },
+        {
+          "url": "",
+          "title": "Farms"
         },
         {
           "url": "",
