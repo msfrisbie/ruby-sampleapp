@@ -337,7 +337,7 @@
         {"start": 1100, "end": 1430},
         {"start": 1700, "end": 2230}],
       "sat": [
-        {"start": 1100, "end": 1430}
+        {"start": 1100, "end": 1430},
         {"start": 1700, "end": 2230}]},
     "categories": ["Food"]
   },
