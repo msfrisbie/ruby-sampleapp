@@ -165,5 +165,195 @@
       "fri": [{"start": 800, "end": 2200}],
       "sat": [{"start": 800, "end": 2200}]},
     "categories": ["Food"]
+  },
+  {
+    "title": "Brazil Fresh Squeeze Cafe",
+    "description": "At Brazil Fresh Squeeze Cafe, our culinary team is dedicated to cooking scrumptious Brazilian dishes just for you. Browse our menu to find the appetizing meal that you desire.",
+    "address": "2161 University Avenue, Berkeley, CA 94704",
+    "image_url": "http://brazilcafeberkeley.com/images/829-brazil.png",
+    "schedule": {
+      "sun": [{"start": 1130, "end": 2030}],
+      "mon": [{"start": 1130, "end": 2030}],
+      "tue": [{"start": 1130, "end": 2030}],
+      "wed": [{"start": 1130, "end": 2030}],
+      "thu": [{"start": 1130, "end": 2030}],
+      "fri": [{"start": 1130, "end": 2030}],
+      "sat": [{"start": 1130, "end": 2030}]},
+    "categories": ["Food"]
+  },
+  {
+    "title": "People's Park",
+    "description": "People's Park is a free public park. Although open to all, it is mainly a daytime sanctuary for Berkeley's large homeless population who, along with others, receive meals from East Bay Food Not Bombs. The park was created during the radical political activism of the late 1960s.",
+    "address": "2556 Haste Street\nBerkeley, CA 94704",
+    "image_url": "http://www.ci.berkeley.ca.us/uploadedImages/Parks_Rec_Waterfront/Level_3__-General/41pep12.jpg",
+    "schedule": {
+      "sun": [{"start": 600, "end": 2200}],
+      "mon": [{"start": 600, "end": 2200}],
+      "tue": [{"start": 600, "end": 2200}],
+      "wed": [{"start": 600, "end": 2200}],
+      "thu": [{"start": 600, "end": 2200}],
+      "fri": [{"start": 600, "end": 2200}],
+      "sat": [{"start": 600, "end": 2200}]},
+    "categories": ["Parks"]
+  },
+  {
+    "title": "Bette's Diner",
+    "description": "In Berkeley, California, people are passionate about everything from saving the planet to savoring the perfect pancake. And every morning for nearly two decades, they've lined up at Bette's, where hearty breakfasts, good strong coffee and lively conversation are served all day. ",
+    "address": "1807 4th Street\nBerkeley, CA 94710",
+    "image_url": "http://www.bettesdiner.com/img/logo.gif",
+    "schedule": {
+      "sun": [{"start": 630, "end": 1600}],
+      "mon": [{"start": 630, "end": 1430}],
+      "tue": [{"start": 630, "end": 1430}],
+      "wed": [{"start": 630, "end": 1430}],
+      "thu": [{"start": 630, "end": 1430}],
+      "fri": [{"start": 630, "end": 1430}],
+      "sat": [{"start": 630, "end": 1600}]},
+    "categories": ["Food"]
+  },
+  {
+    "title": "César Chávez Park",
+    "description": "César Chávez Park, is built on the site of a former landfill, and offers a wide range of recreational opportunities in a marina setting with spectacular views of the three bay bridges, Alcatraz, and Angel Island.",
+    "address": "11 Spinnaker Way\nBerkeley, CA",
+    "image_url": "http://www.ci.berkeley.ca.us/uploadedImages/IT/Level_3_-_General/IMG_5437.jpg",
+    "schedule": {
+      "sun": [{"start": 600, "end": 2200}],
+      "mon": [{"start": 600, "end": 2200}],
+      "tue": [{"start": 600, "end": 2200}],
+      "wed": [{"start": 600, "end": 2200}],
+      "thu": [{"start": 600, "end": 2200}],
+      "fri": [{"start": 600, "end": 2200}],
+      "sat": [{"start": 600, "end": 2200}]},
+    "categories": ["Parks"]
+  },
+  {
+    "title": "Vik’s",
+    "description": "Vik’s Chaat has proudly been serving (Indian Street Food) chaat for over 20 years. Vik’s offers many regional chaat dishes from different parts of India.  Over 2000 dishes are served each day to customers coming from near and far.",
+    "address": "2390 4th St, Berkeley, CA 94710",
+    "image_url": "http://www.vikschaatcorner.com/images/daba.jpg",
+    "schedule": {
+      "sun": [{"start": 1100, "end": 2000}],
+      "mon": [{"start": 1100, "end": 1800}],
+      "tue": [{"start": 1100, "end": 1800}],
+      "wed": [{"start": 1100, "end": 1800}],
+      "thu": [{"start": 1100, "end": 1800}],
+      "fri": [{"start": 1100, "end": 2000}],
+      "sat": [{"start": 1100, "end": 2000}]},
+    "categories": ["Food"]
+  },
+  {
+    "title": "Claremont Canyon Regional Preserve",
+    "description": "Claremont Canyon Regional Preserve is nestled in the Berkeley and Oakland hills behind the historic Claremont Hotel. This scenic, 208-acre preserve protects two parcels of land located on both sides of upper Claremont Avenue. Panoramic Ridge rises steeply to the north, and Gwin Canyon extends south. In addition to East Bay Regional Park District land holdings in Claremont Canyon, other undeveloped portions in the upper canyon are managed by the University of California and the East Bay Municipal Utility District. The City of Oakland owns Garber Park, a 13-acre oak/bay woodland south of Claremont Avenue.",
+    "address": "Stonewall Road & Stonewall-Panoramic Trail, Oakland, CA",
+    "image_url": "http://www.ebparks.org/parks/Asset266.aspx",
+    "schedule": {
+      "sun": [{"start": 500, "end": 2200}],
+      "mon": [{"start": 500, "end": 2200}],
+      "tue": [{"start": 500, "end": 2200}],
+      "wed": [{"start": 500, "end": 2200}],
+      "thu": [{"start": 500, "end": 2200}],
+      "fri": [{"start": 500, "end": 2200}],
+      "sat": [{"start": 500, "end": 2200}]},
+    "categories": ["Parks"]
+  },
+  {
+    "title": "Tacubaya",
+    "description": "Tacubaya is a taqueria in the 4th Street shopping district of Berkeley. It is named after the neighborhood in Mexico City where famed architect Luis Barragan lived. Much like Barragan's modern architecture, which in its purity and simplicity was respectful of tradition, we wanted to create a taqueria that paid respect to traditional dishes such as: sopa de tortilla, tacos al pastor, and tamales con verduras. Tacubaya has allowed us to recreate the beloved dishes usually found in Mexico at street vendor stands and in home kitchens and family taquerias.",
+    "address": "1788 4th Street\nBerkeley, CA 94710 ",
+    "image_url": "http://www.tacubaya.net/images/logo.png",
+    "schedule": {
+      "sun": [{"start": 900, "end": 2100}],
+      "mon": [{"start": 1000, "end": 2100}],
+      "tue": [{"start": 1000, "end": 2100}],
+      "wed": [{"start": 1000, "end": 2100}],
+      "thu": [{"start": 1000, "end": 2100}],
+      "fri": [{"start": 1000, "end": 2100}],
+      "sat": [{"start": 900, "end": 2100}]},
+    "categories": ["Food"]
+  },
+  {
+    "title": "Tour the Trumer Pils Berkeley Brewery",
+    "description": "Tours are offered at the Brauerei Monday through Friday at 3:15. Reservations are recommended. Please email tours@trumerbrauerei.com or call 510.526.1160 for more information and to make a reservation.",
+    "address": "1788 4th Street\nBerkeley, CA 94710 ",
+    "image_url": "http://www.tacubaya.net/images/logo.png",
+    "schedule": {
+      "mon": [{"start": 1515, "end": 1730}],
+      "tue": [{"start": 1515, "end": 1730}],
+      "wed": [{"start": 1515, "end": 1730}],
+      "thu": [{"start": 1515, "end": 1730}],
+      "fri": [{"start": 1515, "end": 1730}]},
+    "categories": ["Food"]
+  },
+  {
+    "title": "Urban Ore Ecopark",
+    "description": "It’s hard to imagine this place until you actually see the scope of what’s here, but once you do, you’ll realize with a sudden shock how much stuff ends up in the garbage even though it can still be used for something. Most of what we sell would have gone to the landfill if we weren’t here.",
+    "address": "900 Murray Street, Berkeley, CA 94710",
+    "image_url": "http://urbanore.com/wp-content/uploads/2010/08/EcoparkStore-300x185.jpg",
+    "schedule": {
+      "sun": [{"start": 1000, "end": 1900}],
+      "mon": [{"start": 830, "end": 1900}],
+      "tue": [{"start": 830, "end": 1900}],
+      "wed": [{"start": 830, "end": 1900}],
+      "thu": [{"start": 830, "end": 1900}],
+      "fri": [{"start": 830, "end": 1900}],
+      "sat": [{"start": 830, "end": 1900}]},
+    "categories": ["Shopping"]
+  },
+  {
+    "title": "Indian Rock Park",
+    "description": "Indian Rock Park is one of Berkeley’s rock parks in the Northbrae area, providing great views and challenges for early-level rock climbing.",
+    "address": "950 Indian Rock Avenue at Shattuck Avenue",
+    "image_url": "http://www.ci.berkeley.ca.us/uploadedImages/Parks_Rec_Waterfront/Level_3__-General/indianrock.jpg",
+    "schedule": {
+      "sun": [{"start": 600, "end": 2200}],
+      "mon": [{"start": 600, "end": 2200}],
+      "tue": [{"start": 600, "end": 2200}],
+      "wed": [{"start": 600, "end": 2200}],
+      "thu": [{"start": 600, "end": 2200}],
+      "fri": [{"start": 600, "end": 2200}],
+      "sat": [{"start": 600, "end": 2200}]},
+    "categories": ["Parks"]
+  },
+  {
+    "title": "Anh Hong",
+    "description": "Anh Hong Restaurant was established in 1954 in Phu Nhuan, Vietnam.  Our restaurant is best known for our 7 Courses of Beef  or Bo 7 Mon menu with its fresh Wraps & Roll.",
+    "address": "2067 University Ave, Berkeley, CA 94704",
+    "image_url": "http://www.anhhong.com/aboutus/images/bardiningarea2.jpg",
+    "schedule": {
+      "sun": [{"start": 1700, "end": 2230}],
+      "mon": [
+        {"start": 1100, "end": 1430},
+        {"start": 1700, "end": 2230}],
+      "tue": [
+        {"start": 1100, "end": 1430},
+        {"start": 1700, "end": 2230}],
+      "wed": [
+        {"start": 1100, "end": 1430},
+        {"start": 1700, "end": 2230}],
+      "thu": [
+        {"start": 1100, "end": 1430},
+        {"start": 1700, "end": 2230}],
+      "fri": [
+        {"start": 1100, "end": 1430},
+        {"start": 1700, "end": 2230}],
+      "sat": [
+        {"start": 1100, "end": 1430}
+        {"start": 1700, "end": 2230}]},
+    "categories": ["Food"]
+  },
+  {
+    "title": "Missouri Lounge",
+    "description": "The Missouri Lounge is a family owned and operated business, which has been in the family since 1953. The Missouri, located in Berkeley, California, is a dive bar, restaurant and concert venue, which proudly bills itself as the most elegant neighborhood dive bar in Berkeley -- to many of its most loyal patrons, the dive bar is truly the most elegant in town.",
+    "address": "2600 San Pablo Avenue Berkeley, CA 94702",
+    "image_url": "http://www.ci.berkeley.ca.us/uploadedImages/Parks_Rec_Waterfront/Level_3__-General/indianrock.jpg",
+    "schedule": {
+      "sun": [{"start": 1200, "end": 200}],
+      "mon": [{"start": 1200, "end": 200}],
+      "tue": [{"start": 1200, "end": 200}],
+      "wed": [{"start": 1200, "end": 200}],
+      "thu": [{"start": 1200, "end": 200}],
+      "fri": [{"start": 1200, "end": 200}],
+      "sat": [{"start": 1200, "end": 200}]},
+    "categories": ["Food", "Drinks"]
   }
 ]
