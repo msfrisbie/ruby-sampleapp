@@ -169,6 +169,10 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         {
           "url": "",
          "title": "Lecture"
+        },
+        {
+          "url": "",
+         "title": "Study"
         }
       ]
 
