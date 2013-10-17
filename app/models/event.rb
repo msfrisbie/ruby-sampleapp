@@ -41,7 +41,7 @@ class Event
              {:"schedule.#{wday}".elem_match => {:start.lte => hr * 100,
                                                  :end.gte => hr * 100},
               :"schedule.time_range.start".lte => time,
-              :"schedule.time_range.end".gte => time})
+              :"schedule.time_range.end".gte => time},
              {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
                                                  :end.gt => hr * 100},
               :"schedule.time_range.start".lt => time,
