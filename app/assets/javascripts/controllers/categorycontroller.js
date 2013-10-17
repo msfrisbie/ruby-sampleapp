@@ -1,6 +1,101 @@
 window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.service'])
-  .controller('CategoriesController', ['$scope', '$routeParams', '$location', 'Categories',
-    function($scope, $routeParams, $location, Categories) {
+  .controller('CategoriesController', ['$scope', '$timeout', '$routeParams', '$location', 'Categories',
+    function($scope, $timeout, $routeParams, $location, Categories) {
+
+      // date
+
+      $scope.datevisible = false;
+
+      $scope.datestr = function() {
+        var str = "",
+            year = new Date().getFullYear(),
+            month = (new Date().getMonth()+1).toString(),
+            day = new Date().getDate().toString();
+        str = year + "-";
+        if (month.length<2) {
+          str += "0";
+        }
+        str += month+"-";
+        if (day.length<2) {
+          str += "0";
+        }
+        str += day;
+
+        return str
+        //((new Date().getFullYear())+"-"+(new Date().getMonth()+1)+"-"+(new Date().getDate()))//"2013-10-01";//(new Date().getFullYear())+"-"+(new Date().getMonth())+"-"+(new Date().getDate());
+      }
+
+      $scope.date = new Date();//(new Date().getFullYear())+"-"+(new Date().getMonth())+"-"+(new Date().getDate());
+
+      // console.log((new Date().getFullYear())+"-"+(new Date().getMonth()+1)+"-"+(new Date().getDate()))
+
+      $scope.setDate = function() {
+
+        var data = $scope.date;
+
+        if (data.toString().length==10) {
+        var arr = data.toString().split('-');
+          var year = parseInt(arr[0]),//$scope.date.getFullYear(),
+              month = parseInt(arr[1])-1,//$scope.date.getMonth(),
+              day = parseInt(arr[2]);//$scope.date.getDate();  
+        } else {
+          // console.log(data.toString().length)
+          var year = $scope.date.getFullYear(),
+              month = $scope.date.getMonth(),
+              day = $scope.date.getDate();
+        }
+        $scope.mytime.setDate(day);
+        $scope.mytime.setMonth(month);
+        $scope.mytime.setFullYear(year);
+
+        // console.log('jake',$scope.date.getDate())
+        // console.log('jakey',$scope.date.toISOString());
+
+        // var year = $scope.date.getFullYear(),
+        //     month = $scope.date.getMonth(),
+        //     day = $scope.date.getDate();
+
+        // // var arr = $scope.date.split('-');
+        // $scope.mytime.setDate(day);
+        // $scope.mytime.setMonth(month);
+        // $scope.mytime.setFullYear(year);
+        // $scope.mytime.setDate($scope.date.getDate());
+        // $scope.mytime.setMonth($scope.date.getMonth());
+        // $scope.mytime.setFullYear($scope.date.getFullYear());
+        // console.log($scope.mytime)
+      }
+
+      $scope.$watch('mytime', function(data) {
+        $scope.setDate();
+      })
+
+      $scope.$watch('date', function(data) {
+
+        $scope.setDate();
+
+        // // console.log(data.toString());
+        // // console.log(arr);
+        // // console.log(data);
+        // if (data.toString().length==10) {
+        // var arr = data.toString().split('-');
+        //   var year = parseInt(arr[0]),//$scope.date.getFullYear(),
+        //       month = parseInt(arr[1])-1,//$scope.date.getMonth(),
+        //       day = parseInt(arr[2]);//$scope.date.getDate();  
+        // } else {
+        //   // console.log(data.toString().length)
+        //   var year = $scope.date.getFullYear(),
+        //       month = $scope.date.getMonth(),
+        //       day = $scope.date.getDate();
+        // }
+        // $scope.mytime.setDate(day);
+        // $scope.mytime.setMonth(month);
+        // $scope.mytime.setFullYear(year);
+        // // $scope.setDate();
+        // // console.log('setdate');
+        // // console.log($scope.mytime)
+      })
+
+      // time
 
       $scope.mytime = new Date();
       $scope.unixtime = Math.round($scope.mytime.getTime()/1000);

@@ -127,7 +127,38 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.position'])
   return {
     restrict: 'EA',
     replace: true,
-    templateUrl: 'template/datepicker/datepicker.html',
+    // templateUrl: 'template/datepicker/datepicker.html',
+    template: " <table style=\"table-layout:fixed;\" class=\"table-condensed\">" +
+              "   <!-- secondary: last month, disabled: disabled -->" +
+              "   <thead class=\"text-center\">" +
+              "     <tr>" +
+              "       <th style=\"overflow: hidden; min-width: 26px\">" +
+              "         <button type=\"button\" class=\"btn btn-xs btn-link\" ng-click=\"move(-1)\"> " +
+              "           <span class=\"glyphicon glyphicon-chevron-left\"> </span> " +
+              "         </button>" +
+              "       </th>" +
+              "       <th colspan=\"{{rows[0].length - 2 + showWeekNumbers}}\"><button type=\"button\" class=\"btn btn-md btn-link btn-block\" ng-click=\"toggleMode()\"><strong>{{title}}</strong></button></th></th>" +
+              "       <th style=\"overflow: hidden; min-width: 26px\">" +
+              "         <button type=\"button\" class=\"btn btn-xs btn-link\" ng-click=\"move(1)\"> " +
+              "           <span class=\"glyphicon glyphicon-chevron-right\"> </span> " +
+              "         </button>" +
+              "       </th>" +
+              "     </tr>" +
+              "     <tr ng-show=\"labels.length > 0\">" +
+              "       <th class=\"text-center\" ng-show=\"showWeekNumbers\" style=\"overflow: hidden; min-width: 26px\"><h6>#</h6></th>" +
+              "       <th class=\"text-center\" ng-repeat=\"label in labels\" style=\"overflow: hidden; min-width: 26px\"><h6>{{label}}</h6></th>" +
+              "     </tr>" +
+              "   </thead>" +
+              "   <tbody>" +
+              "     <tr ng-repeat=\"row in rows\">" +
+              "       <td ng-show=\"showWeekNumbers\" class=\"text-center\" style=\"overflow: hidden; min-width: 26px\"><button type=\"button\" class=\"btn btn-xs btn-link\" disabled><strong><em>{{ getWeekNumber(row) }}</em></strong></button></td>" +
+              "       <td ng-repeat=\"dt in row\" class=\"text-center\" style=\"overflow: hidden; min-width: 26px\">" +
+              "         <button type=\"button\" style=\"width: 100%; border: 0px\" class=\"btn btn-xs\" ng-class=\"{'btn-primary': dt.selected, 'btn-default': !dt.selected}\" ng-click=\"select(dt.date)\" ng-disabled=\"dt.disabled\"><span ng-class=\"{'text-muted': dt.secondary && !dt.selected}\">{{dt.label}}</span></button>" +
+              "       </td>" +
+              "     </tr>" +
+              "   </tbody>" +
+              " </table>",
+
     scope: {
       dateDisabled: '&'
     },
@@ -436,7 +467,19 @@ function ($compile, $parse, $document, $position, dateFilter, datepickerPopupCon
     restrict:'E',
     replace: true,
     transclude: true,
-    templateUrl: 'template/datepicker/popup.html',
+    // templateUrl: 'template/datepicker/popup.html',
+    template: "<ul class=\"dropdown-menu\" ng-style=\"{display: (isOpen && 'block') || 'none', top: position.top+'px', left: position.left+'px'}\" class=\"dropdown-menu\">" +
+              "  <li ng-transclude></li>" +
+              "  <li class=\"divider\"></li>" +
+              "  <li style=\"padding: 9px;\">" +
+              "    <span class=\"btn-group\">" +
+              "      <button class=\"btn btn-xs btn-default\" ng-click=\"today()\">Today</button>" +
+              "      <button class=\"btn btn-xs btn-info\" ng-click=\"showWeeks = ! showWeeks\" ng-class=\"{active: showWeeks}\">Weeks</button>" +
+              "      <button class=\"btn btn-xs btn-danger\" ng-click=\"clear()\">Clear</button>" +
+              "    </span>" +
+              "    <button class=\"btn btn-xs btn-success pull-right\" ng-click=\"isOpen = false\">Close</button>" +
+              "  </li>" +
+              "</ul>",
     link:function (scope, element, attrs) {
       element.bind('click', function(event) {
         event.preventDefault();
