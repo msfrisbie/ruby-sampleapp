@@ -132,31 +132,43 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
       $scope.categories = [
         {
           "url": "",
-          "title": "Sports"
+          "title": "Food"
         },
         {
           "url": "",
-          "title": "Soccer"
+          "title": "Shopping"
         },
         {
           "url": "",
-          "title": "Football"
+          "title": "Parks"
         },
         {
           "url": "",
-          "title": "Exercise"
+          "title": "Drinks"
         },
         {
           "url": "",
-          "title": "Yoga"
+          "title": "Art"
         },
         {
           "url": "",
-          "title": "Farms"
+          "title": "Pizza"
         },
         {
           "url": "",
-         "title": "Yoga Jake"
+         "title": "Cafe"
+        },
+        {
+          "url": "",
+         "title": "Music"
+        },
+        {
+          "url": "",
+         "title": "Haunted House"
+        },
+        {
+          "url": "",
+         "title": "Lecture"
         }
       ]
 
