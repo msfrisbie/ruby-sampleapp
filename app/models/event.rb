@@ -35,13 +35,13 @@ class Event
 
     Event.or({:time_ranges.elem_match => {:start.lt => time,
                                           :end.gt => time}},
-             {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
-                                                 :end.gt => hr * 100},
+             {:"schedule.#{wday}".elem_match => {:start.lte => hr * 100,
+                                                 :end.gte => hr * 100},
               :"schedule.time_range" => nil},
-             {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
-                                                 :end.gt => hr * 100},
-              :"schedule.time_range.start".lt => time,
-              :"schedule.time_range.end".gt => time})
+             {:"schedule.#{wday}".elem_match => {:start.lte => hr * 100,
+                                                 :end.gte => hr * 100},
+              :"schedule.time_range.start".lte => time,
+              :"schedule.time_range.end".gte => time})
   end
 
   def self.by_category(category)
