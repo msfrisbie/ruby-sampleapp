@@ -42,6 +42,28 @@ class Event
                                                  :end.gte => hr * 100},
               :"schedule.time_range.start".lte => time,
               :"schedule.time_range.end".gte => time})
+             {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
+                                                 :end.gt => hr * 100},
+              :"schedule.time_range.start".lt => time,
+              :"schedule.time_range.end".gt => time})
+
+    # Event.or({:time_ranges.elem_match => {:start.lt => time,
+    #                                       :end.gt => time}},
+    #          {:schedules.elem_match => {:"#{wday}".elem_match => {:start.lt => hr * 100,
+    #                                                               :end.gt => hr * 100},
+    #                                     :time_range => nil}},
+    #          # {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
+    #          #                                     :end.gt => hr * 100},
+    #          #  :"schedule.time_range" => nil},
+    #          {:schedules.elem_match => {:"#{wday}".elem_match => {:start.lt => hr * 100,
+    #                                                               :end.gt => hr * 100},
+    #                                     :"time_range.start".gt => time,
+    #                                     :"time_range.end".lt => time}})
+    #          # {:"schedule.#{wday}".elem_match => {:start.lt => hr * 100,
+    #          #                                     :end.gt => hr * 100}
+    #          #  :"schedule.time_range.start".lt => time,
+    #          #  :"schedule.time_range.end".gt => time})
+
   end
 
   def self.by_category(category)
