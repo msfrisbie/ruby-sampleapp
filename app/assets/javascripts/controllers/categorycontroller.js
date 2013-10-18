@@ -153,7 +153,7 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
           "title": "Food"
         },
         {
-          "val": "Shopping",
+          "val": "Going Shopping",
           "title": "Shopping"
         },
         {
