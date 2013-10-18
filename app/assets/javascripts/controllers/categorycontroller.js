@@ -149,47 +149,47 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
 
       $scope.categories = [
         {
-          "url": "",
+          "val": "Good Eats",
           "title": "Food"
         },
         {
-          "url": "",
+          "val": "Shopping",
           "title": "Shopping"
         },
         {
-          "url": "",
+          "val": "Getting Outside",
           "title": "Parks"
         },
+        // {
+        //   "val": "",
+        //   "title": "Drinks"
+        // },
+        // {
+        //   "val": "Art (DELETE)",
+        //   "title": "Art"
+        // },
+        // {
+        //   "val": "",
+        //   "title": "Pizza"
+        // },
+        // {
+        //   "val": "",
+        //  "title": "Cafe"
+        // },
+        // {
+        //   "val": "",
+        //  "title": "Music"
+        // },
         {
-          "url": "",
-          "title": "Drinks"
-        },
-        {
-          "url": "",
-          "title": "Art"
-        },
-        {
-          "url": "",
-          "title": "Pizza"
-        },
-        {
-          "url": "",
-         "title": "Cafe"
-        },
-        {
-          "url": "",
-         "title": "Music"
-        },
-        {
-          "url": "",
+          "val": "Haunted Houses",
          "title": "Haunted House"
         },
         {
-          "url": "",
+          "val": "Berkeley Lectures",
          "title": "Lecture"
         },
         {
-          "url": "",
+          "val": "Quiet Study",
          "title": "Study"
         }
       ]
