@@ -9,9 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="selector-page" ng-app="Outhouse">
+<body style="padding:0px;" class="selector-page" ng-app="Outhouse">
 
-  <div class="container" ng-view=""></div>
+  <div class="container" style="padding:0px;" ng-view=""></div>
 
 <%= yield %>
 
@@ -21,6 +21,7 @@
 <% cache do %>
 <% Dir.glob(Rails.root.join('app','assets','javascripts', 'templates', '**/*.html')).each do |f| %>
 <script type="text/ng-template" id="<%= f.sub("#{Rails.root.join('app', 'assets', 'javascripts', 'templates')}/", '') %>">
+
 <%= render file: f %>
 </script>
 <% end %>

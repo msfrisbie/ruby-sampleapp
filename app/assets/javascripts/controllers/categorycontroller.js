@@ -3,6 +3,8 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
     function($scope, $timeout, $routeParams, $location, Categories) {
 
       // date
+      $scope.opacity = 0;
+      $scope.constop = 1;
 
       $scope.datevisible = false;
 
@@ -24,6 +26,10 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         return str
         //((new Date().getFullYear())+"-"+(new Date().getMonth()+1)+"-"+(new Date().getDate()))//"2013-10-01";//(new Date().getFullYear())+"-"+(new Date().getMonth())+"-"+(new Date().getDate());
       }
+
+      // $scope.$watch('mytime',function() {
+        
+      // }) = 
 
       $scope.date = new Date();//(new Date().getFullYear())+"-"+(new Date().getMonth())+"-"+(new Date().getDate());
 
@@ -67,6 +73,13 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
 
       $scope.$watch('mytime', function(data) {
         $scope.setDate();
+        // $scope.opacity = 
+        var min = data.getMinutes();
+        var hour = data.getHours();
+        $scope.opacity = Math.abs(((hour+(min/60))-12)/12);
+        $scope.constop = 1;
+        // console.log('min',data.getMinutes());
+        // console.log('min',data.getHours());
       })
 
       $scope.$watch('date', function(data) {
