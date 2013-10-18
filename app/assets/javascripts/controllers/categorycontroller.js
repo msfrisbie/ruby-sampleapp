@@ -3,7 +3,7 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
     function($scope, $timeout, $routeParams, $location, Categories) {
 
       // date
-      $scope.opacity = 0;
+      $scope.$parent.opacity = {'val':0};
       $scope.constop = 1;
 
       $scope.datevisible = false;
@@ -76,7 +76,7 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         // $scope.opacity = 
         var min = data.getMinutes();
         var hour = data.getHours();
-        $scope.opacity = Math.abs(((hour+(min/60))-12)/12);
+        $scope.opacity.val = Math.abs(((hour+(min/60))-12)/12);
         $scope.constop = 1;
         // console.log('min',data.getMinutes());
         // console.log('min',data.getHours());
@@ -110,7 +110,12 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
 
       // time
 
-      $scope.mytime = new Date();
+      if (!$routeParams.time) {
+        $scope.mytime = new Date();
+      } else {
+        $scope.mytime = new Date(parseInt($routeParams.time)*1000);
+      }
+
       $scope.unixtime = Math.round($scope.mytime.getTime()/1000);
 
       $scope.hstep = 1;
