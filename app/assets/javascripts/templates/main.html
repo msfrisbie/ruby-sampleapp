@@ -13,7 +13,7 @@
 
           <div class="selector-wrap" style="margin:0px">
             <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
-              <div class="row">
+              <div class="row tpick">
               <!-- Jake -->
                   <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
                 <div class="col-xs-5 col-lg-5">
@@ -31,7 +31,7 @@
           </div>
 
 
-          <div class="selector-wrap" style="margin-top:30px">
+          <div class="selector-wrap">
             <span class="reg">I'm in the mood for</span>
           </div>
           
@@ -44,14 +44,18 @@
       <div class="row">
         <div class="col-lg-12 squares-list">
           <ul style="list-style-type:none; padding:0; margin: 0">
-            <li style="float:left; margin: 4px" ng-repeat="category in categories">
+            <li style="float:left;" ng-repeat="category in categories">
               <a href="categories/{{ category.title }}?time={{unixtime}}">
-                <div style="padding:8px; height:105px; width: 90px;" class="square">
-                  <div style="margin-top:20px; vertical-align:middle; color:white; text-align:center; vertical-align:baseline">
-                    <div style="font-size: 16px">
-                      {{ category.val }}
+                <div class="square">
+
+                    <div class="le-icon">
+                      <img src="/assets/{{ category.img }}" />
                     </div>
-                  </div>
+
+                    <div class="le-text">
+                      <span>{{ category.val }}</span>
+                    </div>
+
                 </div>
               </a>
             </li>

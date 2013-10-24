@@ -38,7 +38,7 @@ angular.module('ui.bootstrap.timepicker', [])
               "         </div>" +
               "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\">" +
               "             <div class=\"form-group\" ng-class=\"{'has-error': invalidMinutes}\" style=\"margin-bottom: 0px\">" +
-              // "                 <span class=\"input-group-addon\">:</span>" +
+              "                 <span style='position:absolute;margin-left:-7px'>:</span>" +
               "                 <input type=\"text\" ng-model=\"minutes\" ng-change=\"updateMinutes()\" class=\"form-control text-center\" ng-mousewheel=\"incrementMinutes()\" ng-readonly=\"readonlyInput\" maxlength=\"2\"> " +
               "             </div>" +
               "         </div>" +
