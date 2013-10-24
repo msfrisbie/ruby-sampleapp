@@ -1,4 +1,4 @@
-window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 'Outhouse.events.filter'])
+window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 'Outhouse.events.filter', 'truncate'])
   .controller('EventsController', ['$scope', '$routeParams', '$location', 'Events',
     function($scope, $routeParams, $location, Events) {
 
@@ -12,7 +12,7 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 
         // $scope.opacity = 
         var min = data.getMinutes();
         var hour = data.getHours();
-        $scope.opacity.val = Math.abs(((hour+(min/60))-12)/12);
+        $scope.opacity.val = Math.abs(((hour+(min/60))-12)/24);
         $scope.constop = 1;
         // console.log('min',data.getMinutes());
         // console.log('min',data.getHours());

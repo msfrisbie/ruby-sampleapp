@@ -76,7 +76,7 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         // $scope.opacity = 
         var min = data.getMinutes();
         var hour = data.getHours();
-        $scope.opacity.val = Math.abs(((hour+(min/60))-12)/12);
+        $scope.opacity.val = Math.abs(((hour+(min/60))-12)/24);
         $scope.constop = 1;
         // console.log('min',data.getMinutes());
         // console.log('min',data.getHours());
@@ -149,16 +149,19 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
 
       $scope.categories = [
         {
-          "val": "Good Eats",
-          "title": "Food"
+          "val": "New Foods & Desserts",
+          "title": "Food",
+          "img": "food.png"
         },
         {
           "val": "Going Shopping",
-          "title": "Shopping"
+          "title": "Shopping",
+          "img": "shop.png"
         },
         {
           "val": "Getting Outside",
-          "title": "Parks"
+          "title": "Parks",
+          "img": "tree.png"
         },
         // {
         //   "val": "",
@@ -181,16 +184,19 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         //  "title": "Music"
         // },
         {
-          "val": "Haunted Houses",
-         "title": "Haunted House"
+          "val": "Fall Fun",
+         "title": "Haunted House",
+          "img": "pumpkin.png"
         },
         {
           "val": "Berkeley Lectures",
-         "title": "Lecture"
+         "title": "Lecture",
+          "img": "prof.png"
         },
         {
           "val": "Quiet Study",
-         "title": "Study"
+         "title": "Study",
+          "img": "book.png"
         }
       ]
 

@@ -26,6 +26,23 @@ body {
 .selector-page .filter-heading .selector-wrap {
     margin-top:10px;
 }
+
+.selector-page .tpick input,.selector-page .tpick button{
+    background:transparent;
+    color:#fff;
+    font-weight:bolder;
+    border:0px;
+    font-size:22px;
+}
+
+.selector-page .tpick .glyphicon {
+    color:rgba(255,255,255,0.7);
+}
+
+.selector-page .tpick button{
+    
+}
+
 .selector-page .filter-heading .reg{
     color:rgba(255,255,255,0.7);
 }
@@ -118,22 +135,45 @@ body {
 }
 
 .selector-page .squares-list .square {
+    color:rgba(255,255,255,0.90);
+    font-weight:bolder;
     border: 2px solid rgba(255,255,255,0.3);
     background-color: rgba(255,255,255,0.2);
     margin-right:5px;
     margin-top:5px;
     width:85px;
-    height:85px;
+    height:100px;
     display:inline-block;
+    text-align:center;
 }
 
+.selector-page .squares-list .square .le-icon {
+    margin:9px 0 3px 0;
+}
+
+.selector-page .squares-list .square .le-icon img{
+    width:50px;
+}
+
+.selector-page .squares-list .square .le-text {
+    font-size: 12px;
+
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.selector-page .squares-list .square .le-text span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
 
 
 
 
 .headbar {
     position:relative;
-    margin-top:10px;
     padding:10px;
     padding-top:20px;/*remove when native*/
     margin-top:0px;
@@ -172,10 +212,16 @@ box-shadow: 0 0 5px #888;
 }
 
 .headbar .title {
+    margin-left:50px;
     padding-left:15px;
     text-align:center;
     font-weight:bolder;
     font-size:22px;
+    min-height:30px;
+}
+
+.page-page .headbar .title {
+    font-size:16px;
 }
 
 
@@ -273,7 +319,7 @@ box-shadow: 0 0 5px #888;
 
 .list-page .res .thumb img {
     width:100%;
-    margin:20px 0 0 5px;
+    margin:15px 0 0 5px;
     border-radius:4px;
 }
 
@@ -296,7 +342,7 @@ box-shadow: 0 0 5px #888;
 
 /* begin styling the individual modules */
 .list-page .res .info .title {
-    width:72%;
+    width:100%;
     padding-top:3px;
     font-size:16px;
     font-weight:bolder;
@@ -305,34 +351,34 @@ box-shadow: 0 0 5px #888;
     vertical-align:top;
 }
 
+.list-page .res .info .desc {
+
+    padding-top:5px;
+    line-height:1.1em;
+    color:#fff;
+    font-size:12px;
+}
+
 .list-page .res .info .dist {
-    width:26%;
+    width:30%;
     font-size:14px;
     font-weight:bolder;
-    text-align: right;
+    text-align: left;
+    padding-top:10px;
 
     display:inline-block;
     vertical-align:top;
 }
-
-.list-page .res .info .tags {
-    width:73%;
-    display:inline-block;
-    vertical-align:top;
-}
-
-.list-page .res .info .tags .tagd{
-    background:rgba(0,0,0,0.1);
-}
-
 
 .list-page .res .info .time {
-    line-height: 1.1em;
-    font-size:11px;
-    width:25%;
+    font-size:12px;
+    width:50%;
+    margin-left:15%;
     display:inline-block;
     vertical-align:top;
     text-align:right;
+    padding-top:13px;
+    font-style:italic;
 }
 
 .list-page .res .info .ratings {

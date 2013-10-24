@@ -1,4 +1,4 @@
-<div ng-init="findByCategory()" style="padding:20px;" class="list-page">
+<div ng-init="findByCategory()" class="list-page">
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
@@ -32,16 +32,16 @@
                       <div style="color:white" class="title">
                         {{ event.title }}
                       </div>
-                      <div style="color:white" class="dist">
-                        <img src="<%= asset_path "compass.png" %>" />
-                        {{ event.distance.toFixed(2) }} miles
+                    </div>
+                    <div class="stack">
+                      <div class="desc">
+                        {{ event.description | characters:110 }}
                       </div>
                     </div>
                     <div class="stack">
-                      <div class="tags">
-                        <span ng-repeat="tag in event.categories">
-                          <span class="label tagd">{{ tag }}</span> 
-                        </span>
+                      <div style="color:white" class="dist">
+                        <img src="<%= asset_path "compass.png" %>" height="12px" />
+                        {{ event.distance.toFixed(1) }} mi
                       </div>
                       <div style="color:white" class="time">
                         {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
