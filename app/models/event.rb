@@ -31,15 +31,16 @@ class Event
     time=time.to_i
     ctime = Time.at(time)
     hr = ctime.hour
+    mn = ctime.min
     wday = Date::ABBR_DAYNAMES[ctime.wday].downcase
 
     Event.or({:time_ranges.elem_match => {:start.lt => time,
                                           :end.gt => time}},
-             {:"schedule.#{wday}".elem_match => {:start.lte => hr * 100,
-                                                 :end.gte => hr * 100},
+             {:"schedule.#{wday}".elem_match => {:start.lte => hr * 100 + mn,
+                                                 :end.gte => hr * 100 + mn},
               :"schedule.time_range" => nil},
-             {:"schedule.#{wday}".elem_match => {:start.lte => hr * 100,
-                                                 :end.gte => hr * 100},
+             {:"schedule.#{wday}".elem_match => {:start.lte => hr * 100 + mn,
+                                                 :end.gte => hr * 100 + mn},
               :"schedule.time_range.start".lte => time,
               :"schedule.time_range.end".gte => time})
 
