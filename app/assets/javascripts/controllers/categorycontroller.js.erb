@@ -3,7 +3,9 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
     function($scope, $timeout, $routeParams, $location, Categories) {
 
       // date
-      $scope.$parent.opacity = {'val':0};
+      if (!$scope.$parent.opacity) {
+        $scope.$parent.opacity = {'val':0};
+      }
       $scope.constop = 1;
 
       $scope.datevisible = false;
