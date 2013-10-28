@@ -20,6 +20,9 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
 
       $scope.unixtime = Math.round($scope.mytime.getTime()/1000);
 
+      $scope.category = $routeParams.category;
+      $scope.activity = $routeParams.activity;
+
       $scope.hstep = 1;
       $scope.mstep = 30;
 

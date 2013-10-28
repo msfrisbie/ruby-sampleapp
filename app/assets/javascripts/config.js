@@ -6,9 +6,9 @@ window.app.config(['$routeProvider', '$locationProvider',
 
     $routeProvider
       .when('/',                              { templateUrl: 'main.html' })
-      .when('/categories',                    { templateUrl: 'categories.html' })
-      .when('/categories/:category',          { templateUrl: 'list.html' })
-      .when('/categories/:category/:eventId', { templateUrl: 'page.html' })
+      .when('/:category',                     { templateUrl: 'categories.html' })
+      .when('/:category/:activity',           { templateUrl: 'list.html' })
+      .when('/:category/:activity/:eventId',  { templateUrl: 'page.html' })
       .otherwise({ redirectTo: '/' });
   }]);
 
