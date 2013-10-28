@@ -1,15 +1,17 @@
 body {
     font-family: 'Raleway', sans-serif !important;
     color:#fff;
-    background:#444;
+}
+
+.bkg {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:-webkit-radial-gradient(5px 5px, circle farthest-corner, #ADD8FD, #2A75F9);
 }
 
 .selector-page, .cat-page, .list-page, .page-page {
-    background: asset-url("bluebkg.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;   
-    -moz-background-size: cover;   
-    -o-background-size: cover;   
-    background-size: cover;
+    min-height:700px;
 }
 
 .selector-page {
@@ -589,4 +591,178 @@ box-shadow: 0 0 5px #888;
   font-family: 'Glyphicons Halflings';
   src: font-url('bootstrap/fonts/glyphicons-halflings-regular.eot');
   src: font-url('bootstrap/fonts/glyphicons-halflings-regular.eot') format('embedded-opentype'), asset-data-url('bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), font-url('bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), font-url('bootstrap/fonts/glyphicons-halflings-regular.svg') format('svg');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.loader-push-top {
+    margin-top:50px;
+}
+
+.loader-box {
+    position:absolute;
+    width:80%;
+    height:50px;
+    top:500px;
+}
+
+
+
+
+
+
+
+
+
+
+.bubblingG {
+text-align: center;
+width:100%;
+height:50px;
+}
+
+.bubblingG span {
+display: inline-block;
+vertical-align: middle;
+width: 10px;
+height: 10px;
+margin: 25px auto;
+background: rgba(255,255,255,0.9);
+-moz-border-radius: 50px;
+-moz-animation: bubblingG 0.5s infinite alternate;
+-webkit-border-radius: 50px;
+-webkit-animation: bubblingG 0.5s infinite alternate;
+-ms-border-radius: 50px;
+-ms-animation: bubblingG 0.5s infinite alternate;
+-o-border-radius: 50px;
+-o-animation: bubblingG 0.5s infinite alternate;
+border-radius: 50px;
+animation: bubblingG 0.5s infinite alternate;
+}
+
+#bubblingG_1 {
+-moz-animation-delay: 0s;
+-webkit-animation-delay: 0s;
+-ms-animation-delay: 0s;
+-o-animation-delay: 0s;
+animation-delay: 0s;
+}
+
+#bubblingG_2 {
+-moz-animation-delay: 0.15s;
+-webkit-animation-delay: 0.15s;
+-ms-animation-delay: 0.15s;
+-o-animation-delay: 0.15s;
+animation-delay: 0.15s;
+}
+
+#bubblingG_3 {
+-moz-animation-delay: 0.3s;
+-webkit-animation-delay: 0.3s;
+-ms-animation-delay: 0.3s;
+-o-animation-delay: 0.3s;
+animation-delay: 0.3s;
+}
+
+@-moz-keyframes bubblingG {
+0% {
+width: 10px;
+height: 10px;
+background-color:rgba(255,255,255,0.9);
+-moz-transform: translateY(0);
+}
+
+100% {
+width: 24px;
+height: 24px;
+background-color:rgba(255,255,255,0.0);
+-moz-transform: translateY(-21px);
+}
+
+}
+
+@-webkit-keyframes bubblingG {
+0% {
+width: 10px;
+height: 10px;
+background-color:rgba(255,255,255,0.9);
+-webkit-transform: translateY(0);
+}
+
+100% {
+width: 24px;
+height: 24px;
+background-color:rgba(255,255,255,0.0);
+-webkit-transform: translateY(-21px);
+}
+
+}
+
+@-ms-keyframes bubblingG {
+0% {
+width: 10px;
+height: 10px;
+background-color:rgba(255,255,255,0.9);
+-ms-transform: translateY(0);
+}
+
+100% {
+width: 24px;
+height: 24px;
+background-color:rgba(255,255,255,0.0);
+-ms-transform: translateY(-21px);
+}
+
+}
+
+@-o-keyframes bubblingG {
+0% {
+width: 10px;
+height: 10px;
+background-color:rgba(255,255,255,0.9);
+-o-transform: translateY(0);
+}
+
+100% {
+width: 24px;
+height: 24px;
+background-color:rgba(255,255,255,0.0);
+-o-transform: translateY(-21px);
+}
+
+}
+
+@keyframes bubblingG {
+0% {
+width: 10px;
+height: 10px;
+background-color:rgba(255,255,255,0.9);
+transform: translateY(0);
+}
+
+100% {
+width: 24px;
+height: 24px;
+background-color:rgba(255,255,255,0.0);
+transform: translateY(-21px);
+}
+
 }
