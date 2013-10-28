@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body style="padding:0 0 300px 0 ;height:100%" class="selector-page" ng-app="Outhouse">
+<body style="padding:0 0 20px 0 ;height:100%" class="selector-page" ng-app="Outhouse">
 
 
 <div class="bkg"></div>
@@ -17,6 +17,7 @@
 <div style="position:fixed; width:100%;height:100%;background-color:black; opacity:{{opacity.val}};"></div>
 
   <div class="container" style="padding:0px;" ng-view=""></div>
+
 
 <%= yield %>
 
