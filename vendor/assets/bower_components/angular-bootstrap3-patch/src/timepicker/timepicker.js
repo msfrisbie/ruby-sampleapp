@@ -250,9 +250,16 @@ angular.module('ui.bootstrap.timepicker', [])
         scope.meridian = selected.getHours() < 12 ? meridians[0] : meridians[1];
       }
 
-      function addMinutes( minutes ) {
-        // var dt = new Date( selected.getTime() + minutes * 60000 );
-        var dt = new Date( selected.getTime() + minutes * 60000 );
+      function addMinutes( incMinutes ) {
+
+        var time = selected.getTime(),
+            min = new Date(time).getMinutes()
+        if (incMinutes>0) {
+          incMinutes -= min%30;
+        } else {
+          incMinutes += (60-min)%30;
+        }
+        var dt = new Date( time + incMinutes * 60000 );
         selected.setHours( dt.getHours(), dt.getMinutes() );
         refresh();
       }
