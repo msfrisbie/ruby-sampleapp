@@ -19,7 +19,6 @@
 // require angular-bootstrap/ui-bootstrap
 // require angular-bootstrap/ui-bootstrap-tpls
 //= require angular-bootstrap3-patch/src/timepicker/timepicker
-//= require angular-bootstrap3-patch/src/datepicker/datepicker
 // require bootstrap/dist/js/bootstrap
 //= require fastclick/lib/fastclick
 //= require_tree .
