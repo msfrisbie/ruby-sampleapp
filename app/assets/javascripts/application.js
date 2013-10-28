@@ -27,3 +27,9 @@
 window.addEventListener('load', function() {
     FastClick.attach(document.body);
 }, false);
+
+var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+
+if (iOS && !window.navigator.standalone) {
+	alert('You need to install this app');
+}
