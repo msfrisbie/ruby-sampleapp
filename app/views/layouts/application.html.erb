@@ -11,6 +11,9 @@
   <link rel="apple-touch-icon" sizes="120x120" href="<%= image_path 'icons/AppIcon60x60@2x.png' %>">
   <link rel="apple-touch-icon" sizes="152x152" href="<%= image_path 'icons/AppIcon76x76@2x.png' %>">
   <link rel="shortcut icon" href="<%= image_path 'icons/AppIcon29x29@2x.png' %>">
+
+  	<link rel="apple-touch-startup-image" href="<%= image_path 'loading/iphone.png' %>" />
+	<link rel="apple-touch-startup-image" href="<%= image_path 'loading/iphone5.png' %>" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
@@ -22,6 +25,24 @@
 
 
 <div style="position:fixed; width:100%;height:100%;background-color:black; opacity:{{opacity.val}};"></div>
+
+
+<div class="installer">
+	<div style="font-size:32px;font-weight:bolder;text-align:center">Get Outhouse</div>
+
+	<div style="font-size:24px;text-align:center">iPhone App</div>
+
+	<img class="appicon" src="<%= image_path 'icons/AppIcon76x76@2x.png' %>" />
+
+	<div style="margin-top:30px;font-size:16px">
+		Install by tapping the <img class="appicon" src="<%= image_path 'popout.png' %>" style="margin-top:-10px" /> button,<br />and then tap "Add to Home Screen"
+	</div>
+
+
+	<div style="margin-top:50px;font-size:11px">
+		<a href="#" onclick="$(this).closest('.installer').remove();">or continue to the web version</a>
+	</div>
+</div>
 
   <div class="container" style="padding:0px;" ng-view=""></div>
 

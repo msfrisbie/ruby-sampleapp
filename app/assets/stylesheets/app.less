@@ -3,11 +3,30 @@ body {
     color:#fff;
 }
 
+.installer {
+    padding:20px;
+    z-index:999;
+    position:fixed;
+    width:100%;
+    height:100%;
+    color:#555;
+    background:#fff;
+    text-align:center;
+    display:none;
+}
+
+.installer .appicon{
+    max-width:80px;
+    margin-top:20px;
+}
+
 .bkg {
     position:fixed;
     width:100%;
     height:100%;
     background:-webkit-radial-gradient(5px 5px, circle farthest-corner, #ADD8FD, #2A75F9);
+    background:-moz-radial-gradient(5px 5px, circle farthest-corner, #ADD8FD, #2A75F9);
+    background:radial-gradient(5px 5px, circle farthest-corner, #ADD8FD, #2A75F9);
 }
 
 .bottombox {

@@ -30,5 +30,7 @@ window.addEventListener('load', function() {
 var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
 
 if (iOS && !window.navigator.standalone) {
-	alert('You need to install this app');
+	$('.installer').show();
+} else if (iOS && window.navigator.standalone) {
+	$('body').append('<style>.headbar { padding-top:27px; } .headbar .back{ top:32px; }</style>');
 }
