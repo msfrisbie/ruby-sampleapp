@@ -5,27 +5,19 @@ window.angular.module('Outhouse.events.filter', [])
     return function(event, setTime) {
       // return 'it worked!'+input;
 
-      var isBetween = function(time,start,end) {
-        return (time >= start && time <= end) ;
-      }
+      var isBetween = function(time,range) { return (time >= range.start && time <= range.end) };
 
-      var dateFromUnix = function(unixtime) {
-        return new Date(unixtime*1000);
-      }
+      var dateFromUnix = function(unixtime) { return new Date(unixtime*1000) };
 
-      if (!event) {
-        return '';
-      }
+      var dateString = function(time,rangeTime) { return new Date(new Date(dateFromUnix(time).setHours(rangeTime/100)).setMinutes((rangeTime%100))).toLocaleTimeString() }
+
+      if (!event) { return '' }
 
       var str = null;
 
-      if (!setTime) {
-        setTime = new Date().getTime()/1000;
-      } 
+      if (!setTime) { setTime = new Date().getTime()/1000 }
 
-      if (!event.time_ranges) {
-        event.time_ranges = [];
-      }
+      if (!event.time_ranges) { event.time_ranges = [] }
 
       // cannot be an empty array or this does not work!
       if (event.time_ranges.length>0) {
@@ -33,33 +25,23 @@ window.angular.module('Outhouse.events.filter', [])
         event.time_ranges.forEach(function(range) {
           if (setTime >= range.start && setTime <= range.end) {
             str = ("" + 
-                    new Date(range.start*1000).toLocaleTimeString() +
+                    dateFromUnix(range.start).toLocaleTimeString() +
                     " - " + 
-                    new Date(range.end*1000).toLocaleTimeString());
+                    dateFromUnix(range.end).toLocaleTimeString());
           }
         })
       } else {
         // this event recurs weekly
-        if (!event.schedule.time_range) {
-          event.schedule.time_range = [];
-        }
+        if (!event.schedule.time_range) { event.schedule.time_range = [] }
 
-        var dateSet = {
-          "date": new Date(setTime*1000)
-        };
+        var dateSet = { "date": dateFromUnix(setTime) };
 
         dateSet['base100'] = dateSet.date.getHours()*100 + dateSet.date.getMinutes();
 
         event.schedule[["sun","mon","tue","wed","thu","fri","sat"][dateSet.date.getDay()]].forEach(function(range) {
-          if ((dateSet.base100 >= range.start 
-              && dateSet.base100 <= range.end) 
-            && ((event.schedule.time_range.length==0) 
-              || (setTime >= event.schedule.time_range.start 
-                && setTime <= event.schedule.time_range.end))) {
-            str = "" + 
-                  new Date(new Date(new Date(setTime*1000).setHours(range.start/100)).setMinutes((range.start%100))).toLocaleTimeString() +
-                  " - " + 
-                  new Date(new Date(new Date(setTime*1000).setHours(range.end/100)).setMinutes((range.end%100))).toLocaleTimeString() 
+          if ((isBetween(dateSet.base100,range) && event.schedule.time_range.length==0) 
+              || isBetween(setTime,event.schedule.time_range)) {
+            str = dateString(setTime,range.start) + " - " + dateString(setTime,range.end)
           }
         })
       }
