@@ -1,6 +1,6 @@
 namespace :outhouse do
   desc "Build the index.html file for the app"
-  task :build => :environment do
+  task :build do
     puts "Precompiling..."
     system "rake outhouse:precompile RAILS_ENV=staging"
 

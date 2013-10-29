@@ -15,7 +15,7 @@
   <link rel="apple-touch-startup-image" href="<%= image_path 'loading/iphone.png' %>" />
 	<link rel="apple-touch-startup-image" href="<%= image_path 'loading/iphone5.png' %>" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
   <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags unless Rails.env.staging? %>
 </head>
 
 <body style="padding:0 0 20px 0 ;height:100%" class="selector-page" ng-app="Outhouse">
@@ -52,7 +52,7 @@
 </body>
 <%= javascript_include_tag "application" %>
 
-<% cache do %>
+<% cache_unless Rails.env.staging? do %>
 <% Dir.glob(Rails.root.join('app','assets','javascripts', 'templates', '**/*.html')).each do |f| %>
 <script type="text/ng-template" id="<%= f.sub("#{Rails.root.join('app', 'assets', 'javascripts', 'templates')}/", '') %>">
 
