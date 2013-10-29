@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="152x152" href="<%= image_path 'icons/AppIcon76x76@2x.png' %>">
   <link rel="shortcut icon" href="<%= image_path 'icons/AppIcon29x29@2x.png' %>">
 
-  	<link rel="apple-touch-startup-image" href="<%= image_path 'loading/iphone.png' %>" />
+  <link rel="apple-touch-startup-image" href="<%= image_path 'loading/iphone.png' %>" />
 	<link rel="apple-touch-startup-image" href="<%= image_path 'loading/iphone5.png' %>" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= csrf_meta_tags %>
@@ -47,7 +47,7 @@
   <div class="container" style="padding:0px;" ng-view=""></div>
 
 
-<%= yield %>
+<%# yield %>
 
 </body>
 <%= javascript_include_tag "application" %>
