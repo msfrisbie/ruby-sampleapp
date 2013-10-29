@@ -21,6 +21,7 @@
 //= require angular-bootstrap3-patch/src/timepicker/timepicker
 // require bootstrap/dist/js/bootstrap
 //= require fastclick/lib/fastclick
+//= require angular-facebook/lib/angular-facebook
 //= require_tree .
 
 window.addEventListener('load', function() {

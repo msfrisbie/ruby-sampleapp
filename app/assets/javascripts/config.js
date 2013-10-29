@@ -6,18 +6,25 @@ window.app.config(['$routeProvider', '$locationProvider',
 
     $routeProvider
       .when('/',                              { templateUrl: 'main.html' })
+      .when('/login',                         { templateUrl: 'login.html' })
       .when('/:category',                     { templateUrl: 'categories.html' })
       .when('/:category/:activity',           { templateUrl: 'list.html' })
       .when('/:category/:activity/:eventId',  { templateUrl: 'page.html' })
       .otherwise({ redirectTo: '/' });
   }]);
 
-// window.app.config(['$httpProvider', function($httpProvider, Configuration) {
-//     delete $httpProvider.defaults.headers.common["X-Requested-With"];
-//     $httpProvider.defaults.headers.post["Content-Type"] = "application/json";
-// }]);
+window.app.config(['FacebookProvider',
+    function(FacebookProvider) {
+      var myAppId = '180973258759990';
 
-window.angular.module("template/timepicker/timepicker.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("template/timepicker/timepicker.html",
-    "JAKE");
-}]);
+      // You can set appId with setApp method
+      // FacebookProvider.setAppId('myAppId');
+
+      /**
+      * After setting appId you need to initialize the module.
+      * You can pass the appId on the init method as a shortcut too.
+      */
+      FacebookProvider.init(myAppId);
+     
+    }
+  ])

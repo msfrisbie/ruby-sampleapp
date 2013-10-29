@@ -20,6 +20,7 @@
 
 <body style="padding:0 0 20px 0 ;height:100%" class="selector-page" ng-app="Outhouse">
 
+<div id="fb-root"></div>
 
 <div class="bkg"></div>
 
@@ -50,15 +51,16 @@
 <%= yield %>
 
 </body>
+<!-- <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script> -->
 <%= javascript_include_tag "application" %>
 
 <% cache do %>
 <% Dir.glob(Rails.root.join('app','assets','javascripts', 'templates', '**/*.html')).each do |f| %>
 <script type="text/ng-template" id="<%= f.sub("#{Rails.root.join('app', 'assets', 'javascripts', 'templates')}/", '') %>">
 
+
 <%= render file: f %>
 </script>
 <% end %>
 <% end %>
-
 </html>
