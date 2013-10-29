@@ -15,7 +15,8 @@ angular.module('ui.bootstrap.timepicker', [])
     require:'?^ngModel',
     replace: true,
     scope: {},
-    templateUrl: 'template/timepicker/timepicker.html',
+    templateUrl: 'directives/timepicker.html',
+
     link: function(scope, element, attrs, ngModel) {
       if ( !ngModel ) {
         return; // do nothing if no ng-model
@@ -36,6 +37,8 @@ angular.module('ui.bootstrap.timepicker', [])
           minuteStep = parseInt(value, 10);
         });
       }
+
+
 
       // 12H / 24H mode
       scope.showMeridian = timepickerConfig.showMeridian;
@@ -85,7 +88,7 @@ angular.module('ui.bootstrap.timepicker', [])
       }
 
       // Input elements
-      var inputs = element.find('input'), hoursInputEl = inputs.eq(0), minutesInputEl = inputs.eq(1);
+      var inputs = element.find('select'), hoursInputEl = inputs.eq(0), minutesInputEl = inputs.eq(1);
 
       // Respond on mousewheel spin
       var mousewheel = (angular.isDefined(attrs.mousewheel)) ? scope.$eval(attrs.mousewheel) : timepickerConfig.mousewheel;
@@ -147,7 +150,9 @@ angular.module('ui.bootstrap.timepicker', [])
         scope.updateMinutes = function() {
           var minutes = getMinutesFromTemplate();
 
+
           if ( angular.isDefined(minutes) ) {
+
             selected.setMinutes( minutes );
             refresh( 'm' );
           } else {

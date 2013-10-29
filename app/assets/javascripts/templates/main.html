@@ -1,3 +1,17 @@
+<style>
+.selector-page .tpick select {
+    padding: 0 0 0 10px;
+    margin-left:20px;
+    margin-right:10px;
+}
+
+.selector-page .tpick button{
+  margin-left:10px;
+  margin-top:-2px;
+}
+
+</style>
+
 
 <div data-ng-controller="CategoriesController" ng-init="" style="padding:20px;" class="container">
   <div style="opacity:{{1}};padding:0px">
@@ -5,19 +19,18 @@
 
       <div class="row" style="margin-right:10px; margin-left:-15px; margin-top:-5px">
         <div class="col-lg-12 filter-heading">
+
           <div class="selector-wrap">
             <div class="reg">
               The time is
             </div>
           </div>
 
-          <div class="selector-wrap" style="margin:0px">
+          <div class="selector-wrap" style="margin:0px;width:100%">
             <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
-              <div class="row tpick">
+              <div class="row tpick" style="margin:0 auto">
               <!-- Jake -->
                   <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-                <div class="col-xs-5 col-lg-5">
-                </div>
               </div>
             </div>
 
