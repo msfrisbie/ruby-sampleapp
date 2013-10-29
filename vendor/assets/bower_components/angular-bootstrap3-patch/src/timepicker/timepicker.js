@@ -33,13 +33,15 @@ angular.module('ui.bootstrap.timepicker', [])
               "         </div>" +
               "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\">" +
               "             <div class=\"form-group\" ng-class=\"{'has-error': invalidHours}\" style=\"margin-bottom: 0px\">" +
-              "                 <input type=\"text\" ng-model=\"hours\" ng-change=\"updateHours()\" class=\"form-control text-center\" ng-mousewheel=\"incrementHours()\" ng-readonly=\"readonlyInput\" maxlength=\"2\"> " +
+              "                 <div>{{hours}}</div><select ng-model=\"hours\" ng-change=\"updateHours()\" class=\"form-control text-center\" ng-mousewheel=\"incrementHours()\" ng-readonly=\"readonlyInput\" maxlength=\"2\">" +
+              "<option value=\"01\">1</option><option value=\"02\">2</option><option value=\"03\">3</option><option value=\"04\">4</option><option value=\"05\">5</option><option value=\"06\">6</option><option value=\"07\">7</option><option value=\"08\">8</option><option value=\"09\">9</option><option value=\"10\">10</option><option value=\"11\">11</option><option value=\"12\">12</option></select>" +
               "             </div>" +
               "         </div>" +
               "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\">" +
               "             <div class=\"form-group\" ng-class=\"{'has-error': invalidMinutes}\" style=\"margin-bottom: 0px\">" +
-              "                 <span style='position:absolute;margin-left:-7px'>:</span>" +
-              "                 <input type=\"text\" ng-model=\"minutes\" ng-change=\"updateMinutes()\" class=\"form-control text-center\" ng-mousewheel=\"incrementMinutes()\" ng-readonly=\"readonlyInput\" maxlength=\"2\"> " +
+              "                 <span style='position:absolute;margin-left:10px'>:</span>" +
+              "                 <select ng-model=\"minutes\" ng-change=\"updateMinutes()\" class=\"form-control text-center\" ng-mousewheel=\"incrementMinutes()\" ng-readonly=\"readonlyInput\" maxlength=\"2\"> " +
+              "                 <option value=\"00\">00</option><option value=\"30\">30</option></select>" +
               "             </div>" +
               "         </div>" +
               "         <div style=\"padding-left:5px; padding-right:5px\" class=\"col-xs-3\">" +
@@ -80,6 +82,8 @@ angular.module('ui.bootstrap.timepicker', [])
           minuteStep = parseInt(value, 10);
         });
       }
+
+
 
       // 12H / 24H mode
       scope.showMeridian = timepickerConfig.showMeridian;
@@ -129,7 +133,7 @@ angular.module('ui.bootstrap.timepicker', [])
       }
 
       // Input elements
-      var inputs = element.find('input'), hoursInputEl = inputs.eq(0), minutesInputEl = inputs.eq(1);
+      var inputs = element.find('select'), hoursInputEl = inputs.eq(0), minutesInputEl = inputs.eq(1);
 
       // Respond on mousewheel spin
       var mousewheel = (angular.isDefined(attrs.mousewheel)) ? scope.$eval(attrs.mousewheel) : timepickerConfig.mousewheel;
@@ -191,7 +195,9 @@ angular.module('ui.bootstrap.timepicker', [])
         scope.updateMinutes = function() {
           var minutes = getMinutesFromTemplate();
 
+
           if ( angular.isDefined(minutes) ) {
+
             selected.setMinutes( minutes );
             refresh( 'm' );
           } else {

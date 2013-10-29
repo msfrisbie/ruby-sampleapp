@@ -34,7 +34,7 @@ body {
     position: fixed;
     bottom:0;
     padding:0 20px;
-    background:rgba(0,0,0,0.15);
+    background:rgba(0,0,0,0.45);
     width:100%;
 }
 
@@ -78,8 +78,9 @@ body {
     margin-top:10px;
 }
 
-.selector-page .tpick input,.selector-page .tpick button{
-    background:transparent;
+.selector-page .tpick select,.selector-page .tpick button{
+    opacity:1;
+    position:absolute;
     color:#fff;
     font-weight:bolder;
     border:0px;
@@ -88,6 +89,8 @@ body {
 
 .selector-page .tpick .glyphicon {
     color:rgba(255,255,255,0.7);
+    margin-right:-25px;
+    margin-top:-40px;
 }
 
 .selector-page .tpick button{
@@ -208,6 +211,7 @@ body {
 
 .selector-page .squares-list .square .le-icon img{
     width:50px;
+    min-height:40px;
 }
 
 .selector-page .squares-list .square .le-text {
