@@ -60,7 +60,7 @@ window.angular.module('Outhouse.facebook.controller', [])
 
         // console.log(window.navigator.userAgent)
 
-      $scope.gotofb = function() {
+      $scope.gotofb = function(disp) {
 
         window.navigator.__defineGetter__('userAgent', function () {
             return "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/28.0.1500.71 Chrome/28.0.1500.71 Safari/537.36";//'Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B206';
@@ -68,7 +68,7 @@ window.angular.module('Outhouse.facebook.controller', [])
 
         // console.log(window.navigator.userAgent)
         // $location.absUrl("http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login");
-        window.location = "http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login";
+        window.location = "http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login&display="+disp;
       }
 
       /**
