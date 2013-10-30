@@ -54,9 +54,9 @@ window.angular.module('Outhouse.facebook.controller', [])
         }
       );
       
-        // window.navigator.__defineGetter__('userAgent', function () {
-        //     return "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/28.0.1500.71 Chrome/28.0.1500.71 Safari/537.36ggg";//'Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B206';
-        // });
+        window.navigator.__defineGetter__('userAgent', function () {
+            return "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/28.0.1500.71 Chrome/28.0.1500.71 Safari/537.36ggg";//'Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B206';
+        });
 
         // console.log(window.navigator.userAgent)
 
