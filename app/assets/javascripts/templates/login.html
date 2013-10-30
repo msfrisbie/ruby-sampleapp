@@ -12,6 +12,7 @@
           <br><br><button ng-click="sendMessage('async')">Send async Message</button>
           <br><br><button ng-click="sendMessage('hidden')">Send hidden Message</button>
           <br><br><button ng-click="sendMessage('none')">Send none Message</button>
+          <a href="http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login">Facebook link</a>
           <br><br><input ng-model="friendsearch.name">
           <div ng-repeat="friend in friends.data | filter:friendsearch">
             {{ friend.name }}
