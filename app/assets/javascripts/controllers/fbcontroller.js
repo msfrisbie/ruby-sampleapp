@@ -65,8 +65,8 @@ window.angular.module('Outhouse.facebook.controller', [])
         Facebook.ui({
           method: 'send',
           to: '100002541791520', //<img src="http://graph.facebook.com/100002541791520/picture">
-          link: 'getouthouse.herokuapp.com',
-          display: 'touch'
+          link: 'getouthouse.herokuapp.com'//,
+          //display: 'touch'
           // description: 'desc'//,
           // message: 'message123123123',
           // data: 'tracking information for the user'
