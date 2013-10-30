@@ -1,9 +1,10 @@
-<div data-ng-controller="FacebookController" data-ng-init="initLogin()">
+<div data-ng-controller="FacebookController" data-ng-init="">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           
           <button ng-click="logStatus()">Log status</button>
+          <button ng-click="sendMessage()">Send Message</button>
           <input ng-model="friendsearch.name">
           <div ng-repeat="friend in friends.data | filter:friendsearch">
             {{ friend.name }}

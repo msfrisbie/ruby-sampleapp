@@ -15,9 +15,10 @@ window.angular.module('Outhouse.facebook.controller', [])
       // Defining user logged status
       if (!$scope.logged) {
         $scope.logged = false;
-      } else if ($scope.logged) {
-        $scope.login();
       }
+      // } else if ($scope.logged) {
+      //   $scope.login();
+      // }
       
       // And some fancy flags to display messages upon user status change
       $scope.byebye = false;
@@ -56,7 +57,19 @@ window.angular.module('Outhouse.facebook.controller', [])
       
       $scope.logStatus = function() {
         Facebook.getLoginStatus(function(response) {
-            console.log(response)
+            console.log('resp',response)
+        })
+      }
+
+      $scope.sendMessage = function() {
+        Facebook.ui({
+          method: 'send',
+          to: '100002541791520', //<img src="http://graph.facebook.com/100002541791520/picture">
+          link: 'getouthouse.herokuapp.com',
+          title: 'title',
+          description: 'desc'//,
+          // message: 'message123123123',
+          // data: 'tracking information for the user'
         })
       }
 
@@ -64,7 +77,7 @@ window.angular.module('Outhouse.facebook.controller', [])
         Facebook.getLoginStatus(function(response) {
           if (response.status == 'connected') {
             $scope.logged = true;
-            // $scope.me(); 
+            $scope.me(); 
           }
         });
       }
