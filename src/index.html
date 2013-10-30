@@ -14,7 +14,7 @@
 
   <link rel="apple-touch-startup-image" href="http://s3.amazonaws.com/static.getouthouse.com/assets/loading/iphone-bbb6891200f49b4a119f83205f979ad5.png" />
 	<link rel="apple-touch-startup-image" href="http://s3.amazonaws.com/static.getouthouse.com/assets/loading/iphone5-add668eb7f7e38a0ecd47822bd3ff2f0.png" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
-  <link href="http://s3.amazonaws.com/static.getouthouse.com/stylesheets/application.css" media="all" rel="stylesheet" />
+  <link href="http://s3.amazonaws.com/static.getouthouse.com/assets/application-ea71310dd1b44d4ffb8dfe67a831162c.css" media="all" rel="stylesheet" />
   
 </head>
 
@@ -53,6 +53,199 @@
 <!-- <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script> -->
 <script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-887e54ebcec4a9fad4df0e0d16e51597.js"></script>
 
+<script type="text/ng-template" id="subcategories.html">
+
+
+<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
+  <div style="opacity:{{1}};padding:0px">
+    <div class="row">
+      <div class="headbar">
+        <div class="back">
+          <a href="/?time={{unixtime}}">
+            Back
+          </a>
+        </div>
+
+        <div class="title">
+          {{ category }}
+        </div>
+      </div>
+      <div class="col-lg-12 squares-list">
+        <ul style="list-style-type:none; padding:0; margin: 0">
+          <li style="float:left;" ng-repeat="category in categories">
+            <a href="{{cat}}/{{ category.title }}?time={{unixtime}}">
+              <div class="square">
+
+                <div class="le-icon">
+                  <img src="{{ category.img }}" />
+                </div>
+
+                <div class="le-text">
+                  <span>{{ category.val }}</span>
+                </div>
+
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</script>
+<script type="text/ng-template" id="page.html">
+
+
+<div data-ng-controller="EventsController" ng-init="findOne()" class="page-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mainpage">
+
+          <div class="headbar">
+            <div class="back">
+              <a href="/{{ category }}/{{ activity }}?time={{ unixtime }}">
+                Back
+              </a>
+            </div>
+
+            <div class="title">
+              {{ event.title }}
+            </div>
+          </div>
+
+
+          <div class="prof-info">
+            <div class="covimg" style="background:url({{ event.image_url }});background-size: cover; background-position:center; ">
+              <div class="time">
+                {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
+              </div>
+            </div>
+
+            <div class="wraps">
+
+              <div class="map-section">
+                <div class="gradient">
+                  <div class="address">
+                    {{ event.address }}
+                  </div>
+                  <div class="dist">
+                    <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" style="height:10px" /> {{ event.distance.toFixed(2) }} mi<br />
+                    <a href="{{ event.map_url }}" target="_blank">Go to map</a>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="desc">
+                {{ event.description }}
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+    </div> <!-- /container -->
+</div>
+</script>
+<script type="text/ng-template" id="categories.html">
+
+
+<div data-ng-controller="CategoriesController" class="cat-page" ng-init="findCategories()">
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-lg-12 result-pane">
+
+        <div class="headbar">
+          <div class="back">
+            <a href="/?time={{ unixtime }}">
+              Back
+            </a>
+          </div>
+
+          <div class="title">
+            Getting Outside
+          </div>
+        </div>
+
+        <div class="result-wrap">
+
+          <a href="/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
+            <div class="result">
+              <div class="wrap">
+                <img src="{{ activity.img }}" />
+                {{ activity.val }}
+              </div>
+            </div>
+          </a>
+
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div> <!-- /container -->
+</div>
+
+</script>
+<script type="text/ng-template" id="login.html">
+
+
+<div data-ng-controller="FacebookController" data-ng-init="">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          
+          <button ng-click="logStatus()">Log status</button>
+          <br><br><button ng-click="sendMessage('iframe')">Send iframe Message</button>
+          <br><br><button ng-click="sendMessage('popup')">Send popup Message</button>
+          <br><br><button ng-click="sendMessage('dialog')">Send dialog Message</button>
+          <br><br><button ng-click="sendMessage('page')">Send page Message</button>
+          <br><br><button ng-click="sendMessage('touch')">Send touch Message</button>
+          <br><br><button ng-click="sendMessage('async')">Send async Message</button>
+          <br><br><button ng-click="sendMessage('hidden')">Send hidden Message</button>
+          <br><br><button ng-click="sendMessage('none')">Send none Message</button>
+          <!-- <a href="http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login">Facebook link</a> -->
+          <button ng-click="gotofb()">Go to fb</button>
+          
+          <br><br><input ng-model="friendsearch.name">
+          <div ng-repeat="friend in friends.data | filter:friendsearch">
+            {{ friend.name }}
+            <img src="http://graph.facebook.com/{{friend.id}}/picture">
+          </div>
+          
+          <div>
+            <div class="alert alert-info" data-ng-show="salutation">Hello, {{user.name}}</div>
+            <div class="alert alert-warning" data-ng-show="byebye">Bye bye :'(</div>
+          </div>
+          
+          <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+          <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
+          
+          <div>
+            <debug val="user"></debug>
+          </div>
+          
+          <button ng-click="friends()">Friends</button>
+
+          <div>
+            <debug val="friends"></debug>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+</script>
 <script type="text/ng-template" id="main.html">
 
 
@@ -81,7 +274,6 @@
           <div class="selector-wrap">
             <div class="reg">
               The time is
-              <a href="mailto:?Subject=Hello%20again&body=asdasdasd">Link</a>
             </div>
           </div>
 
@@ -207,108 +399,6 @@
      </div>
 </span>
 </script>
-<script type="text/ng-template" id="page.html">
-
-
-<div data-ng-controller="EventsController" ng-init="findOne()" class="page-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 mainpage">
-
-          <div class="headbar">
-            <div class="back">
-              <a href="/{{ category }}/{{ activity }}?time={{ unixtime }}">
-                Back
-              </a>
-            </div>
-
-            <div class="title">
-              {{ event.title }}
-            </div>
-          </div>
-
-
-          <div class="prof-info">
-            <div class="covimg" style="background:url({{ event.image_url }});background-size: cover; background-position:center; ">
-              <div class="time">
-                {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
-              </div>
-            </div>
-
-            <div class="wraps">
-
-              <div class="map-section">
-                <div class="gradient">
-                  <div class="address">
-                    {{ event.address }}
-                  </div>
-                  <div class="dist">
-                    <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" style="height:10px" /> {{ event.distance.toFixed(2) }} mi<br />
-                    <a href="{{ event.map_url }}" target="_blank">Go to map</a>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="desc">
-                {{ event.description }}
-              </div>
-
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
-
-
-
-    </div> <!-- /container -->
-</div>
-</script>
-<script type="text/ng-template" id="subcategories.html">
-
-
-<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
-  <div style="opacity:{{1}};padding:0px">
-    <div class="row">
-      <div class="headbar">
-        <div class="back">
-          <a href="/?time={{unixtime}}">
-            Back
-          </a>
-        </div>
-
-        <div class="title">
-          {{ category }}
-        </div>
-      </div>
-      <div class="col-lg-12 squares-list">
-        <ul style="list-style-type:none; padding:0; margin: 0">
-          <li style="float:left;" ng-repeat="category in categories">
-            <a href="{{cat}}/{{ category.title }}?time={{unixtime}}">
-              <div class="square">
-
-                <div class="le-icon">
-                  <img src="{{ category.img }}" />
-                </div>
-
-                <div class="le-text">
-                  <span>{{ category.val }}</span>
-                </div>
-
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-</script>
 <script type="text/ng-template" id="list.html">
 
 
@@ -400,97 +490,6 @@
 
     </div> <!-- /container -->
 
-</div>
-</script>
-<script type="text/ng-template" id="categories.html">
-
-
-<div data-ng-controller="CategoriesController" class="cat-page" ng-init="findCategories()">
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-lg-12 result-pane">
-
-        <div class="headbar">
-          <div class="back">
-            <a href="/?time={{ unixtime }}">
-              Back
-            </a>
-          </div>
-
-          <div class="title">
-            Getting Outside
-          </div>
-        </div>
-
-        <div class="result-wrap">
-
-          <a href="/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
-            <div class="result">
-              <div class="wrap">
-                <img src="{{ activity.img }}" />
-                {{ activity.val }}
-              </div>
-            </div>
-          </a>
-
-        </div>
-        
-      </div>
-
-    </div>
-
-  </div> <!-- /container -->
-</div>
-
-</script>
-<script type="text/ng-template" id="login.html">
-
-
-<div data-ng-controller="FacebookController" data-ng-init="">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          
-          <button ng-click="logStatus()">Log status</button>
-          <br><br><button ng-click="sendMessage('iframe')">Send iframe Message</button>
-          <br><br><button ng-click="sendMessage('popup')">Send popup Message</button>
-          <br><br><button ng-click="sendMessage('dialog')">Send dialog Message</button>
-          <br><br><button ng-click="sendMessage('page')">Send page Message</button>
-          <br><br><button ng-click="sendMessage('touch')">Send touch Message</button>
-          <br><br><button ng-click="sendMessage('async')">Send async Message</button>
-          <br><br><button ng-click="sendMessage('hidden')">Send hidden Message</button>
-          <br><br><button ng-click="sendMessage('none')">Send none Message</button>
-          <!-- <a href="http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login">Facebook link</a> -->
-          <button ng-click="gotofb()">Go to fb</button>
-          
-          <br><br><input ng-model="friendsearch.name">
-          <div ng-repeat="friend in friends.data | filter:friendsearch">
-            {{ friend.name }}
-            <img src="http://graph.facebook.com/{{friend.id}}/picture">
-          </div>
-          
-          <div>
-            <div class="alert alert-info" data-ng-show="salutation">Hello, {{user.name}}</div>
-            <div class="alert alert-warning" data-ng-show="byebye">Bye bye :'(</div>
-          </div>
-          
-          <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
-          <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
-          
-          <div>
-            <debug val="user"></debug>
-          </div>
-          
-          <button ng-click="friends()">Friends</button>
-
-          <div>
-            <debug val="friends"></debug>
-          </div>
-
-        </div>
-      </div>
-    </div>
 </div>
 </script>
 </html>
