@@ -66,8 +66,8 @@ window.angular.module('Outhouse.facebook.controller', [])
           method: 'send',
           to: '100002541791520', //<img src="http://graph.facebook.com/100002541791520/picture">
           link: 'getouthouse.herokuapp.com',
-          redirect_url: "http://getouthouse.herokuapp.com/login"
-          //display: 'touch'
+          // redirect_uri: "http://getouthouse.herokuapp.com/login"
+          display: 'page'
           // description: 'desc'//,
           // message: 'message123123123',
           // data: 'tracking information for the user'
