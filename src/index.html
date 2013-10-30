@@ -51,7 +51,7 @@
 
 </body>
 <!-- <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script> -->
-<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-6aab12254856cd0dc35dc86ad3c02681.js"></script>
+<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-887e54ebcec4a9fad4df0e0d16e51597.js"></script>
 
 <script type="text/ng-template" id="main.html">
 
@@ -461,7 +461,9 @@
           <br><br><button ng-click="sendMessage('async')">Send async Message</button>
           <br><br><button ng-click="sendMessage('hidden')">Send hidden Message</button>
           <br><br><button ng-click="sendMessage('none')">Send none Message</button>
-          <a href="http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login">Facebook link</a>
+          <!-- <a href="http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login">Facebook link</a> -->
+          <button ng-click="gotofb()">Go to fb</button>
+          
           <br><br><input ng-model="friendsearch.name">
           <div ng-repeat="friend in friends.data | filter:friendsearch">
             {{ friend.name }}
