@@ -28,6 +28,7 @@ end
 
 gem "mongoid", github: "mongoid/mongoid"
 gem "geocoder", "~> 1.1.8" # Geocoder must come after mongoid
+gem "rack-cors", "~> 0.2.8"
 gem "unicorn", "~> 4.6"
 
 group :production do

@@ -143,6 +143,8 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
+    rack-cors (0.2.8)
+      rack
     rack-livereload (0.3.15)
       rack
     rack-test (0.6.2)
@@ -226,6 +228,7 @@ DEPENDENCIES
   newrelic_moped
   newrelic_rpm (~> 3.6)
   ngmin-rails (>= 0.4)
+  rack-cors (~> 0.2.8)
   rack-livereload (~> 0.3.15)
   rails (= 4.0.0)
   rails_stdout_logging
