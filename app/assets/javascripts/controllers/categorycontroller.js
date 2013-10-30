@@ -61,7 +61,6 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         } else {
           $scope.categories = Categories.getActiveCats("root");
         }
-        console.log($scope.categories);
       };
 
       $scope.categories = [];
