@@ -61,12 +61,13 @@ window.angular.module('Outhouse.facebook.controller', [])
         })
       }
 
-      $scope.sendMessage = function() {
+      $scope.sendMessage = function(disp) {
         Facebook.ui({
           method: 'send',
           to: '100002541791520', //<img src="http://graph.facebook.com/100002541791520/picture">
-          link: 'getouthouse.herokuapp.com'//,
-          //display: 'touch'
+          link: 'getouthouse.herokuapp.com',
+          // redirect_uri: "http://getouthouse.herokuapp.com/login"
+          display: disp
           // description: 'desc'//,
           // message: 'message123123123',
           // data: 'tracking information for the user'

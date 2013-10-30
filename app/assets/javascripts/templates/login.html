@@ -4,8 +4,15 @@
         <div class="col-lg-8 col-lg-offset-2">
           
           <button ng-click="logStatus()">Log status</button>
-          <button ng-click="sendMessage()">Send Message</button>
-          <input ng-model="friendsearch.name">
+          <br><br><button ng-click="sendMessage('iframe')">Send iframe Message</button>
+          <br><br><button ng-click="sendMessage('popup')">Send popup Message</button>
+          <br><br><button ng-click="sendMessage('dialog')">Send dialog Message</button>
+          <br><br><button ng-click="sendMessage('page')">Send page Message</button>
+          <br><br><button ng-click="sendMessage('touch')">Send touch Message</button>
+          <br><br><button ng-click="sendMessage('async')">Send async Message</button>
+          <br><br><button ng-click="sendMessage('hidden')">Send hidden Message</button>
+          <br><br><button ng-click="sendMessage('none')">Send none Message</button>
+          <br><br><input ng-model="friendsearch.name">
           <div ng-repeat="friend in friends.data | filter:friendsearch">
             {{ friend.name }}
             <img src="http://graph.facebook.com/{{friend.id}}/picture">
