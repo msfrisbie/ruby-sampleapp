@@ -52,38 +52,19 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         $scope.mytime = null;
       };
 
-      $scope.categories = [
-        {
-          "val": "New Foods & Desserts",
-          "title": "Food",
-          "img": "<%= image_path 'food.png' %>"
-        },
-        {
-          "val": "Going Shopping",
-          "title": "Shopping",
-          "img": "<%= image_path 'shop.png' %>"
-        },
-        {
-          "val": "Getting Outside",
-          "title": "Parks",
-          "img": "<%= image_path 'tree.png' %>"
-        },
-        {
-          "val": "Fall Fun",
-         "title": "Haunted House",
-          "img": "<%= image_path 'pumpkin.png' %>"
-        },
-        {
-          "val": "Berkeley Lectures",
-         "title": "Lecture",
-          "img": "<%= image_path 'prof.png' %>"
-        },
-        {
-          "val": "Quiet Study",
-         "title": "Study",
-          "img": "<%= image_path 'book.png' %>"
+
+      $scope.findCategories = function(){
+        if($routeParams.activity){
+          $scope.categories = Categories.getActiveCats($routeParams.activity.toLowerCase());
+        } else if($routeParams.category){
+          $scope.categories = Categories.getActiveCats($routeParams.category.toLowerCase());
+        } else {
+          $scope.categories = Categories.getActiveCats("root");
         }
-      ]
+        console.log($scope.categories);
+      };
+
+      $scope.categories = [];
 
       $scope.find = function (query) {
         Categories.query(query, function (categories) {
