@@ -51,7 +51,7 @@
 
 </body>
 <!-- <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script> -->
-<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-887e54ebcec4a9fad4df0e0d16e51597.js"></script>
+<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-fad8af8537f6f0c495f24a5035bb7711.js"></script>
 
 <script type="text/ng-template" id="main.html">
 
@@ -452,17 +452,26 @@
         <div class="col-lg-8 col-lg-offset-2">
           
           <button ng-click="logStatus()">Log status</button>
-          <br><br><button ng-click="sendMessage('iframe')">Send iframe Message</button>
+<!--           <br><br><button ng-click="sendMessage('iframe')">Send iframe Message</button>
           <br><br><button ng-click="sendMessage('popup')">Send popup Message</button>
           <br><br><button ng-click="sendMessage('dialog')">Send dialog Message</button>
           <br><br><button ng-click="sendMessage('page')">Send page Message</button>
           <br><br><button ng-click="sendMessage('touch')">Send touch Message</button>
           <br><br><button ng-click="sendMessage('async')">Send async Message</button>
           <br><br><button ng-click="sendMessage('hidden')">Send hidden Message</button>
-          <br><br><button ng-click="sendMessage('none')">Send none Message</button>
+          <br><br><button ng-click="sendMessage('none')">Send none Message</button> -->
+
+          <br><br><button ng-click="gotofb('iframe')">Send iframe Message</button>
+          <br><br><button ng-click="gotofb('popup')">Send popup Message</button>
+          <br><br><button ng-click="gotofb('dialog')">Send dialog Message</button>
+          <br><br><button ng-click="gotofb('page')">Send page Message</button>
+          <br><br><button ng-click="gotofb('touch')">Send touch Message</button>
+          <br><br><button ng-click="gotofb('async')">Send async Message</button>
+          <br><br><button ng-click="gotofb('hidden')">Send hidden Message</button>
+          <br><br><button ng-click="gotofb('none')">Send none Message</button>
           <!-- <a href="http://www.facebook.com/dialog/send?app_id=180973258759990&name=Get%20Outhouse&link=http://getouthouse.herokuapp.com&redirect_uri=http://getouthouse.herokuapp.com/login">Facebook link</a> -->
-          <button ng-click="gotofb()">Go to fb</button>
-          
+          <!-- <button ng-click="gotofb()">Go to fb</button> -->
+
           <br><br><input ng-model="friendsearch.name">
           <div ng-repeat="friend in friends.data | filter:friendsearch">
             {{ friend.name }}
