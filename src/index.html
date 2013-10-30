@@ -14,7 +14,7 @@
 
   <link rel="apple-touch-startup-image" href="http://s3.amazonaws.com/static.getouthouse.com/assets/loading/iphone-bbb6891200f49b4a119f83205f979ad5.png" />
 	<link rel="apple-touch-startup-image" href="http://s3.amazonaws.com/static.getouthouse.com/assets/loading/iphone5-add668eb7f7e38a0ecd47822bd3ff2f0.png" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
-  <link href="http://s3.amazonaws.com/static.getouthouse.com/stylesheets/application.css" media="all" rel="stylesheet" />
+  <link href="http://s3.amazonaws.com/static.getouthouse.com/assets/application-ea71310dd1b44d4ffb8dfe67a831162c.css" media="all" rel="stylesheet" />
   
 </head>
 
@@ -51,222 +51,49 @@
 
 </body>
 <!-- <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script> -->
-<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-15ff5694aa5b54ecc4924226ba7709b4.js"></script>
+<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-77f84cba5f6c896c91f76ae90c0d0b8e.js"></script>
 
-<script type="text/ng-template" id="main.html">
-
-
-<style>
-.selector-page .tpick select {
-    padding: 0 0 0 10px;
-    margin-left:20px;
-    margin-right:10px;
-}
-
-.selector-page .tpick button{
-  margin-left:10px;
-  margin-top:-2px;
-}
-
-</style>
+<script type="text/ng-template" id="categories.html">
 
 
-<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
-  <div style="opacity:{{1}};padding:0px">
-      <!-- Example row of columns -->
+<div data-ng-controller="CategoriesController" class="cat-page" ng-init="findCategories()">
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-lg-12 result-pane">
 
-      <div class="row" style="margin-right:10px; margin-left:-15px; margin-top:-5px">
-        <div class="col-lg-12 filter-heading">
-
-          <div class="selector-wrap">
-            <div class="reg">
-              The time is
-              <a href="mailto:?Subject=Hello%20again&body=asdasdasd">Link</a>
-            </div>
+        <div class="headbar">
+          <div class="back">
+            <a href="/?time={{ unixtime }}">
+              Back
+            </a>
           </div>
 
-          <div class="selector-wrap" style="margin:0px;width:100%">
-            <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
-              <div class="row tpick" style="margin:0 auto">
-              <!-- Jake -->
-                  <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-              </div>
-            </div>
-
-<!--             <div class="reg" ng-hide="datevisible" ng-click="datevisible=!datevisible">
-              +
-            </div>
-            <div class="reg" ng-show="datevisible" ng-click="datevisible=!datevisible">
-              -
-            </div>
-            <input ng-show="datevisible" value="{{ datestr() }}" type="date" ng-model="date"/> -->
+          <div class="title">
+            Getting Outside
           </div>
-
-
-          <div class="selector-wrap" style="margin-top:-10px">
-            <span class="reg">I'm in the mood for</span>
-          </div>
-          
         </div>
 
-      </div>
+        <div class="result-wrap">
 
-
-
-      <div class="row">
-        <div class="col-lg-12 squares-list">
-          <ul style="list-style-type:none; padding:0; margin: 0">
-            <li style="float:left;" ng-repeat="category in categories">
-              <a href="{{ category.title }}?time={{unixtime}}">
-                <div class="square">
-
-                    <div class="le-icon">
-                      <img src="{{ category.img }}" />
-                    </div>
-
-                    <div class="le-text">
-                      <span>{{ category.val }}</span>
-                    </div>
-
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-  </div>
-</div>
-
-
-
-
-
-
-<div class="bottombox">
-  <div class="logo">
-    outhouse
-  </div>
-
-  <div class="invite">
-    <a href="#">Invite friends (10 left)</a>
-  </div>
-
-</div>
-
-</script>
-<script type="text/ng-template" id="directives/timepicker.html">
-
-
- <span>
-     <div class="row">
-         <div class="col-xs-1 text-center">
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="incrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="incrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
-         </div>
-         <div class="col-xs-3 spacer"> </div>
-     </div>
-     <div class="row">
-         <div class="col-xs-1 text-center spacer">
-         </div>
-         <div class="col-xs-3 spacer">
-             <div class="form-group" ng-class="{'has-error': invalidHours}" style="margin-bottom: 0px">
-                <select ng-model="hours" ng-change="updateHours()" class="form-control text-center" ng-mousewheel="incrementHours()" ng-readonly="readonlyInput" maxlength="2">
-                    <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
-                </select>
-                <div>{{hours}}</div>
-             </div>
-         </div>
-         <div class="col-xs-3 spacer">
-             <div class="form-group" ng-class="{'has-error': invalidMinutes}" style="margin-bottom: 0px">
-                 <span style='position:absolute;margin-left:-25px'>:</span>
-                 <select ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center" ng-mousewheel="incrementMinutes()" ng-readonly="readonlyInput" maxlength="2"> 
-                 <option value="00">00</option><option value="30">30</option></select>
-                 <div>{{minutes}}</div>
-             </div>
-         </div>
-         <div class="col-xs-3 spacer" style="margin-left:-20px">
-             <button style="vertical-align:top" ng-click="toggleMeridian()" class="btn btn-default text-center" ng-show="showMeridian">{{meridian}}</button>
-         </div>
-     </div>
-     <div class="row">
-         <div class="col-xs-1 text-center ">
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="decrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="decrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
-         </div>
-         <div class="col-xs-3"> </div>
-     </div>
-</span>
-</script>
-<script type="text/ng-template" id="page.html">
-
-
-<div data-ng-controller="EventsController" ng-init="findOne()" class="page-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 mainpage">
-
-          <div class="headbar">
-            <div class="back">
-              <a href="/{{ category }}/{{ activity }}?time={{ unixtime }}">
-                Back
-              </a>
-            </div>
-
-            <div class="title">
-              {{ event.title }}
-            </div>
-          </div>
-
-
-          <div class="prof-info">
-            <div class="covimg" style="background:url({{ event.image_url }});background-size: cover; background-position:center; ">
-              <div class="time">
-                {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
+          <a href="/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
+            <div class="result">
+              <div class="wrap">
+                <img src="{{ activity.img }}" />
+                {{ activity.val }}
               </div>
             </div>
-
-            <div class="wraps">
-
-              <div class="map-section">
-                <div class="gradient">
-                  <div class="address">
-                    {{ event.address }}
-                  </div>
-                  <div class="dist">
-                    <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" style="height:10px" /> {{ event.distance.toFixed(2) }} mi<br />
-                    <a href="{{ event.map_url }}" target="_blank">Go to map</a>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="desc">
-                {{ event.description }}
-              </div>
-
-            </div>
-          </div>
-
+          </a>
 
         </div>
-
+        
       </div>
 
+    </div>
 
-
-    </div> <!-- /container -->
+  </div> <!-- /container -->
 </div>
+
 </script>
 <script type="text/ng-template" id="subcategories.html">
 
@@ -402,47 +229,56 @@
 
 </div>
 </script>
-<script type="text/ng-template" id="categories.html">
+<script type="text/ng-template" id="directives/timepicker.html">
 
 
-<div data-ng-controller="CategoriesController" class="cat-page" ng-init="findCategories()">
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-lg-12 result-pane">
-
-        <div class="headbar">
-          <div class="back">
-            <a href="/?time={{ unixtime }}">
-              Back
-            </a>
-          </div>
-
-          <div class="title">
-            Getting Outside
-          </div>
-        </div>
-
-        <div class="result-wrap">
-
-          <a href="/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
-            <div class="result">
-              <div class="wrap">
-                <img src="{{ activity.img }}" />
-                {{ activity.val }}
-              </div>
-            </div>
-          </a>
-
-        </div>
-        
-      </div>
-
-    </div>
-
-  </div> <!-- /container -->
-</div>
-
+ <span>
+     <div class="row">
+         <div class="col-xs-1 text-center">
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="incrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="incrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
+         </div>
+         <div class="col-xs-3 spacer"> </div>
+     </div>
+     <div class="row">
+         <div class="col-xs-1 text-center spacer">
+         </div>
+         <div class="col-xs-3 spacer">
+             <div class="form-group" ng-class="{'has-error': invalidHours}" style="margin-bottom: 0px">
+                <select ng-model="hours" ng-change="updateHours()" class="form-control text-center" ng-mousewheel="incrementHours()" ng-readonly="readonlyInput" maxlength="2">
+                    <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                </select>
+                <div>{{hours}}</div>
+             </div>
+         </div>
+         <div class="col-xs-3 spacer">
+             <div class="form-group" ng-class="{'has-error': invalidMinutes}" style="margin-bottom: 0px">
+                 <span style='position:absolute;margin-left:-25px'>:</span>
+                 <select ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center" ng-mousewheel="incrementMinutes()" ng-readonly="readonlyInput" maxlength="2"> 
+                 <option value="00">00</option><option value="30">30</option></select>
+                 <div>{{minutes}}</div>
+             </div>
+         </div>
+         <div class="col-xs-3 spacer" style="margin-left:-20px">
+             <button style="vertical-align:top" ng-click="toggleMeridian()" class="btn btn-default text-center" ng-show="showMeridian">{{meridian}}</button>
+         </div>
+     </div>
+     <div class="row">
+         <div class="col-xs-1 text-center ">
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="decrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="decrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
+         </div>
+         <div class="col-xs-3"> </div>
+     </div>
+</span>
 </script>
 <script type="text/ng-template" id="login.html">
 
@@ -490,5 +326,169 @@
       </div>
     </div>
 </div>
+</script>
+<script type="text/ng-template" id="page.html">
+
+
+<div data-ng-controller="EventsController" ng-init="findOne()" class="page-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mainpage">
+
+          <div class="headbar">
+            <div class="back">
+              <a href="/{{ category }}/{{ activity }}?time={{ unixtime }}">
+                Back
+              </a>
+            </div>
+
+            <div class="title">
+              {{ event.title }}
+            </div>
+          </div>
+
+
+          <div class="prof-info">
+            <div class="covimg" style="background:url({{ event.image_url }});background-size: cover; background-position:center; ">
+              <div class="time">
+                {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
+              </div>
+            </div>
+
+            <div class="wraps">
+
+              <div class="map-section">
+                <div class="gradient">
+                  <div class="address">
+                    {{ event.address }}
+                  </div>
+                  <div class="dist">
+                    <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" style="height:10px" /> {{ event.distance.toFixed(2) }} mi<br />
+                    <a href="{{ event.map_url }}" target="_blank">Go to map</a>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="desc">
+                {{ event.description }}
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+    </div> <!-- /container -->
+</div>
+</script>
+<script type="text/ng-template" id="main.html">
+
+
+<style>
+.selector-page .tpick select {
+    padding: 0 0 0 10px;
+    margin-left:20px;
+    margin-right:10px;
+}
+
+.selector-page .tpick button{
+  margin-left:10px;
+  margin-top:-2px;
+}
+
+</style>
+
+
+<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
+  <div style="opacity:{{1}};padding:0px">
+      <!-- Example row of columns -->
+
+      <div class="row" style="margin-right:10px; margin-left:-15px; margin-top:-5px">
+        <div class="col-lg-12 filter-heading">
+
+          <div class="selector-wrap">
+            <div class="reg">
+              The time is
+              <a href="mailto:?Subject=Hello%20again&body=asdasdasd">Link</a>
+            </div>
+          </div>
+
+          <div class="selector-wrap" style="margin:0px;width:100%">
+            <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
+              <div class="row tpick" style="margin:0 auto">
+              <!-- Jake -->
+                  <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+              </div>
+            </div>
+
+<!--             <div class="reg" ng-hide="datevisible" ng-click="datevisible=!datevisible">
+              +
+            </div>
+            <div class="reg" ng-show="datevisible" ng-click="datevisible=!datevisible">
+              -
+            </div>
+            <input ng-show="datevisible" value="{{ datestr() }}" type="date" ng-model="date"/> -->
+          </div>
+
+
+          <div class="selector-wrap" style="margin-top:-10px">
+            <span class="reg">I'm in the mood for</span>
+          </div>
+          
+        </div>
+
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-lg-12 squares-list">
+          <ul style="list-style-type:none; padding:0; margin: 0">
+            <li style="float:left;" ng-repeat="category in categories">
+              <a href="{{ category.title }}?time={{unixtime}}">
+                <div class="square">
+
+                    <div class="le-icon">
+                      <img src="{{ category.img }}" />
+                    </div>
+
+                    <div class="le-text">
+                      <span>{{ category.val }}</span>
+                    </div>
+
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<div class="bottombox">
+  <div class="logo">
+    outhouse
+  </div>
+
+  <div class="invite">
+    <a href="#">Invite friends (10 left)</a>
+  </div>
+
+</div>
+
 </script>
 </html>
