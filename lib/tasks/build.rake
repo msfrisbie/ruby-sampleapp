@@ -1,5 +1,5 @@
 namespace :outhouse do
-  desc "Build the index.html file for the app"
+  desc "Precompile and build index.html"
   task :build do
     puts "Precompiling..."
     system "rake outhouse:precompile RAILS_ENV=staging"
@@ -8,6 +8,7 @@ namespace :outhouse do
     system "rake outhouse:makeindex RAILS_ENV=staging"
   end
 
+  desc "Make the index.html file for the app"
   task :makeindex => :environment do
     if Rails.env.staging?
       # Copy assets over

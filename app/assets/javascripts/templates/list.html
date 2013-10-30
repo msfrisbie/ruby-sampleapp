@@ -12,7 +12,7 @@
             </div>
 
             <div class="title">
-              {{ category }}
+              {{ activity }}
             </div>
           </div>
 
@@ -29,7 +29,7 @@
               </span>
             </div>
 
-            <a href="/{{ category }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
+            <a href="/{{ category }}/{{ activity }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
 
               <div class="res">
                 <div class="wrapper">

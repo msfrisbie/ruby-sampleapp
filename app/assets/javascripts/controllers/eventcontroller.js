@@ -26,7 +26,7 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 
       $scope.activity = $routeParams.activity;
 
       $scope.findByCategory = function () {
-        Events.getByCategory({category: $scope.category, time: $routeParams.time}, function (events) {
+        Events.getByCategory({category: $scope.activity, time: $routeParams.time}, function (events) {
           $scope.events = events;
           $scope.loaderVisible = false;
         })
