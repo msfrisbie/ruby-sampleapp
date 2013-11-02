@@ -20,8 +20,10 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
 
       $scope.unixtime = Math.round($scope.mytime.getTime()/1000);
 
-      $scope.category = $routeParams.category;
-      $scope.subcategory = $routeParams.subcategory;
+      // if (!!$routeParams.category) {
+      //   $scope.category = $scope.categories[$routeParams.category];
+      // }
+      // $scope.subcategory = $scope.category.subcategories[$routeParams.subcategory];
 
       $scope.hstep = 1;
       $scope.mstep = 30;
@@ -53,9 +55,12 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
       };
 
 
-      $scope.findCategories = function(){
+      $scope.findCategories = function() {
         $scope.categories = Categories.getAllCategories();
-
+        
+        if (!!$routeParams.category) {
+          $scope.category = $scope.categories[$routeParams.category];
+        }
         // $scope.categories = Categories.getActiveCategories($scope.category,$scope.subcategory)
 
         // if($routeParams.subcategory){
@@ -67,7 +72,7 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         // }
       };
 
-      $scope.categories = [];
+      // $scope.categories = [];
 
       // $scope.find = function (query) {
       //   Categories.query(query, function (categories) {
