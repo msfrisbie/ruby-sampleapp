@@ -9,6 +9,7 @@ class Event
   field :description, type: String
   field :categories, type: Array
   field :coordinates, type: Array
+  field :cathash, type: Hash
 
   geocoded_by :address
 
