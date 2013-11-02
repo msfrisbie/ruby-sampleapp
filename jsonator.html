@@ -2,6 +2,7 @@
 <body>
 <div class="well" ng-app="events" ng-controller="Events">
   <form class="form-inline">
+    <table><tr><td>
     <table>
       <tr>
         <td>
@@ -19,14 +20,21 @@
         <td>Description: </td>
         <td><textarea ng-model="event.description"></textarea></td>
       </tr>
+      <tr><td colspan="2"><hr /></td></tr>
       <tr>
         <td>Categories (comma delimited, no spaces): </td>
-        <td><input type="text" ng-model="categories_str"></td>
+        <td><textarea ng-model="categories_str" ></textarea></td>
       </tr>
+      <tr ng-repeat="category in event.categories">
+        <td>{{ category }}</td>
+        <td><input type="text" ng-model="event.cathash[category]"></td>
+      </tr>
+      <tr><td colspan="2"><hr /></td></tr>
       <tr>
         <td>Address: </td>
         <td><input type="text" ng-model="event.address"></td>
       </tr>
+      <tr><td colspan="2"><hr /></td></tr>
       <tr>
         <td>Image URL: </td>
         <td><input type="text" ng-model="event.image_url"></td>
@@ -34,9 +42,14 @@
       <tr>
         <td></td>
         <td>
-          <img src="{{ event.image_url }}" />
+          <img height="200px" src="{{ event.image_url }}" />
         </td>
       </tr>
+    </table>
+    </td>
+    <td valign="top">
+    <div style="padding-left:200px;">
+    <table>
       <tr>
         <td>
           Start Date: <input type="date" value="2013-10-01" ng-model="interval.startdate">
@@ -104,6 +117,10 @@
         </td>
       </tr>
     </table>
+    </div>
+    </td>
+    </tr>
+    </table>
 <!--     Start Date: <input type="date" ng-model="interval.startdate"><br>
     Start Time: <input type="time" ng-model="interval.starttime"><br>
     Start Date: <input type="date" ng-model="interval.enddate"><br>
@@ -147,7 +164,7 @@
                        endtime: "18:00"};
 
       if (!$scope.event) {
-        $scope.event = {}
+        $scope.event = {"cathash":{}}
       }
 
       $scope.import = function() {
@@ -262,6 +279,23 @@
       $scope.$watch('categories_str', function(data) {
         if (!!data) {
           $scope.event.categories = data.split(',');
+          if (!$scope.event.cathash) { 
+            $scope.event.cathash = {};
+          }
+          $scope.event.categories.forEach(function(data) {
+            if (!$scope.event.cathash[data]) {
+              $scope.event.cathash[data] = "";
+            }
+          })
+        }
+        for(var cat in $scope.event.cathash) {
+          if ($scope.event.cathash.hasOwnProperty(cat)) {
+            if ($scope.event.categories.indexOf(cat)==-1) {
+              // console.log(cat)
+              // console.log($scope.event.categories[cat])
+              delete $scope.event.cathash[cat];
+            }
+          }
         }
       })
 
