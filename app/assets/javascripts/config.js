@@ -1,9 +1,7 @@
 'use strict';
 
-window.app.config(['$routeProvider', '$locationProvider',
-  function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
-
+window.app.config(['$routeProvider',
+  function ($routeProvider) {
     $routeProvider
       .when('/',                              { templateUrl: 'main.html' })
       .when('/login',                         { templateUrl: 'login.html' })
@@ -28,3 +26,12 @@ window.app.config(['FacebookProvider',
      
     }
   ])
+
+// Needed in order for links to work on Android.
+window.app.config(['$compileProvider', '$httpProvider',
+  function($compileProvider, $httpProvider){
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel|content):/);
+
+    // $httpProvider.defaults.useXDomain = true;
+    // delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  }]);

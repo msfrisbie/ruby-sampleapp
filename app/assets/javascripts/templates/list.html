@@ -6,7 +6,7 @@
 
           <div class="headbar">
             <div class="back">
-              <a href="/{{ category }}?time={{unixtime}}">
+              <a href="#/{{ category }}?time={{unixtime}}">
                 Back
               </a>
             </div>
@@ -29,12 +29,12 @@
               </span>
             </div>
 
-            <a href="/{{ category }}/{{ activity }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
+            <a href="#/{{ category }}/{{ activity }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
 
               <div class="res">
                 <div class="wrapper">
                   <div class="thumb">
-                    <img src="{{ event.image_url }}" />
+                    <img ng-src="{{ event.image_url }}" />
                   </div>
                   <div class="info">
                     <div class="stack">

@@ -6,7 +6,7 @@
 
         <div class="headbar">
           <div class="back">
-            <a href="/?time={{ unixtime }}">
+            <a href="#/?time={{ unixtime }}">
               Back
             </a>
           </div>
@@ -18,7 +18,7 @@
 
         <div class="result-wrap">
 
-          <a href="/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
+          <a href="#/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
             <div class="result">
               <div class="wrap">
                 <img src="{{ activity.img }}" />
