@@ -6,8 +6,8 @@ window.app.config(['$routeProvider',
       .when('/',                              { templateUrl: 'main.html' })
       .when('/login',                         { templateUrl: 'login.html' })
       .when('/:category',                     { templateUrl: 'categories.html' })
-      .when('/:category/:activity',           { templateUrl: 'list.html' })
-      .when('/:category/:activity/:eventId',  { templateUrl: 'page.html' })
+      .when('/:category/:subcategory',           { templateUrl: 'list.html' })
+      .when('/:category/:subcategory/:eventId',  { templateUrl: 'page.html' })
       .otherwise({ redirectTo: '/' });
   }]);
 

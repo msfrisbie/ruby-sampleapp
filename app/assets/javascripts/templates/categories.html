@@ -12,25 +12,24 @@
           </div>
 
           <div class="title">
-            {{category}}
+            {{ categories[category].title }}
           </div>
         </div>
 
         <div class="result-wrap"> 
-
-          <a href="#/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
+          <a href="#/{{ categories[category].link }}/{{ subcategory.link }}?time={{ unixtime }}" ng-repeat="subcategory in categories[category].subcategories">
             <div class="result">
               <div class="wrap">
 
                 <div class="left-hold">
                   <div class="img-hold">
-                    <img src="{{ activity.img }}" />
+                    <img src="{{ subcategory.img }}" />
                   </div>
                 </div>
 
                 <div class="con-hold">
                   <div class="title">
-                    {{ activity.val }}
+                    {{ subcategory.title }}
                   </div>
                   
                   <div class="body">

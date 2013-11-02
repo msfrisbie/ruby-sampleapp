@@ -21,7 +21,7 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
       $scope.unixtime = Math.round($scope.mytime.getTime()/1000);
 
       $scope.category = $routeParams.category;
-      $scope.subcategory = $routeParams.subcategory;
+      $scope.activity = $routeParams.activity;
 
       $scope.hstep = 1;
       $scope.mstep = 30;
@@ -52,26 +52,42 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         $scope.mytime = null;
       };
 
+      $scope.categories = [
+        {
+          "val": "New Foods & Desserts",
+          "title": "Food",
+          "img": "<%= image_path 'food.png' %>"
+        },
+        {
+          "val": "Going Shopping",
+          "title": "Shopping",
+          "img": "<%= image_path 'shop.png' %>"
+        },
+        {
+          "val": "Getting Outside",
+          "title": "Parks",
+          "img": "<%= image_path 'tree.png' %>"
+        },
+        {
+          "val": "Fall Fun",
+         "title": "Haunted House",
+          "img": "<%= image_path 'pumpkin.png' %>"
+        },
+        {
+          "val": "Berkeley Lectures",
+         "title": "Lecture",
+          "img": "<%= image_path 'prof.png' %>"
+        },
+        {
+          "val": "Quiet Study",
+         "title": "Study",
+          "img": "<%= image_path 'book.png' %>"
+        }
+      ]
 
-      $scope.findCategories = function(){
-        $scope.categories = Categories.getAllCategories();
-
-        // $scope.categories = Categories.getActiveCategories($scope.category,$scope.subcategory)
-
-        // if($routeParams.subcategory){
-        //   $scope.categories = Categories.getActiveCats($routeParams.subcategory.toLowerCase());
-        // } else if($routeParams.category){
-        //   $scope.categories = Categories.getActiveCats($routeParams.category.toLowerCase());
-        // } else {
-        //   $scope.categories = Categories.getActiveCats("root");
-        // }
+      $scope.find = function (query) {
+        Categories.query(query, function (categories) {
+          $scope.categories = categories;
+        });
       };
-
-      $scope.categories = [];
-
-      // $scope.find = function (query) {
-      //   Categories.query(query, function (categories) {
-      //     $scope.categories = categories;
-      //   });
-      // };
     }])
