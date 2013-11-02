@@ -10,6 +10,8 @@ window.angular.module('Outhouse.categories.controller', ['Outhouse.categories.se
         var min = data.getMinutes();
         var hour = data.getHours();
         $rootScope.opacity.val = Math.abs(((hour+(min/60))-12)/24);
+        // gaussian, doesnt work yet
+        // $rootScope.opacity.val = (1/(6.28*0.25))*Math.exp(-Math.pow((((hour+(min/60))-12)*(5/12)),2)/(0.5));
       })
 
       if (!$routeParams.time) {
