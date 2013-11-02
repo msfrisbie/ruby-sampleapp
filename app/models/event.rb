@@ -16,6 +16,7 @@ class Event
 
   after_validation :geocode, :set_map_url, if: :address_changed?
   after_validation :set_cat_slugs, if: :categories_changed?
+  after_validation :parameterize_cathash, if: :cathash_changed?
 
   embeds_many :time_ranges
   embeds_one :schedule
@@ -65,6 +66,10 @@ class Event
 
   def self.by_category_around(category, time)
     Event.by_category(category).around(time)
+  end
+
+  def parameterize_cathash
+    self.cathash = cathash.reduce({}){|h,(k,v)| h[k.parameterize] = v; h}
   end
 
   def set_cat_slugs
