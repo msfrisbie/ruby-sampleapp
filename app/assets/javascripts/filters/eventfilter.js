@@ -34,19 +34,37 @@ window.angular.module('Outhouse.events.filter', [])
         // this event recurs weekly
         if (!event.schedule.time_range) { event.schedule.time_range = [] }
 
-        var dateSet = { "date": dateFromUnix(setTime) };
+        var dayArr = ["sun","mon","tue","wed","thu","fri","sat"]
+          , dateSet = { "date": dateFromUnix(setTime) }
+          , dayIndex = dateSet.date.getDay();
 
         dateSet['base100'] = dateSet.date.getHours()*100 + dateSet.date.getMinutes();
 
-        event.schedule[["sun","mon","tue","wed","thu","fri","sat"][dateSet.date.getDay()]].forEach(function(range) {
+        event.schedule[dayArr[dayIndex]].forEach(function(range) {
           if ((isBetween(dateSet.base100,range) && event.schedule.time_range.length==0) 
               || isBetween(setTime,event.schedule.time_range)) {
-            str = dateString(setTime,range.start) + " - " + dateString(setTime,range.end)
+            var globalStart = range.start 
+              , globalEnd = range.end;
+            if (globalStart==0) {
+              event.schedule[dayArr[(dayIndex+6)%7]].forEach(function(subrange) {
+                if (subrange.end==2400) {
+                  globalStart = subrange.start;
+                }
+              })
+            }
+            if (globalEnd==2400) {
+              event.schedule[dayArr[(dayIndex+1)%7]].forEach(function(subrange) {
+                if (subrange.start==0) {
+                  globalEnd = subrange.end;
+                }
+              })
+            }
+            str = dateString(setTime,globalStart) + " - " + dateString(setTime,globalEnd)
           }
         })
       }
       return str;
-      console.log('This should never be reached!');
+      // console.log('This should never be reached!');
     }
   })
   .filter('stripSeconds', function() {
