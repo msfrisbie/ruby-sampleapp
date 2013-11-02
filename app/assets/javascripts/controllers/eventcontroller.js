@@ -1,6 +1,6 @@
 window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 'Outhouse.events.filter', 'truncate'])
-  .controller('EventsController', ['$scope', '$rootScope', '$routeParams', '$location', 'Events',
-    function($scope, $rootScope, $routeParams, $location, Events) {
+  .controller('EventsController', ['$scope', '$rootScope', '$routeParams', '$location', 'Events', 'Categories',
+    function($scope, $rootScope, $routeParams, $location, Events, Categories) {
 
       $scope.loaderVisible = true;
 
@@ -22,11 +22,14 @@ window.angular.module('Outhouse.events.controller', ['Outhouse.events.service', 
 
       $scope.unixtime = $routeParams.time;
 
-      $scope.category = $routeParams.category;
-      $scope.activity = $routeParams.activity;
+      $scope.category = Categories.getAllCategories()[$routeParams.category];
+      $scope.subcategory = $scope.category.subcategories[$routeParams.subcategory];
+
+      // $scope.subcategory = Categories.getAllCategories()[$scope.category].subcategories[$scope.subcategory];
+
 
       $scope.findByCategory = function () {
-        Events.getByCategory({category: $scope.activity, time: $routeParams.time}, function (events) {
+        Events.getByCategory({category: $scope.subcategory, time: $routeParams.time}, function (events) {
           $scope.events = events;
           $scope.loaderVisible = false;
         })

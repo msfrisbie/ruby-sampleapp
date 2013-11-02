@@ -2,217 +2,233 @@
 
 window.angular.module('Outhouse.categories.service', [])
   .factory('Categories', [function () {
-    var cats = [
-      {
-        "val": "Good Eats",
-        "title": "Food",
+    var categories = {
+      "good-eats": {
+        "link": "good-eats",
+        "title": "Good Eats",
         "img": "<%= image_path 'food.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "root"
+        "subcategories": {
+          "study-snacks": {
+            "link": "study-snacks",
+            "title": "Study Snacks",
+            "img": "<%= image_path 'food.png' %>"
+          },
+          "quick-but-good": {
+            "link": "quick-but-good",
+            "title": "Quick But Good",
+            "img": "<%= image_path 'food.png' %>"
+          },
+          "sit-down-stay-a-while": {
+            "link": "sit-down-stay-a-while",
+            "title": "Sit Down... Stay A While",
+            "img": "<%= image_path 'food.png' %>"
+          },
+          "hot-date": {
+            "link": "hot-date",
+            "title": "Hot Date",
+            "img": "<%= image_path 'food.png' %>"
+          },
+          "sweet-tooth": {
+            "link": "sweet-tooth",
+            "title": "Sweet Tooth",
+            "img": "<%= image_path 'food.png' %>"
+          },
+          "brunch-time-is-all-the-time": {
+            "link": "brunch-time-is-all-the-time",
+            "title": "Brunch Time Is All The Time",
+            "img": "<%= image_path 'food.png' %>"
+          },
+          "feeling-adventurous": {
+            "link": "feeling-adventurous",
+            "title": "Feeling Adventurous",
+            "img": "<%= image_path 'food.png' %>"
+          }
+        }
       },
-      {
-        "val": "Pop Some Tags",
-        "title": "Shopping",
-        "img": "<%= image_path 'shop.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "root"
-      },
-      {
-        "val": "Getting Outside",
-        "title": "Parks",
-        "img": "<%= image_path 'tree.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "root"
-      },
-      {
-        "val": "Quick Trips And Activities",
-        "title": "Haunted House",
-        "img": "<%= image_path 'explore.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "root"
-      },
-      {
-        "val": "Study Corners",
-        "title": "Study",
+      "study-corners": {
+        "link": "study-corners",
+        "title": "Study Corners",
         "img": "<%= image_path 'book.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "root"
+        "subcategories": {
+          "study-with-some-background-noise": {
+            "link": "study-with-some-background-noise",
+            "title": "Study with some background noise",
+            "img": "<%= image_path 'book.png' %>"
+          },
+          "study-in-absolute-silence": {
+            "link": "study-in-absolute-silence",
+            "title": "Study in absolute silence",
+            "img": "<%= image_path 'book.png' %>"
+          }
+        }
       },
-      {
-        "val": "Happy Hour, Every Hour",
-        "title": "Study",
+      "get-outside": {
+        "link": "get-outside",
+        "title": "Get Outside",
+        "img": "<%= image_path 'tree.png' %>",
+        "subcategories": {
+          "walk-it-out": {
+            "link": "walk-it-out",
+            "title": "Walk it out",
+            "img": "<%= image_path 'tree.png' %>"
+          },
+          "get-wet": {
+            "link": "get-wet",
+            "title": "Get wet",
+            "img": "<%= image_path 'tree.png' %>"
+          },
+          "take-a-hike": {
+            "link": "take-a-hike",
+            "title": "Take a hike",
+            "img": "<%= image_path 'tree.png' %>"
+          },
+          "hangout-spots": {
+            "link": "hangout-spots",
+            "title": "Hangout spots",
+            "img": "<%= image_path 'tree.png' %>"
+          },
+          "sports": {
+            "link": "sports",
+            "title": "Sports",
+            "img": "<%= image_path 'tree.png' %>"
+          },
+          "scenic-views": {
+            "link": "scenic-views",
+            "title": "Scenic views",
+            "img": "<%= image_path 'tree.png' %>"
+          }
+        }
+      },
+      "explore": {
+        "link": "explore",
+        "title": "Explore",
+        "img": "<%= image_path 'tree.png' %>",
+        "subcategories": {
+          "eat-a-chode": {
+            "link": "eat-a-chode",
+            "title": "Eat a chode",
+            "img": "<%= image_path 'tree.png' %>"
+          }
+        }
+      },
+      "happy-hour-every-hour": {
+        "link": "happy-hour-every-hour",
+        "title": "Happy Hour, Every Hour",
         "img": "<%= image_path 'beer.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "root"
+        "subcategories": {
+          "hang-out": {
+            "link": "hang-out",
+            "title": "Hang out",
+            "img": "<%= image_path 'beer.png' %>"
+          },
+          "specialty-drinks": {
+            "link": "specialty-drinks",
+            "title": "Specialty drinks",
+            "img": "<%= image_path 'beer.png' %>"
+          },
+          "rage": {
+            "link": "rage",
+            "title": "Rage",
+            "img": "<%= image_path 'beer.png' %>"
+          },
+          "berkeley-favorites": {
+            "link": "berkeley-favorites",
+            "title": "Berkeley favorites",
+            "img": "<%= image_path 'beer.png' %>"
+          }
+        }
       },
-      {
-        "val": "New Foods & Desserts",
-        "title": "Food",
-        "img": "http://1.s3.envato.com/files/57402247/fap-09.jpg",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "food"
-      },
-      {
-        "val": "New Foods & Desserts",
-        "title": "Food",
-        "img": "http://1.s3.envato.com/files/57402247/fap-09.jpg",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "food"
-      },
-      {
-        "val": "Going Shopping",
-        "title": "Shopping",
+      "pop-some-tags": {
+        "link": "pop-some-tags",
+        "title": "Pop Some Tags",
         "img": "<%= image_path 'shop.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "shopping"
+        "subcategories": {
+          "only-got-20-in-my-pocket": {
+            "link": "only-got-20-in-my-pocket",
+            "title": "Only got $20 in my pocket",
+            "img": "<%= image_path 'shop.png' %>"
+          }
+        }
       },
-      {
-        "val": "Getting Outside",
-        "title": "Parks",
-        "img": "<%= image_path 'tree.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "parks"
-      },
-      {
-        "val": "Fall Fun",
-        "title": "Haunted House",
-        "img": "<%= image_path 'pumpkin.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "haunted house"
-      },
-      {
-        "val": "Berkeley Lectures",
-        "title": "Lecture",
-        "img": "<%= image_path 'prof.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "lecture"
-      },
-      {
-        "val": "Quiet Study",
-        "title": "Study",
-        "img": "<%= image_path 'book.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "study"
+      "go-green": {
+        "link": "go-green",
+        "title": "Go Green",
+        "img": "<%= image_path 'explore.png' %>",
+        "subcategories": {
+          "enjoy-green-outdoors": {
+            "link": "enjoy-green-outdoors",
+            "title": "Enjoy green outdoors",
+            "img": "<%= image_path 'shop.png' %>"
+          },
+          "best-smoke-shops": {
+            "link": "best-smoke-shops",
+            "title": "Best smoke shops",
+            "img": "<%= image_path 'shop.png' %>"
+          },
+          "munchies-locations": {
+            "link": "munchies-locations",
+            "title": "Munchies locations",
+            "img": "<%= image_path 'shop.png' %>"
+          },
+          "smoke-dat-chron-chron": {
+            "link": "smoke-dat-chron-chron",
+            "title": "Smoke dat chron chron",
+            "img": "<%= image_path 'shop.png' %>"
+          }
+        }
       }
-    ];
-
-    var isBetween = function(time, range) {
-      return (time >= range.start && time <= range.end)
     };
 
+    // var isBetween = function(time, range) {
+    //   return (time >= range.start && time <= range.end)
+    // };
+
     return {
-      getActiveCats: function(parent){
-        var arr = []
-        var d = new Date()
-        var t = d.getHours() * 100 + d.getMinutes()
-        var dow = ["sun","mon","tue","wed","thu","fri","sat"][d.getDay()];
+      // getActiveCats: function(parent){
+      //   var arr = []
+      //   var d = new Date()
+      //   var t = d.getHours() * 100 + d.getMinutes()
+      //   var dow = ["sun","mon","tue","wed","thu","fri","sat"][d.getDay()];
 
-        angular.forEach(cats, function (cat){
-          if(cat.parent === parent){
-            angular.forEach(cat.schedule[dow], function (r){
-              if(isBetween(t, r)){
-                arr.push(cat);
-              }
-            })
-          }
-        });
+      //   angular.forEach(cats, function (cat){
+      //     if(cat.parent === parent){
+      //       angular.forEach(cat.schedule[dow], function (r){
+      //         if(isBetween(t, r)){
+      //           arr.push(cat);
+      //         }
+      //       })
+      //     }
+      //   });
 
-        return arr;
+      //   return arr;
+      // },
+
+      // getTopLevelAttrs: function(obj) {
+      //   var arr = [];
+      //   for (var property in obj) {
+      //     if (obj.hasOwnProperty(property) {
+      //       arr.push(property);
+      //     })
+      //   }
+      //   return arr;
+      // },
+
+      getActiveCategories: function(category,subcategory) {
+        if (!category) {
+          return categories;
+          // return getTopLevelAttrs(categories);
+        } else if (!!category && !subcategory) {
+          return categories[category].subcategories
+          // return getTopLevelAttrs(categories[category].subcategories)
+        } else {
+          return categories[category].subcategories[subcategory];
+          //return getTopLevelAttrs
+          return [];
+        }
       },
 
-      getAllCats: function(){
-        return cats;
+      getAllCategories: function(){
+        return categories;
       }
     };
   }]);
