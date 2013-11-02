@@ -10,10 +10,12 @@ class Event
   field :categories, type: Array
   field :coordinates, type: Array
   field :cathash, type: Hash
+  field :cat_slugs, type: Array
 
   geocoded_by :address
 
   after_validation :geocode, :set_map_url, if: :address_changed?
+  after_validation :set_cat_slugs, if: :categories_changed?
 
   embeds_many :time_ranges
   embeds_one :schedule
@@ -58,11 +60,15 @@ class Event
   end
 
   def self.by_category(category)
-    Event.where(:categories => /\A#{Regexp.escape(category)}\z/i)
+    Event.where(:cat_slugs => /\A#{Regexp.escape(category)}\z/i)
   end
 
   def self.by_category_around(category, time)
     Event.by_category(category).around(time)
+  end
+
+  def set_cat_slugs
+    self.cat_slugs = categories.map(&:parameterize)
   end
 
   def set_map_url
