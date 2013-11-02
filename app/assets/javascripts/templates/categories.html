@@ -12,17 +12,32 @@
           </div>
 
           <div class="title">
-            Getting Outside
+            {{category}}
           </div>
         </div>
 
-        <div class="result-wrap">
+        <div class="result-wrap"> 
 
           <a href="#/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
             <div class="result">
               <div class="wrap">
-                <img src="{{ activity.img }}" />
-                {{ activity.val }}
+
+                <div class="left-hold">
+                  <div class="img-hold">
+                    <img src="{{ activity.img }}" />
+                  </div>
+                </div>
+
+                <div class="con-hold">
+                  <div class="title">
+                    {{ activity.val }}
+                  </div>
+                  
+                  <div class="body">
+                    Try out the latest gourmet food in Berkeley. American, Chinese and Indian cuisines.
+                  </div>
+                </div>
+
               </div>
             </div>
           </a>

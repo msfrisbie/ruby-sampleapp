@@ -305,21 +305,57 @@ box-shadow: 0 0 5px #888;
 .cat-page .result-wrap {
 }
 
+.cat-page .result-wrap a{
+    color:#fff;
+}
+
+.cat-page .result-wrap a:hover{
+    text-decoration: none;
+}
+
 .cat-page .result {
-    font-size:22px;
+    font-size:18px;
     padding:15px 10% 15px 7%;
     background:rgba(255,255,255,0.0);
     cursor:pointer;
     position:relative;
 }
 
-.cat-page .result img{
-    width:35px;
-    height:35px;
-    margin-top:-3px;
-    border-radius:80px;
+.cat-page .result .left-hold {
+    display:inline-block;
+    vertical-align: top;
+    width:16%;
+    margin-right: 2%;
+    height:100%;
+}
+
+.cat-page .result .con-hold {
+    display:inline-block;
+    vertical-align: top;
+    width:80%;
+}
+
+.cat-page .result .img-hold {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.cat-page .result .img-hold img{
+    width:40px;
+    height:40px;
+    margin-top:2px;
+    border-radius:500px;
     margin-right:10px;
-    float:left;
+}
+
+.cat-page .result .title {
+    font-weight: bolder;
+}
+
+.cat-page .result .body {
+    font-size:14px;
+    line-height: 1.1em;
+    color:rgba(255,255,255,0.8);
 }
 
 .cat-page .result .wrap:after {
@@ -333,7 +369,7 @@ box-shadow: 0 0 5px #888;
   border-bottom:1px solid rgba(255,255,255,0.3);
 }
 
-.cat-page .result:hover{
+.cat-page .result:active{
     background:rgba(255,255,255,0.3);
 }
 
@@ -375,7 +411,7 @@ box-shadow: 0 0 5px #888;
 
 .list-page .res .end {
   clear:both;
-  margin:10px 0;
+  margin:10px 0 0 0;
   height  : 1px;
   width   : 90%;  /* or 100px */
   margin-left:5%;

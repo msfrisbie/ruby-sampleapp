@@ -4,7 +4,7 @@ window.angular.module('Outhouse.categories.service', [])
   .factory('Categories', [function () {
     var cats = [
       {
-        "val": "New Foods & Desserts",
+        "val": "Good Eats",
         "title": "Food",
         "img": "<%= image_path 'food.png' %>",
         "schedule": {
@@ -18,7 +18,7 @@ window.angular.module('Outhouse.categories.service', [])
         "parent": "root"
       },
       {
-        "val": "Going Shopping",
+        "val": "Pop Some Tags",
         "title": "Shopping",
         "img": "<%= image_path 'shop.png' %>",
         "schedule": {
@@ -46,9 +46,9 @@ window.angular.module('Outhouse.categories.service', [])
         "parent": "root"
       },
       {
-        "val": "Fall Fun",
+        "val": "Quick Trips And Activities",
         "title": "Haunted House",
-        "img": "<%= image_path 'pumpkin.png' %>",
+        "img": "<%= image_path 'explore.png' %>",
         "schedule": {
           "sun": [{"start": 0, "end": 2400}],
           "mon": [{"start": 0, "end": 2400}],
@@ -60,21 +60,7 @@ window.angular.module('Outhouse.categories.service', [])
         "parent": "root"
       },
       {
-        "val": "Berkeley Lectures",
-        "title": "Lecture",
-        "img": "<%= image_path 'prof.png' %>",
-        "schedule": {
-          "sun": [{"start": 0, "end": 2400}],
-          "mon": [{"start": 0, "end": 2400}],
-          "tue": [{"start": 0, "end": 2400}],
-          "wed": [{"start": 0, "end": 2400}],
-          "thu": [{"start": 0, "end": 2400}],
-          "fri": [{"start": 0, "end": 2400}],
-          "sat": [{"start": 0, "end": 2400}]},
-        "parent": "root"
-      },
-      {
-        "val": "Quiet Study",
+        "val": "Study Corners",
         "title": "Study",
         "img": "<%= image_path 'book.png' %>",
         "schedule": {
@@ -88,9 +74,37 @@ window.angular.module('Outhouse.categories.service', [])
         "parent": "root"
       },
       {
+        "val": "Happy Hour, Every Hour",
+        "title": "Study",
+        "img": "<%= image_path 'beer.png' %>",
+        "schedule": {
+          "sun": [{"start": 0, "end": 2400}],
+          "mon": [{"start": 0, "end": 2400}],
+          "tue": [{"start": 0, "end": 2400}],
+          "wed": [{"start": 0, "end": 2400}],
+          "thu": [{"start": 0, "end": 2400}],
+          "fri": [{"start": 0, "end": 2400}],
+          "sat": [{"start": 0, "end": 2400}]},
+        "parent": "root"
+      },
+      {
         "val": "New Foods & Desserts",
         "title": "Food",
-        "img": "<%= image_path 'food.png' %>",
+        "img": "http://1.s3.envato.com/files/57402247/fap-09.jpg",
+        "schedule": {
+          "sun": [{"start": 0, "end": 2400}],
+          "mon": [{"start": 0, "end": 2400}],
+          "tue": [{"start": 0, "end": 2400}],
+          "wed": [{"start": 0, "end": 2400}],
+          "thu": [{"start": 0, "end": 2400}],
+          "fri": [{"start": 0, "end": 2400}],
+          "sat": [{"start": 0, "end": 2400}]},
+        "parent": "food"
+      },
+      {
+        "val": "New Foods & Desserts",
+        "title": "Food",
+        "img": "http://1.s3.envato.com/files/57402247/fap-09.jpg",
         "schedule": {
           "sun": [{"start": 0, "end": 2400}],
           "mon": [{"start": 0, "end": 2400}],
