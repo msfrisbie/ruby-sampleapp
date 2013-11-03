@@ -124,11 +124,13 @@
     "image_url":"http://images.everytrail.com/pics/fullsize/6372295-IMG_0070.jpg",
     "categories":[
       "Take a hike",
-      "Scenic Views"
+      "Scenic Views",
+      "Enjoy green outdoors"
     ],
     "cathash":{
       "Take a hike":"Hike the Upper/Lower Fire Trails with an unbeatable view",
-      "Scenic Views":"Watch an epic sunset at Panoramic Hill"
+      "Scenic Views":"Watch an epic sunset at Panoramic Hill",
+      "Enjoy green outdoors":"Smoke that fire on the Fire Trails"
     },
     "schedule":{
       "sun":[
@@ -183,12 +185,14 @@
     "categories":[
       "Walk it out",
       "Take a hike",
-      "Scenic Views"
+      "Scenic Views",
+      "Enjoy green outdoors"
     ],
     "cathash":{
       "Walk it out":"Walk through Tilden Park's stunning views",
       "Take a hike":"Hike through Tilden Park's stunning views",
-      "Scenic Views":"Bask in the stunning views of the Bay at Tilden Park"
+      "Scenic Views":"Bask in the stunning views of the Bay at Tilden Park",
+      "Enjoy green outdoors":"Conceive the next big thing at Inspiration Point (Tilden Park)"
     },
     "schedule":{
       "sun":[
@@ -475,10 +479,12 @@
     "address":"4226 Piedmont Ave Oakland, CA 94611",
     "image_url":"http://i1.disneyfoodblog.com/wp-content/uploads/2011/06/DSC02977.jpg",
     "categories":[
-      "Sweet Tooth"
+      "Sweet Tooth",
+      "Munchies Locations"
     ],
     "cathash":{
-      "Sweet Tooth":"Scream for some ice cream at the world famous Fenton Creamery"
+      "Sweet Tooth":"Scream for some ice cream at the world famous Fenton Creamery",
+      "Munchies Locations":"You know what's good at Fentons Creamery"
     },
     "schedule":{
       "mon":[
@@ -996,13 +1002,15 @@
       "Walk it out",
       "Take a hike",
       "Scenic Views",
-      "Hangout spots"
+      "Hangout spots",
+      "Enjoy green outdoors"
     ],
     "cathash":{
       "Walk it out":"Take a scenic walk on the trails at Grizzly Peak",
       "Take a hike":"Hike up to the top of Grizzly Peak for a stunning view",
       "Scenic Views":"Catch sunset or a view of the entire valley at Grizzley Peak",
-      "Hangout spots":"Kick back and relax with a breathtaking view of the valley at Grizzly Peak"
+      "Hangout spots":"Kick back and relax with a breathtaking view of the valley at Grizzly Peak",
+      "Enjoy green outdoors":"Enjoy the view at Grizzly Peak while you kick back"
     },
     "schedule":{
       "sun":[
@@ -2202,11 +2210,13 @@
     "image_url":"http://myveganjournal.com/wp-content/uploads/2011/08/cinnaholic.jpg",
     "categories":[
       "Sweet Tooth",
-      "Study Snacks"
+      "Study Snacks",
+      "Munchies Locations"
     ],
     "cathash":{
       "Sweet Tooth":"Grab a decadant cinnamon roll at Cinnaholic",
-      "Study Snacks":"Take a break and eat a cinnamon roll at Cinnaholic"
+      "Study Snacks":"Take a break and eat a cinnamon roll at Cinnaholic",
+      "Munchies Locations":"Indulge in the best cinnamon rolls in town at Cinnaholic"
     },
     "schedule":{
       "tue":[
@@ -5210,4 +5220,11 @@
 {"cathash":{"Only got $20 in my pocket":"Get your hands on bones & fossils at The Bone Room","Berkeley's Finest":"Get your hands on bones & fossils at The Bone Room"},"title":"The Bone Room","description":"The Bone Room is like a museum where you can (often) pick things up for a closer look! Always learn something & get hands-on science.  Just a few things you will find here: real bones, resin/replica bones, shells, fossils, taxidermy, a live snake, doll parts, horns & antlers, jewelry & beads, rocks.","categories":["Only got $20 in my pocket","Berkeley's Finest"],"address":"1569 Solano Ave, Berkeley, CA 94707","image_url":"http://s3-media4.ak.yelpcdn.com/bphoto/MC_6K37beJj4QjBqyHgw2g/l.jpg","schedule":{"tue":[{"start":1100,"end":1800}],"wed":[{"start":1100,"end":1800}],"fri":[{"start":1100,"end":1800}],"sat":[{"start":1100,"end":1800}],"thu":[{"start":1100,"end":2100}]}},
 {"cathash":{"Only got $20 in my pocket":"Browse Sci-Fi books at Dark Carnival","Berkeley's Finest":"Browse Sci-Fi books at Dark Carnival"},"description":"Sci-Fi/Fantasy/Horror/Mystery book store. It is a gem. Sure, it's somewhat cluttered, but that is completely part of the charm of it. There are literally books everywhere. On the floor, on the shelves, holding the shelves up, etc. There are also awesome novelty items hanging on almost every inch of wall space not taken up by, you guessed it, books! The collection is staggering.","title":"Dark Carnival","categories":["Only got $20 in my pocket","Berkeley's Finest"],"address":"3086 Claremont Ave, Berkeley, CA 94705","image_url":"http://s3-media3.ak.yelpcdn.com/bphoto/XrZoAMzgpZbclZQdRTmlxg/l.jpg","schedule":{"mon":[{"start":1030,"end":1900}],"tue":[{"start":1030,"end":1900}],"wed":[{"start":1030,"end":1900}],"thu":[{"start":1030,"end":1900}],"fri":[{"start":1030,"end":1900}],"sat":[{"start":1030,"end":1900}],"sun":[{"start":1200,"end":1800}]}}
 
+  , {"title":"Whelan's Smoke Shop","description":"Whelan's has been around for more than 100 years and it remains a familiar site to a Telegraph Avenue area that has changed significantly over time. This place has the best selection and fairly decent prices.","schedule":{"mon":[{"start":1000,"end":2100}],"tue":[{"start":1000,"end":2100}],"wed":[{"start":1000,"end":2100}],"thu":[{"start":1000,"end":2200}],"fri":[{"start":1000,"end":2200}],"sat":[{"start":1000,"end":2200}]},"categories":["Best smoke shops"],"cathash":{"Best smoke shops":"Check out some water pipes at Whelan's"},"address":"2486 Bancroft Way, Berkeley, CA 94704","image_url":"http://s3-media2.ak.yelpcdn.com/bphoto/xbG0A-OHN-VkzhlWOdFAYg/l.jpg"}
+  , {"title":"Big Al's Smoke And Gifts","categories":["Best smoke shops"],"cathash":{"Best smoke shops":"Pick up some papers at Big Al's"},"address":"2382 Telegraph Ave, Berkeley, CA 94704","image_url":"http://s3-media3.ak.yelpcdn.com/bphoto/-sQkOKbEJzpnSedH5PQBnQ/l.jpg","schedule":{"sun":[{"start":930,"end":2200}],"mon":[{"start":930,"end":2200}],"tue":[{"start":930,"end":2200}],"wed":[{"start":930,"end":2200}],"thu":[{"start":930,"end":2200}],"fri":[{"start":930,"end":2200}],"sat":[{"start":930,"end":2200}]},"description":"One of the best smoke shops in the bay, the staff is extremely knowledgeable and helpful. They carry name brand glass, and are willing haggle to give you the best deals."}
+  , {"title":"Annapurna","description":"A classic old-school Telegraph smoke shop that has been around since the 60's.","categories":["Best smoke shops"],"cathash":{"Best smoke shops":"Hit up the hippy at Annapuma"},"image_url":"http://s3-media3.ak.yelpcdn.com/bphoto/Y7Lkld2T8YbDGNEph-b_7g/l.jpg","address":"2416 Telegraph Ave, Berkeley, CA 94704","schedule":{"sun":[{"start":1000,"end":2200}],"mon":[{"start":1000,"end":2200}],"tue":[{"start":1000,"end":2200}],"wed":[{"start":1000,"end":2200}],"thu":[{"start":1000,"end":2200}],"fri":[{"start":1000,"end":2200}],"sat":[{"start":1000,"end":2200}]}}
+  , {"title":"Hi-Times","description":"This place is a great glass store with name brands for good prices, along with a vast and unique hookah selection. The staff is great and can speak multiple languages.","categories":["Best smoke shops"],"cathash":{"Best smoke shops":"Grab some glass at Hi-Times"},"address":"2374 Telegraph Ave, Berkeley, CA 94704","image_url":"http://s3-media1.ak.yelpcdn.com/bphoto/OUxxJ7ZQAqviLnhYwQRP3w/l.jpg","schedule":{"sun":[{"start":930,"end":2200}],"mon":[{"start":930,"end":2200}],"tue":[{"start":930,"end":2200}],"wed":[{"start":930,"end":2200}],"thu":[{"start":930,"end":2200}],"fri":[{"start":930,"end":2200}],"sat":[{"start":930,"end":2200}]}}
+  , {"title":"Smoke and Gift","categories":["Best smoke shops"],"cathash":{"Best smoke shops":"Get a new toke tool or hookah at Smoke and Gift"},"address":"2566 Telegraph Ave Unit A, Berkeley, CA 94704","description":"This place charges a fraction of what the others do because they're 6 blocks from the campus instead of right across the street. The shop is run by Hari, who will always greet you with a warm and friendly smile.","schedule":{"sun":[{"start":1000,"end":2200}],"mon":[{"start":1000,"end":2200}],"tue":[{"start":1000,"end":2200}],"wed":[{"start":1000,"end":2200}],"thu":[{"start":1000,"end":2200}],"fri":[{"start":1000,"end":2200}],"sat":[{"start":1000,"end":2200}]},"image_url":"http://s3-media2.ak.yelpcdn.com/bphoto/fr7zhFv2nXMOwlFsZuzGgQ/l.jpg"}
+  , {"title":"Mrs. Munchies","description":"Super delicious hot cookies, delivered straight to you. The perfect anecdote to having a case of the munchies.","address":"Berkeley, CA 94710","image_url":"http://i2.wp.com/mrsmunchies.com/blog/wp-content/uploads/2013/03/576205_10151519124455991_330597145_n.jpg?resize=461%2C461","categories":["Munchies locations"],"cathash":{"Munchies locations":"Get cookies delivered from Mrs. Munchies"},"schedule":{"wed":[{"start":2000,"end":2300}],"thu":[{"start":2000,"end":2300}],"fri":[{"start":2000,"end":2300}]}}
+  , {"title":"Red Buffalo","description":"Good wings, fries and cheap beer in a city where spots like these are hard to come by. Wings are made fresh and the garlic parmesan fries are fantastic.","categories":["Munchies Locations","Quick But Good"],"cathash":{"Munchies Locations":"You know you want some Red Buffalo wings.","Quick But Good":"Max on wings at Red Buffalo"},"address":"2370 Shattuck Ave, Berkeley, CA 94704","image_url":"http://s3-media4.ak.yelpcdn.com/bphoto/vZC6Vm3CP93eAplbdupB9A/l.jpg","schedule":{"sun":[{"start":1100,"end":1500},{"start":1600,"end":2100}],"mon":[{"start":1100,"end":1500},{"start":1600,"end":2100}],"tue":[{"start":1100,"end":1500},{"start":1600,"end":2100}],"wed":[{"start":1100,"end":1500},{"start":1600,"end":2100}],"thu":[{"start":1100,"end":1500},{"start":1600,"end":2100}],"fri":[{"start":1100,"end":1500},{"start":1600,"end":2100}],"sat":[{"start":1100,"end":1500},{"start":1600,"end":2100}]}}
 ]
