@@ -69,11 +69,11 @@ class Event
   end
 
   def parameterize_cathash
-    self.cathash = cathash.reduce({}){|h,(k,v)| h[k.parameterize] = v; h}
+    self.cathash = cathash.reduce({}){|h,(k,v)| h[k.gsub("'","").parameterize] = v; h}
   end
 
   def set_cat_slugs
-    self.cat_slugs = categories.map(&:parameterize)
+    self.cat_slugs = categories.map{|c| c.gsub("'","").parameterize}
   end
 
   def set_map_url
