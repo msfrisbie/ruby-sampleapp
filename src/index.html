@@ -14,7 +14,7 @@
 
   <link rel="apple-touch-startup-image" href="http://s3.amazonaws.com/static.getouthouse.com/assets/loading/iphone-bbb6891200f49b4a119f83205f979ad5.png" />
 	<link rel="apple-touch-startup-image" href="http://s3.amazonaws.com/static.getouthouse.com/assets/loading/iphone5-add668eb7f7e38a0ecd47822bd3ff2f0.png" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
-  <link href="http://s3.amazonaws.com/static.getouthouse.com/assets/application-ea71310dd1b44d4ffb8dfe67a831162c.css" media="all" rel="stylesheet" />
+  <link href="http://s3.amazonaws.com/static.getouthouse.com/assets/application-179aa4cdaa30af7df7f6019aa43c8751.css" media="all" rel="stylesheet" />
   
 </head>
 
@@ -51,177 +51,77 @@
 
 </body>
 <!-- <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script> -->
-<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-23f76cdd1472758cbdb7d6a5754e1f0e.js"></script>
+<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-77cc1068019e72803aed77e38c50ece6.js"></script>
 
-<script type="text/ng-template" id="categories.html">
-<div data-ng-controller="CategoriesController" class="cat-page" ng-init="findCategories()">
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-lg-12 result-pane">
+<script type="text/ng-template" id="main.html">
+<style>
+.selector-page .tpick select {
+    padding: 0 0 0 10px;
+    margin-left:20px;
+    margin-right:10px;
+}
 
-        <div class="headbar">
-          <div class="back">
-            <a href="#/?time={{ unixtime }}">
-              Back
-            </a>
-          </div>
+.selector-page .tpick button{
+  margin-left:10px;
+  margin-top:-2px;
+}
 
-          <div class="title">
-            Getting Outside
+</style>
+
+
+<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
+  <div class="row" style="margin-right:10px; margin-left:-15px; margin-top:-5px">
+    <div class="col-lg-12 filter-heading">
+      <div class="selector-wrap">
+        <div class="reg">
+          The time is
+        </div>
+      </div>
+      <div class="selector-wrap" style="margin:0px;width:100%">
+        <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
+          <div class="row tpick" style="margin:0 auto">
+            <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
           </div>
         </div>
-
-        <div class="result-wrap">
-
-          <a href="#/{{ $parent.category }}/{{ activity.title }}?time={{ unixtime }}" ng-repeat="activity in categories">
-            <div class="result">
-              <div class="wrap">
-                <img src="{{ activity.img }}" />
-                {{ activity.val }}
+      </div>
+      <div class="selector-wrap" style="margin-top:-10px">
+        <span class="reg">I'm in the mood for</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 squares-list">
+      <ul style="list-style-type:none; padding:0; margin: 0">
+        <li style="float:left;" ng-repeat="category in categories">
+          <a href="#/{{ category.link }}?time={{ unixtime }}">
+            <div class="square">
+              <div class="le-icon">
+                <img ng-src="{{ category.img }}" />
+              </div>
+              <div class="le-text">
+                <span>{{ category.title }}</span>
               </div>
             </div>
           </a>
-
-        </div>
-        
-      </div>
-
-    </div>
-
-  </div> <!-- /container -->
-</div>
-
-</script>
-<script type="text/ng-template" id="subcategories.html">
-<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
-  <div style="opacity:{{1}};padding:0px">
-    <div class="row">
-      <div class="headbar">
-        <div class="back">
-          <a href="/?time={{unixtime}}">
-            Back
-          </a>
-        </div>
-
-        <div class="title">
-          {{ category }}
-        </div>
-      </div>
-      <div class="col-lg-12 squares-list">
-        <ul style="list-style-type:none; padding:0; margin: 0">
-          <li style="float:left;" ng-repeat="category in categories">
-            <a href="{{cat}}/{{ category.title }}?time={{unixtime}}">
-              <div class="square">
-
-                <div class="le-icon">
-                  <img src="{{ category.img }}" />
-                </div>
-
-                <div class="le-text">
-                  <span>{{ category.val }}</span>
-                </div>
-
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
 
-</script>
-<script type="text/ng-template" id="list.html">
-<div data-ng-controller="EventsController" ng-init="findByCategory()" class="list-page">
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-lg-12 result-pane">
-
-          <div class="headbar">
-            <div class="back">
-              <a href="#/{{ category }}?time={{unixtime}}">
-                Back
-              </a>
-            </div>
-
-            <div class="title">
-              {{ activity }}
-            </div>
-          </div>
 
 
+<div class="bottombox">
+  <div class="logo">
+    outhouse
+  </div>
 
-          <div class="result-wrap">
-
-            <div data-ng-show="loaderVisible" class="bubblingG loader-push-top">
-              <span id="bubblingG_1">
-              </span>
-              <span id="bubblingG_2">
-              </span>
-              <span id="bubblingG_3">
-              </span>
-            </div>
-
-            <a href="#/{{ category }}/{{ activity }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
-
-              <div class="res">
-                <div class="wrapper">
-                  <div class="thumb">
-                    <img ng-src="{{ event.image_url }}" />
-                  </div>
-                  <div class="info">
-                    <div class="stack">
-                      <div style="color:white" class="title">
-                        {{ event.title }}
-                      </div>
-                    </div>
-                    <div class="stack">
-                      <div class="desc">
-                        {{ event.description | characters:110 }}
-                      </div>
-                    </div>
-                    <div class="stack">
-                      <div style="color:white" class="dist">
-                        <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" height="12px" />
-                        {{ event.distance.toFixed(1) }} mi
-                      </div>
-                      <div style="color:white" class="time">
-                        {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="end"></div>
-              </div>
-
-            </a>
-
-            <div class="end"></div>
-          </div>
-
-
-
-
-
-
-
-
-          <!-- /result wrap -->
-          </div>
-
-          
-          
-        </div>
-
-      </div>
-
-
-
-    </div> <!-- /container -->
+  <div class="invite">
+    <a href="mailto:?subject=Hello&body=Hello">Invite friends (10 left)</a>
+  </div>
 
 </div>
+
 </script>
 <script type="text/ng-template" id="directives/timepicker.html">
  <span>
@@ -271,6 +171,237 @@
          <div class="col-xs-3"> </div>
      </div>
 </span>
+</script>
+<script type="text/ng-template" id="page.html">
+<div data-ng-controller="EventsController" ng-init="findOne()" class="page-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mainpage">
+
+          <div class="headbar">
+            <div class="back">
+              <a href="#/{{ category.link }}/{{ subcategory.link }}?time={{ unixtime }}">
+                Back
+              </a>
+            </div>
+
+            <div class="title">
+              {{ event.title }}
+            </div>
+          </div>
+
+
+          <div class="prof-info">
+            <div class="covimg" style="background:url({{ event.image_url }});background-size: cover; background-position:center; ">
+              <div class="time">
+                {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
+              </div>
+            </div>
+
+            <div class="wraps">
+
+              <div class="map-section">
+                <div class="gradient">
+                  <div class="address">
+                    {{ event.address }}
+                  </div>
+                  <div class="dist">
+                    <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" style="height:10px" /> {{ event.distance.toFixed(2) }} mi<br />
+                    <a href="{{ event.map_url }}" target="_blank">Go to map</a>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="desc">
+                {{ event.description }}
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+    </div> <!-- /container -->
+</div>
+</script>
+<script type="text/ng-template" id="subcategories.html">
+<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
+  <div style="opacity:{{1}};padding:0px">
+    <div class="row">
+      <div class="headbar">
+        <div class="back">
+          <a href="/?time={{unixtime}}">
+            Back
+          </a>
+        </div>
+
+        <div class="title">
+          {{ category }}
+        </div>
+      </div>
+      <div class="col-lg-12 squares-list">
+        <ul style="list-style-type:none; padding:0; margin: 0">
+          <li style="float:left;" ng-repeat="category in categories">
+            <a href="{{cat}}/{{ category.title }}?time={{unixtime}}">
+              <div class="square">
+
+                <div class="le-icon">
+                  <img src="{{ category.img }}" />
+                </div>
+
+                <div class="le-text">
+                  <span>{{ category.val }}</span>
+                </div>
+
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</script>
+<script type="text/ng-template" id="list.html">
+<div data-ng-controller="EventsController" ng-init="findByCategory()" class="list-page">
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-12 result-pane">
+
+          <div class="headbar">
+            <div class="back">
+              <a href="#/{{ category.link }}?time={{unixtime}}">
+                Back
+              </a>
+            </div>
+
+            <div class="title">
+              {{ subcategory.title }}
+            </div>
+          </div>
+
+
+
+          <div class="result-wrap">
+
+            <div data-ng-show="loaderVisible" class="bubblingG loader-push-top">
+              <span id="bubblingG_1">
+              </span>
+              <span id="bubblingG_2">
+              </span>
+              <span id="bubblingG_3">
+              </span>
+            </div>
+
+            <a href="#/{{ category.link }}/{{ subcategory.link }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
+
+              <div class="res">
+                <div class="wrapper">
+                  <div class="thumb">
+                    <img ng-src="{{ event.image_url }}" />
+                  </div>
+                  <div class="info">
+                    <div class="stack">
+                      <div style="color:white" class="title">
+                        {{ event.cathash[subcategory.link] }}
+                      </div>
+                    </div>
+                    <div class="stack">
+                      <div class="desc">
+                        {{ event.description | characters:110 }}
+                      </div>
+                    </div>
+                    <div class="stack">
+                      <div style="color:white" class="dist">
+                        <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" height="12px" />
+                        {{ event.distance.toFixed(1) }} mi
+                      </div>
+                      <div style="color:white" class="time">
+                        {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="end"></div>
+              </div>
+
+            </a>
+
+            <div class="end"></div>
+          </div>
+
+
+
+
+
+
+
+
+          <!-- /result wrap -->
+          </div>
+
+          
+          
+        </div>
+
+      </div>
+
+
+
+    </div> <!-- /container -->
+
+</div>
+</script>
+<script type="text/ng-template" id="categories.html">
+<div data-ng-controller="CategoriesController" class="cat-page" ng-init="findCategories()">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 result-pane">
+        <div class="headbar">
+          <div class="back">
+            <a href="#/?time={{ unixtime }}">
+              Back
+            </a>
+          </div>
+          <div class="title">
+            {{ category.title }}
+          </div>
+        </div>
+        <div class="result-wrap"> 
+          <a ng-repeat="subcategory in category.subcategories" href="#/{{ category.link }}/{{ subcategory.link }}?time={{ unixtime }}">
+            <div class="result">
+              <div class="wrap">
+                <div class="left-hold">
+                  <div class="img-hold">
+                    <img src="{{ subcategory.img }}" />
+                  </div>
+                </div>
+                <div class="con-hold">
+                  <div class="title">
+                    {{ subcategory.title }}
+                  </div>
+                  <div class="body">
+                    {{ subcategory.tagline }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </script>
 <script type="text/ng-template" id="login.html">
 <div data-ng-controller="FacebookController" data-ng-init="">
@@ -327,164 +458,5 @@
       </div>
     </div>
 </div>
-</script>
-<script type="text/ng-template" id="page.html">
-<div data-ng-controller="EventsController" ng-init="findOne()" class="page-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 mainpage">
-
-          <div class="headbar">
-            <div class="back">
-              <a href="#/{{ category }}/{{ activity }}?time={{ unixtime }}">
-                Back
-              </a>
-            </div>
-
-            <div class="title">
-              {{ event.title }}
-            </div>
-          </div>
-
-
-          <div class="prof-info">
-            <div class="covimg" style="background:url({{ event.image_url }});background-size: cover; background-position:center; ">
-              <div class="time">
-                {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
-              </div>
-            </div>
-
-            <div class="wraps">
-
-              <div class="map-section">
-                <div class="gradient">
-                  <div class="address">
-                    {{ event.address }}
-                  </div>
-                  <div class="dist">
-                    <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" style="height:10px" /> {{ event.distance.toFixed(2) }} mi<br />
-                    <a href="{{ event.map_url }}" target="_blank">Go to map</a>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="desc">
-                {{ event.description }}
-              </div>
-
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
-
-
-
-    </div> <!-- /container -->
-</div>
-</script>
-<script type="text/ng-template" id="main.html">
-<style>
-.selector-page .tpick select {
-    padding: 0 0 0 10px;
-    margin-left:20px;
-    margin-right:10px;
-}
-
-.selector-page .tpick button{
-  margin-left:10px;
-  margin-top:-2px;
-}
-
-</style>
-
-
-<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
-  <div style="opacity:{{1}};padding:0px">
-      <!-- Example row of columns -->
-
-      <div class="row" style="margin-right:10px; margin-left:-15px; margin-top:-5px">
-        <div class="col-lg-12 filter-heading">
-
-          <div class="selector-wrap">
-            <div class="reg">
-              The time is
-            </div>
-          </div>
-
-          <div class="selector-wrap" style="margin:0px;width:100%">
-            <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
-              <div class="row tpick" style="margin:0 auto">
-              <!-- Jake -->
-                  <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-              </div>
-            </div>
-
-<!--             <div class="reg" ng-hide="datevisible" ng-click="datevisible=!datevisible">
-              +
-            </div>
-            <div class="reg" ng-show="datevisible" ng-click="datevisible=!datevisible">
-              -
-            </div>
-            <input ng-show="datevisible" value="{{ datestr() }}" type="date" ng-model="date"/> -->
-          </div>
-
-
-          <div class="selector-wrap" style="margin-top:-10px">
-            <span class="reg">I'm in the mood for</span>
-          </div>
-          
-        </div>
-
-      </div>
-
-
-
-      <div class="row">
-        <div class="col-lg-12 squares-list">
-          <ul style="list-style-type:none; padding:0; margin: 0">
-            <li style="float:left;" ng-repeat="category in categories">
-              <a href="#/{{ category.title }}?time={{unixtime}}">
-                <div class="square">
-
-                    <div class="le-icon">
-                      <img ng-src="{{ category.img }}" />
-                    </div>
-
-                    <div class="le-text">
-                      <span>{{ category.val }}</span>
-                    </div>
-
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-  </div>
-</div>
-
-
-
-
-
-
-<div class="bottombox">
-  <div class="logo">
-    outhouse
-  </div>
-
-  <div class="invite">
-    <a href="#">Invite friends (10 left)</a>
-  </div>
-
-</div>
-
 </script>
 </html>
