@@ -119,12 +119,6 @@ window.angular.module('Outhouse.categories.service', [])
         "title": "Explore",
         "img": "<%= image_path 'explore.png' %>",
         "subcategories": {
-          "eat-a-chode": {
-            "link": "eat-a-chode",
-            "title": "Eat a chode",
-            "img": "<%= image_path 'tree.png' %>",
-            "tagline": "EAT DAT CHOOOOOOAD"
-          },
           "art": {
             "link": "art",
             "title": "Artsy Fartsy",
@@ -228,54 +222,7 @@ window.angular.module('Outhouse.categories.service', [])
       }
     };
 
-    // var isBetween = function(time, range) {
-    //   return (time >= range.start && time <= range.end)
-    // };
-
     return {
-      // getActiveCats: function(parent){
-      //   var arr = []
-      //   var d = new Date()
-      //   var t = d.getHours() * 100 + d.getMinutes()
-      //   var dow = ["sun","mon","tue","wed","thu","fri","sat"][d.getDay()];
-
-      //   angular.forEach(cats, function (cat){
-      //     if(cat.parent === parent){
-      //       angular.forEach(cat.schedule[dow], function (r){
-      //         if(isBetween(t, r)){
-      //           arr.push(cat);
-      //         }
-      //       })
-      //     }
-      //   });
-
-      //   return arr;
-      // },
-
-      // getTopLevelAttrs: function(obj) {
-      //   var arr = [];
-      //   for (var property in obj) {
-      //     if (obj.hasOwnProperty(property) {
-      //       arr.push(property);
-      //     })
-      //   }
-      //   return arr;
-      // },
-
-      getActiveCategories: function(category,subcategory) {
-        if (!category) {
-          return categories;
-          // return getTopLevelAttrs(categories);
-        } else if (!!category && !subcategory) {
-          return categories[category].subcategories
-          // return getTopLevelAttrs(categories[category].subcategories)
-        } else {
-          return categories[category].subcategories[subcategory];
-          //return getTopLevelAttrs
-          return [];
-        }
-      },
-
       getAllCategories: function(){
         return categories;
       }
