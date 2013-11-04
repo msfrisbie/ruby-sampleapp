@@ -9,6 +9,7 @@ window.app = angular.module('Outhouse',
   , 'Outhouse.events'
   , 'Outhouse.facebook.controller'
   , 'Outhouse.facebook.directive'
+  , 'Outhouse.categoryOrderFilter'
   , 'facebook']);
 
 window.angular.module('Outhouse.categories',['Outhouse.categories.controller']);
