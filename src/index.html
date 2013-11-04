@@ -51,46 +51,126 @@
 
 </body>
 <!-- <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script> -->
-<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-c01dd1d8a95a7f55951e281dd74a7af1.js"></script>
+<script src="http://s3.amazonaws.com/static.getouthouse.com/assets/application-5bfab0edeca6225cb51bfcbfad994bad.js"></script>
 
-<script type="text/ng-template" id="subcategories.html">
+<script type="text/ng-template" id="main.html">
+<style>
+.selector-page .tpick select {
+    padding: 0 0 0 10px;
+    margin-left:20px;
+    margin-right:10px;
+}
+
+.selector-page .tpick button{
+  margin-left:10px;
+  margin-top:-2px;
+}
+
+</style>
+
+
 <div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
-  <div style="opacity:{{1}};padding:0px">
-    <div class="row">
-      <div class="headbar">
-        <div class="back">
-          <a href="/?time={{unixtime}}">
-            Back
-          </a>
-        </div>
-
-        <div class="title">
-          {{ category }}
+  <div class="row" style="margin-right:10px; margin-left:-15px; margin-top:-5px">
+    <div class="col-lg-12 filter-heading">
+      <div class="selector-wrap">
+        <div class="reg">
+          The time is
         </div>
       </div>
-      <div class="col-lg-12 squares-list">
-        <ul style="list-style-type:none; padding:0; margin: 0">
-          <li style="float:left;" ng-repeat="category in categories">
-            <a href="{{cat}}/{{ category.title }}?time={{unixtime}}">
-              <div class="square">
-
-                <div class="le-icon">
-                  <img src="{{ category.img }}" />
-                </div>
-
-                <div class="le-text">
-                  <span>{{ category.val }}</span>
-                </div>
-
+      <div class="selector-wrap" style="margin:0px;width:100%">
+        <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
+          <div class="row tpick" style="margin:0 auto">
+            <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+          </div>
+        </div>
+      </div>
+      <div class="selector-wrap" style="margin-top:-10px">
+        <span class="reg">I'm in the mood for</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 squares-list">
+      <ul style="list-style-type:none; padding:0; margin: 0">
+        <li style="float:left;" ng-repeat="category in categories | setCategoryOrder">
+          <a href="#/{{ category.link }}?time={{ unixtime }}">
+            <div class="square">
+              <div class="le-icon">
+                <img ng-src="{{ category.img }}" />
               </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+              <div class="le-text">
+                <span>{{ category.title }}</span>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
 
+
+
+<div class="bottombox">
+  <div class="logo">
+    outhouse
+  </div>
+
+  <div class="invite">
+    <a href="mailto:?subject=Hello&body=Hello">Invite friends (10 left)</a>
+  </div>
+
+</div>
+
+</script>
+<script type="text/ng-template" id="directives/timepicker.html">
+ <span>
+     <div class="row">
+         <div class="col-xs-1 text-center">
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="incrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="incrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
+         </div>
+         <div class="col-xs-3 spacer"> </div>
+     </div>
+     <div class="row">
+         <div class="col-xs-1 text-center spacer">
+         </div>
+         <div class="col-xs-3 spacer">
+             <div class="form-group" ng-class="{'has-error': invalidHours}" style="margin-bottom: 0px">
+                <select ng-model="hours" ng-change="updateHours()" class="form-control text-center" ng-mousewheel="incrementHours()" ng-readonly="readonlyInput" maxlength="2">
+                    <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                </select>
+                <div>{{hours}}</div>
+             </div>
+         </div>
+         <div class="col-xs-3 spacer">
+             <div class="form-group" ng-class="{'has-error': invalidMinutes}" style="margin-bottom: 0px">
+                 <span style='position:absolute;margin-left:-25px'>:</span>
+                 <select ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center" ng-mousewheel="incrementMinutes()" ng-readonly="readonlyInput" maxlength="2"> 
+                 <option value="00">00</option><option value="30">30</option></select>
+                 <div>{{minutes}}</div>
+             </div>
+         </div>
+         <div class="col-xs-3 spacer" style="margin-left:-20px">
+             <button style="vertical-align:top" ng-click="toggleMeridian()" class="btn btn-default text-center" ng-show="showMeridian">{{meridian}}</button>
+         </div>
+     </div>
+     <div class="row">
+         <div class="col-xs-1 text-center ">
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="decrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
+         </div>
+         <div class="col-xs-3 text-center arrowspace">
+             <a ng-click="decrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
+         </div>
+         <div class="col-xs-3"> </div>
+     </div>
+</span>
 </script>
 <script type="text/ng-template" id="page.html">
 <div data-ng-controller="EventsController" ng-init="findOne()" class="page-page">
@@ -149,6 +229,136 @@
 
 
     </div> <!-- /container -->
+</div>
+</script>
+<script type="text/ng-template" id="subcategories.html">
+<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
+  <div style="opacity:{{1}};padding:0px">
+    <div class="row">
+      <div class="headbar">
+        <div class="back">
+          <a href="/?time={{unixtime}}">
+            Back
+          </a>
+        </div>
+
+        <div class="title">
+          {{ category }}
+        </div>
+      </div>
+      <div class="col-lg-12 squares-list">
+        <ul style="list-style-type:none; padding:0; margin: 0">
+          <li style="float:left;" ng-repeat="category in categories">
+            <a href="{{cat}}/{{ category.title }}?time={{unixtime}}">
+              <div class="square">
+
+                <div class="le-icon">
+                  <img src="{{ category.img }}" />
+                </div>
+
+                <div class="le-text">
+                  <span>{{ category.val }}</span>
+                </div>
+
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</script>
+<script type="text/ng-template" id="list.html">
+<div data-ng-controller="EventsController" ng-init="findByCategory()" class="list-page">
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-12 result-pane">
+
+          <div class="headbar">
+            <div class="back">
+              <a href="#/{{ category.link }}?time={{unixtime}}">
+                Back
+              </a>
+            </div>
+
+            <div class="title">
+              {{ subcategory.title }}
+            </div>
+          </div>
+
+
+
+          <div class="result-wrap">
+
+            <div data-ng-show="loaderVisible" class="bubblingG loader-push-top">
+              <span id="bubblingG_1">
+              </span>
+              <span id="bubblingG_2">
+              </span>
+              <span id="bubblingG_3">
+              </span>
+            </div>
+
+            <a href="#/{{ category.link }}/{{ subcategory.link }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
+
+              <div class="res">
+                <div class="wrapper">
+                  <div class="thumb">
+                    <img ng-src="{{ event.image_url }}" />
+                  </div>
+                  <div class="info">
+                    <div class="stack">
+                      <div style="color:white" class="title">
+                        {{ event.cathash[subcategory.link] }}
+                      </div>
+                    </div>
+                    <div class="stack">
+                      <div class="desc">
+                        {{ event.description | characters:110 }}
+                      </div>
+                    </div>
+                    <div class="stack">
+                      <div style="color:white" class="dist">
+                        <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" height="12px" />
+                        {{ event.distance.toFixed(1) }} mi
+                      </div>
+                      <div style="color:white" class="time">
+                        {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="end"></div>
+              </div>
+
+            </a>
+
+            <div class="end"></div>
+          </div>
+
+
+
+
+
+
+
+
+          <!-- /result wrap -->
+          </div>
+
+          
+          
+        </div>
+
+      </div>
+
+
+
+    </div> <!-- /container -->
+
 </div>
 </script>
 <script type="text/ng-template" id="categories.html">
@@ -247,216 +457,6 @@
         </div>
       </div>
     </div>
-</div>
-</script>
-<script type="text/ng-template" id="main.html">
-<style>
-.selector-page .tpick select {
-    padding: 0 0 0 10px;
-    margin-left:20px;
-    margin-right:10px;
-}
-
-.selector-page .tpick button{
-  margin-left:10px;
-  margin-top:-2px;
-}
-
-</style>
-
-
-<div data-ng-controller="CategoriesController" ng-init="findCategories()" style="padding:20px;" class="container">
-  <div class="row" style="margin-right:10px; margin-left:-15px; margin-top:-5px">
-    <div class="col-lg-12 filter-heading">
-      <div class="selector-wrap">
-        <div class="reg">
-          The time is
-        </div>
-      </div>
-      <div class="selector-wrap" style="margin:0px;width:100%">
-        <div ng-model="mytime" ng-change="changed()" class="row" style="display:inline-block;">
-          <div class="row tpick" style="margin:0 auto">
-            <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-          </div>
-        </div>
-      </div>
-      <div class="selector-wrap" style="margin-top:-10px">
-        <span class="reg">I'm in the mood for</span>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12 squares-list">
-      <ul style="list-style-type:none; padding:0; margin: 0">
-        <li style="float:left;" ng-repeat="category in categories">
-          <a href="#/{{ category.link }}?time={{ unixtime }}">
-            <div class="square">
-              <div class="le-icon">
-                <img ng-src="{{ category.img }}" />
-              </div>
-              <div class="le-text">
-                <span>{{ category.title }}</span>
-              </div>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="bottombox">
-  <div class="logo">
-    outhouse
-  </div>
-
-  <div class="invite">
-    <a href="mailto:?subject=Hello&body=Hello">Invite friends (10 left)</a>
-  </div>
-
-</div>
-
-</script>
-<script type="text/ng-template" id="directives/timepicker.html">
- <span>
-     <div class="row">
-         <div class="col-xs-1 text-center">
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="incrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="incrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-up"></i></a>
-         </div>
-         <div class="col-xs-3 spacer"> </div>
-     </div>
-     <div class="row">
-         <div class="col-xs-1 text-center spacer">
-         </div>
-         <div class="col-xs-3 spacer">
-             <div class="form-group" ng-class="{'has-error': invalidHours}" style="margin-bottom: 0px">
-                <select ng-model="hours" ng-change="updateHours()" class="form-control text-center" ng-mousewheel="incrementHours()" ng-readonly="readonlyInput" maxlength="2">
-                    <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
-                </select>
-                <div>{{hours}}</div>
-             </div>
-         </div>
-         <div class="col-xs-3 spacer">
-             <div class="form-group" ng-class="{'has-error': invalidMinutes}" style="margin-bottom: 0px">
-                 <span style='position:absolute;margin-left:-25px'>:</span>
-                 <select ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center" ng-mousewheel="incrementMinutes()" ng-readonly="readonlyInput" maxlength="2"> 
-                 <option value="00">00</option><option value="30">30</option></select>
-                 <div>{{minutes}}</div>
-             </div>
-         </div>
-         <div class="col-xs-3 spacer" style="margin-left:-20px">
-             <button style="vertical-align:top" ng-click="toggleMeridian()" class="btn btn-default text-center" ng-show="showMeridian">{{meridian}}</button>
-         </div>
-     </div>
-     <div class="row">
-         <div class="col-xs-1 text-center ">
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="decrementHours()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
-         </div>
-         <div class="col-xs-3 text-center arrowspace">
-             <a ng-click="decrementMinutes()" class="btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></a>
-         </div>
-         <div class="col-xs-3"> </div>
-     </div>
-</span>
-</script>
-<script type="text/ng-template" id="list.html">
-<div data-ng-controller="EventsController" ng-init="findByCategory()" class="list-page">
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-lg-12 result-pane">
-
-          <div class="headbar">
-            <div class="back">
-              <a href="#/{{ category.link }}?time={{unixtime}}">
-                Back
-              </a>
-            </div>
-
-            <div class="title">
-              {{ subcategory.title }}
-            </div>
-          </div>
-
-
-
-          <div class="result-wrap">
-
-            <div data-ng-show="loaderVisible" class="bubblingG loader-push-top">
-              <span id="bubblingG_1">
-              </span>
-              <span id="bubblingG_2">
-              </span>
-              <span id="bubblingG_3">
-              </span>
-            </div>
-
-            <a href="#/{{ category.link }}/{{ subcategory.link }}/{{ event._id }}?time={{ unixtime }}" ng-repeat="event in events">
-
-              <div class="res">
-                <div class="wrapper">
-                  <div class="thumb">
-                    <img ng-src="{{ event.image_url }}" />
-                  </div>
-                  <div class="info">
-                    <div class="stack">
-                      <div style="color:white" class="title">
-                        {{ event.cathash[subcategory.link] }}
-                      </div>
-                    </div>
-                    <div class="stack">
-                      <div class="desc">
-                        {{ event.description | characters:110 }}
-                      </div>
-                    </div>
-                    <div class="stack">
-                      <div style="color:white" class="dist">
-                        <img src="http://s3.amazonaws.com/static.getouthouse.com/assets/compass-7cfcc9c123995e8fd8af09c5c4625b87.png" height="12px" />
-                        {{ event.distance.toFixed(1) }} mi
-                      </div>
-                      <div style="color:white" class="time">
-                        {{ event | relevantTimeRangeString: unixtime | stripSeconds }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="end"></div>
-              </div>
-
-            </a>
-
-            <div class="end"></div>
-          </div>
-
-
-
-
-
-
-
-
-          <!-- /result wrap -->
-          </div>
-
-          
-          
-        </div>
-
-      </div>
-
-
-
-    </div> <!-- /container -->
-
 </div>
 </script>
 </html>
